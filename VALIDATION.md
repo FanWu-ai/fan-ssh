@@ -1,31 +1,45 @@
-# Validation report
+# Python rewrite validation
 
-## Scope
+Validation date: 2026-10-03 UTC. This report concerns the Python replacement only; no earlier Go test, race, build or cross-compilation result is counted as Python evidence.
 
-The repository consolidates two previously separate dependency-free Go experiments. It preserves the original source/tests and selected historical evidence, then reruns checks on the consolidated tree. Neither source directory had independent Git history to preserve; historical logs and the architecture roadmap retain the relevant baseline. No downloaded toolchain, binary, private credentials or private endpoint inventory is included.
+## Environment
 
-Runtime checked: Linux 6.18.44 amd64, ordinary unprivileged process. Go 1.27.1. Date: 2026-10-03 UTC. Linux loopback is the only runtime network environment validated. A cross-build is compilation evidence, not an OS runtime or NAT traversal result.
+- Linux 6.18.44, x86_64, glibc 2.41; ordinary uid 1000
+- Python 3.12.14
+- OpenSSL 3.5.8 (25 Aug 2026)
+- cryptography 50.0.0
 
-## Historical baseline
+## Executed checks
 
-See `test-results/history/prototype/` for three race-test repetitions (18 named tests per repetition), vet output, compiled echo demo, blocked-stdout CLI regression and six-platform cross-build summary. Empty vet logs mean no diagnostics. See `test-results/history/tcp-simopen/` for recorded bounded diagnostic trials and test output: initial run 14/100 verified pairs; separate run 63/400 (IPv4 30/200, IPv6 33/200). The diagnostic suite also passed ten repetitions (2,000 trial attempts plus negative/lifecycle controls). No minimum active/active success rate is required by the test suite.
+| Check | Result |
+|---|---|
+| `python -m unittest discover -s tests -v` | 27 tests passed |
+| Three additional full root-suite runs | All passed |
+| `python -m unittest discover -s experiments/tcp-simopen -v` | 22 tests passed |
+| Five additional diagnostic-suite runs | All passed |
+| `python -m compileall -q fan_ssh tests experiments/tcp-simopen` | Passed |
+| `python -m fan_ssh demo` | Passed with coordinator-discovered pinned mTLS loopback echo |
+| `python -m pip wheel --no-deps --no-build-isolation --wheel-dir /tmp/fan-ssh-wheel .` | Built Python wheel |
+| Install wheel into isolated temporary target, run demo outside checkout | Passed |
 
-These results are historical observations, not predictions for another scheduler, kernel, platform or NAT.
+Final wheel: `fan_ssh-0.1.0-py3-none-any.whl`, SHA-256 `fd30c93e1ff0ba91ab0d39cb65ecadbcc2294bef25511d7326ccee36985e1350`. This is a local build artifact, not a published package. `py3-none-any` describes the Python package's own files; its cryptography dependency still needs a compatible installation for the target platform.
 
-## Consolidated checks
+Root suite covers loopback address rejection, encrypted IPv4 and IPv6 peer paths, IPv6 target leg, eight concurrent binary streams, delayed response after half-close, local forwarding, independent destination pin before dialing, actual peer-pin rejection, foreign CA rejection, directed ACL/immutable snapshots, unapproved enrolled certificate rejection, malformed/extra-operation metadata, 4096-byte metadata cap, duplicate-key/nonstandard-constant/deep-JSON rejection, oversized/truncated frames, stalled TLS handshake cancellation, handshake admission cap, absolute bridge deadline, active-session cancellation, and actual CLI subprocess behavior.
 
-All consolidated checks passed: main race tests ×3, experiment race tests, vet in both modules, main echo demo, Linux blocked-stdout regression, and Linux/macOS/Windows × amd64/arm64 builds for both modules (12 cross-build targets). Only Linux amd64 binaries were executed. The fresh standalone diagnostic verified 12/100 loopback pairs; this is not a network success-rate claim.
+CLI subprocess tests verify payload-exact binary stdout, half-close through stdin, empty stdout on invalid target, and exit under SIGTERM while stdout is blocked and stdin remains open. The blocked-pipe test is Linux-only. Tests use echo or synthetic reply services, not a real SSH server.
 
-Fresh logs are under `test-results/consolidated/`. See `summary.txt` for each command's exit status, `environment.txt` for runtime version, and the per-check logs for complete test output. Cross-build outputs are not checked in.
+Independent review additionally exercised eight concurrent 2 MiB delayed responses; 1 MiB payload-exact CLI output; blocked input/output cancellation; 32 stalled TLS handshakes; same-CA unknown pins; coordinator rejection cases; encrypted IPv6; and a 1 MiB direct exchange after the coordinator was stopped. These checks passed on Linux and do not extend platform claims.
 
-Reproduction commands and prerequisites are in [HANDOFF.md](HANDOFF.md). Root `go test ./...` deliberately does not enter the nested experimental module; both modules must be tested independently.
+## Separate socket diagnostic
 
-## Coverage and limits
+A fresh Python run made 200 active/active attempts for each loopback IP family: IPv4 2/200 and IPv6 2/200 verified exact tuples and payload echoes. Total 4/400; total budget was not exhausted. Each family also recorded 197 active-connect failures and one deadline. These are environment-specific observations, not a required success rate, NAT result or inherited Go result. The diagnostic README explains methodology and limitations.
 
-Main tests cover address restrictions, four concurrent 144 KB streams, frozen directional ACLs, metadata method/body rejection and size limits, unknown identities, destination pin substitution, rejected non-loopback targets, opaque payload handling, half-close, backpressure/cancellation, incomplete handshake shutdown, IPv6 loopback, forwarding, clean stdout, input error propagation and actual CLI cancellation with blocked inherited stdout.
+## Not executed or not established
 
-The main listener handler limits are 32; no saturation-boundary load test is claimed. Dedicated certificate-expiry/missing-certificate end-to-end fixtures remain outstanding. Fixed identities and ACLs are test fixtures, not a production authorization protocol.
+- No Windows/macOS runtime, minimum-version Python 3.11 runtime, or other cryptography version validation
+- No real SSH login, user SSH key/host-key installation, private server access, or authentication changes
+- No public/LAN/non-loopback probes, two-network session, real NAT traversal, UDP-blocked complex-NAT success or firewall/router changes
+- No production key storage/enrollment/revocation, deployment, package-registry release, external CI or dependency audit
+- No claim equivalent to Go's race detector; Python concurrency tests are behavioral tests
 
-Experimental tests cover loopback/high-port binding, no-connect negative control, cancellation/deadlines, pending-connect completion polling, stalled payload handling, exact verified endpoint tuples and descriptor cleanup. There is no passive listener fallback. Any successful diagnostic payload is unauthenticated test data, not SSH.
-
-Never tested or not implemented: actual SSH login; real LAN/Internet peer reachability; UDP-blocked two-LAN operation; NAT mapping acquisition/traversal; Pion/ICE/STUN; distributed enrollment; active-session revocation/leases; Windows/macOS runtime socket behavior. The non-Linux simultaneous-open adapter is explicitly unsupported. No public deployment or package release is included. [ARCHITECTURE.md](ARCHITECTURE.md) describes proposed future behavior and must not be read as implementation status.
+Recorded test and demo output lives under `test-results/`. Re-run both suites after changes; root discovery does not include the separate hyphenated experiment directory.

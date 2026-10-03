@@ -1,0 +1,32 @@
+test_demo (test_cli.CLITests.test_demo) ... ok
+test_invalid_target_stdout_empty (test_cli.CLITests.test_invalid_target_stdout_empty) ... ok
+test_proxy_blocked_stdout_cancellation (test_cli.CLITests.test_proxy_blocked_stdout_cancellation) ... ok
+test_proxy_clean_binary_and_half_close (test_cli.CLITests.test_proxy_clean_binary_and_half_close) ... ok
+test_loopback (test_core.AddressTests.test_loopback) ... ok
+test_reject_unsafe (test_core.AddressTests.test_reject_unsafe) ... ok
+test_absolute_bridge_timeout (test_core.AsyncTests.test_absolute_bridge_timeout) ... ok
+test_actual_server_pin_checked (test_core.AsyncTests.test_actual_server_pin_checked) ... ok
+test_binary_echo_and_concurrency (test_core.AsyncTests.test_binary_echo_and_concurrency) ... ok
+test_cancellation_closes_stalled_handshake (test_core.AsyncTests.test_cancellation_closes_stalled_handshake) ... ok
+test_coordinator_rejects_body_and_operations (test_core.AsyncTests.test_coordinator_rejects_body_and_operations) ... ok
+test_coordinator_rejects_unapproved_enrolled_leaf (test_core.AsyncTests.test_coordinator_rejects_unapproved_enrolled_leaf) ... ok
+test_directional_acl_and_snapshot (test_core.AsyncTests.test_directional_acl_and_snapshot) ... ok
+test_frame_size_before_payload (test_core.AsyncTests.test_frame_size_before_payload) ... ok
+test_half_close_delayed_response (test_core.AsyncTests.test_half_close_delayed_response) ... ok
+test_handshake_admission_cap (test_core.AsyncTests.test_handshake_admission_cap) ... ok
+test_independent_destination_pin_before_dial (test_core.AsyncTests.test_independent_destination_pin_before_dial) ... ok
+test_ipv6_encrypted_peer_path (test_core.AsyncTests.test_ipv6_encrypted_peer_path) ... ok
+test_ipv6_target (test_core.AsyncTests.test_ipv6_target) ... ok
+test_local_forward (test_core.AsyncTests.test_local_forward) ... ok
+test_metadata_rejects_deep_json (test_core.AsyncTests.test_metadata_rejects_deep_json) ... ok
+test_metadata_rejects_duplicates_and_constants (test_core.AsyncTests.test_metadata_rejects_duplicates_and_constants) ... ok
+test_metadata_size_before_payload (test_core.AsyncTests.test_metadata_size_before_payload) ... ok
+test_session_cancellation_closes_active_stream (test_core.AsyncTests.test_session_cancellation_closes_active_stream) ... ok
+test_truncated_frame_not_eof (test_core.AsyncTests.test_truncated_frame_not_eof) ... ok
+test_unknown_ca_rejected (test_core.AsyncTests.test_unknown_ca_rejected) ... ok
+test_wrong_coordinator_pin (test_core.AsyncTests.test_wrong_coordinator_pin) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 2.073s
+
+OK

@@ -1,1 +1,0 @@
-PASS: actual CLI exits on SIGINT with inherited stdout pipe blocked

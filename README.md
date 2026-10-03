@@ -1,104 +1,88 @@
 # fan-ssh
 
-Direct-only SSH transport research. The current executable is named `directssh`.
+Readable Python research prototype for **direct-only SSH byte transport**. The former Go implementation has been replaced; there are no Go sources or Go build requirements.
 
-A small, dependency-free Go experiment for **direct-only encrypted byte streams** with a metadata-only coordinator. It is a safe foundation, **not a working cross-LAN NAT traversal product**. The difficult requirement—UDP blocked with both endpoints behind complex NAT—remains unsolved and explicitly unimplemented here.
+**This is a loopback-only development fixture, not a cross-LAN NAT traversal product.** UDP-blocked connections with both endpoints behind complex NAT remain unsolved. There is no relay fallback, production enrollment, public listener, or real SSH login demonstrated here.
 
-## What runs today
+## Install and run
 
-- One CLI process starts two synthetic device identities and a coordinator, all in memory, valid for one hour and never saved.
-- The coordinator authenticates clients with exact-pinned TLS 1.3 certificates and returns one bounded peer record only for an explicit directed ACL edge.
-- The initiator checks a separately approved destination pin before establishing mutually authenticated direct TLS.
-- The receiver validates the client pin before dialing its one operator-configured, numeric-loopback TCP target. Peer bytes cannot choose another target.
-- A local forward or SSH ProxyCommand can transport existing SSH unchanged. SSH still checks its own host key and authenticates the OS user. Device approval is not passwordless SSH login.
-- IPv4 and IPv6 loopback direct TCP are tested. No administrator rights, virtual interfaces, firewall changes, user device operations, deployment, or real SSH keys are needed for the demo.
-
-Every listener and destination is restricted to numeric loopback. There is no flag to disable this safety restriction. The code intentionally does not expose a public coordinator or perform Internet probes.
-
-## Build and test
-
-Requires Go 1.25 or newer. Only the standard library is used. With Go on PATH:
+Python **3.11+**, with OpenSSL TLS 1.3 support. Run from the repository root:
 
 ```sh
-go test -race ./...
-go vet ./...
-go build -buildvcs=false -o directssh ./cmd/directssh
-./directssh demo
+python -m venv .venv
+# Linux/macOS:
+. .venv/bin/activate
+# Windows PowerShell instead: .venv\Scripts\Activate.ps1
+python -m pip install -e .
+python -m fan_ssh demo
+python -m unittest discover -s tests -v
+python -m unittest discover -s experiments/tcp-simopen -v
 ```
 
-On Windows, use `directssh.exe`. The checked implementation was tested with Go 1.27.1 on Linux amd64. macOS and Windows are compile-checked, not runtime-tested. In a read-only home environment set `GOCACHE` and `GOPATH` to writable temporary directories.
+Installed commands `fan-ssh` and `directssh` are aliases for `python -m fan_ssh`. If activation is restricted, run the virtual environment's Python executable directly rather than changing system policy. Installation requires package access; no package is fetched during runtime or tests.
 
-`demo` creates an ephemeral loopback echo service and verifies an opaque byte round-trip through the direct encrypted tunnel. It does not run an SSH server. Expected result:
+The single runtime dependency is `cryptography` (>=42,<51), used only to issue ephemeral synthetic certificates. Networking, TLS, framing, concurrency, CLI, and tests use Python's standard library. Python's `ssl` module can load certificates but cannot issue them; using a maintained cryptography package avoids a custom certificate encoder or an `openssl` executable dependency. Only cryptography 50.0.0 was tested for this rewrite. The upper bound is a compatibility guard, not a dependency lock or security audit.
+
+Expected demo output:
 
 ```text
 PASS: coordinator-discovered, mutually authenticated direct TLS echo; no relay
 ```
 
-All identities and synthetic authorization disappear on exit. The v0 mock approval occurs within the demo process; there is no real enrollment UI, persisted trust, production enrollment code, or real-device many-to-many management.
+Diagnostics go to stderr. Demo uses its own local echo fixture and requires no SSH service or keys.
 
-## Optional local SSH integration, not executed by this project
+## What works
 
-If you already operate an SSH server on your own loopback port, these commands are examples for your separate local validation. They do not install/configure SSH, generate keys, or change authentication.
+- Each invocation creates two synthetic device identities and a metadata-only coordinator in one process.
+- TLS 1.3 authenticates both ends using a short-lived session CA, certificate validity checks, and exact SHA-256 leaf-certificate pins.
+- An immutable **directed** ACL gates metadata discovery. The initiator independently checks the approved destination pin; the receiver checks the approved client pin **before dialing** its fixed target.
+- All listeners and dial destinations accept only numeric IPv4/IPv6 loopback literals, never DNS, wildcard binds, or Internet endpoints. The peer cannot select an arbitrary target.
+- Concurrent local forwards and binary-clean SSH ProxyCommand streams preserve half-close using bounded internal framing.
+- Setup operations are bounded to five seconds each. Data bridges have a fixed absolute 30-second lifetime. Admission caps of 32 include incomplete TLS handshakes; cancellation tears down sockets and handlers.
+
+Everything disappears on exit. There is no persistent identity, trust store, device enrollment UI, revocation, distributed coordinator, candidate racing, reverse dialing, ICE/STUN/TURN, TUN, VPN, driver, firewall change, or deployment.
+
+## Optional integration with an existing local SSH server
+
+These are examples for your separate local validation, not commands executed against a real SSH server by this project:
 
 ```sh
-./directssh forward --target 127.0.0.1:22 --listen 127.0.0.1:2222
-ssh -p 2222 -o HostKeyAlias=directssh-dev-local -o StrictHostKeyChecking=yes user@127.0.0.1
+python -m fan_ssh forward --target 127.0.0.1:22 --listen 127.0.0.1:2222
+ssh -p 2222 -o HostKeyAlias=fan-ssh-dev-local -o StrictHostKeyChecking=yes user@127.0.0.1
 ```
 
-Or use ProxyCommand (adjust executable path and quoting for your shell):
+Or, in a POSIX shell:
 
 ```sh
-ssh -o 'ProxyCommand=./directssh proxy --target 127.0.0.1:22' \
-    -o HostKeyAlias=directssh-dev-local -o StrictHostKeyChecking=yes user@directssh-dev-local
+ssh -o 'ProxyCommand=python -m fan_ssh proxy --target 127.0.0.1:22' \
+  -o HostKeyAlias=fan-ssh-dev-local -o StrictHostKeyChecking=yes user@fan-ssh-dev-local
 ```
 
-The alias must already have the correctly verified host key in your SSH known-hosts configuration. An unknown key fails closed; do not disable host-key checks. Existing SSH key/agent/certificate authentication remains necessary for actual passwordless login. No SSH account, private key, host key, or credential has been created or installed by the prototype.
+Use an absolute virtual-environment Python path if SSH cannot find it; quote paths appropriately for your OS/shell. The correctly verified host key for the alias must already be in known_hosts. Existing SSH key/agent/certificate or password authentication is still required. Device approval does not authorize OS-user login. Never disable host-key checking. The 30-second development deadline makes this unsuitable for long interactive sessions.
 
-`proxy` emits **only transported bytes on stdout**; diagnostics go to stderr. Each run starts a new synthetic local session, not a remote device connection. `forward` can accept concurrent connections and stops on Ctrl-C. The fixture uses an absolute 30-second data-session deadline; it is not ready for long interactive sessions.
+Every run builds a fresh **local synthetic session**, not a connection to a remote enrolled device. Other local processes can use the forward listener; it has no local-client authentication. Existing SSH remains the login boundary.
 
-## Security boundaries and limitations
+## Platform status
 
-- Exact SHA-256 certificate pinning replaces normal CA/name verification intentionally; certificate validity and possession are verified. Pins are provisioned in memory separately from discovery. Unknown pins fail. TLS cryptography is Go's implementation, not a custom cipher.
-- Coordinator APIs are GET-only metadata retrieval; POST/CONNECT/GET bodies, transfer-encoded bodies and query strings are rejected. It has no arbitrary upstream dialer or stream route. A malicious client can still send bytes to any HTTP listener; this means no supported forwarding of business data, not an information-theoretic covert-channel claim.
-- Metadata is limited to 4096 bytes at the client; server header reads/writes and discovery/handshake operations are bounded to five seconds. The ProxyCommand CLI returns/exits on cancellation even if a stdio-copy goroutine is blocked; process exit terminates that goroutine. This helper is not a reusable long-lived embedded I/O service. Stream buffers are bounded; tunnel and forward handlers are capped at 32 concurrent connections each. Sessions have an absolute 30-second deadline and cancellation closes both network legs.
-- The coordinator is locally provisioned and uses static immutable ACL snapshots. Real enrollment, signed session grants/leases, live revocation, persistence, account isolation and distributed lifecycle are NOT implemented. A production public listener additionally needs comprehensive rate limits, strict schemas, audit logging and abuse protection.
-- Local forward ports have no local-client authentication. Any process on that same host able to connect can use the synthetic overlay session; real SSH authentication remains the final login boundary.
-- A compromised approved endpoint can misuse its own authorization; no claim is made about proving Internet physical topology against malicious routing.
-- Stream failures terminate the session. No automatic replay, relay fallback, TURN, HTTP CONNECT, WebSocket data tunnel, VPN, TUN or driver exists.
-- TLS rejection detail may appear as a generic peer-auth/network error at the client, particularly with TLS 1.3. There is no claim of a comprehensive NAT diagnosis engine.
+The transport architecture uses portable asyncio, sockets, SSL, and raw stdio; Windows proxy descriptors are explicitly switched to binary mode. **Only Linux x86_64 runtime behavior has been tested.** Python source portability is not macOS/Windows runtime validation or cross-compilation. Windows/macOS TLS, cancellation, stdio, installation, and real SSH must be tested on those systems. Temporary-file permissions on Windows rely on the user-owned temp directory's ACLs; POSIX modes alone are not a Windows ACL guarantee.
 
-## Actual capability matrix
+The separate [TCP simultaneous-open diagnostic](experiments/tcp-simopen/README.md) is Linux-only and standard-library-only. It is intentionally not integrated into the transport. Local active/active socket success is not evidence of NAT traversal.
 
-| Feature | Current status |
-|---|---|
-| Synthetic approved identities, directed ACL, pinned mTLS | Implemented, loopback-tested |
-| Direct TCP IPv4 and IPv6 loopback | Implemented, tested when IPv6 available |
-| Fixed loopback target, concurrent byte streams | Implemented, tested |
-| Forward listener / clean ProxyCommand stdout | Implemented; echo integration tested |
-| Real SSH login | Not executed; existing external SSH required |
-| Windows/macOS ordinary-user binary | Cross-compiled only; runtime untested |
-| Multi-device distributed enrollment / many-to-many UX | Roadmap only |
-| Real LAN / public IPv4 / global IPv6 reachability | Not tested; blocked by v0 safety restriction |
-| Reverse-direction dialing / candidate racing | Not implemented |
-| TCP simultaneous-open across NAT | Not implemented; research gate |
-| ICE / Pion UDP / STUN | Not implemented |
-| UDP-blocked + complex NAT end-to-end | Not solved; no success claim |
-| Business-data relay fallback | Intentionally forbidden |
+## Security and compatibility notes
 
-Read [HANDOFF.md](HANDOFF.md) for the development handoff. The separate [TCP simultaneous-open experiment](experiments/tcp-simopen/README.md) demonstrates only a Linux loopback socket primitive; it does not add NAT traversal to the main CLI.
+- Certificate/private-key PEM files exist briefly in a private temporary directory because `SSLContext.load_cert_chain` takes filenames. They are deleted immediately after loading; no persistent credentials are created. Do not treat this as a production key-storage design.
+- Coordinator requests/responses are length-prefixed JSON, maximum 4096 bytes. Only one exact-schema `lookup` request and one peer record are supported per connection. There is no data forwarding route or upstream dialer. Arbitrary clients can send bytes to any listener; “metadata-only” is not an information-theoretic covert-channel guarantee.
+- TLS data uses 4-byte big-endian frame lengths, 1..16384 bytes per data frame; zero is directional EOF. A truncated TLS stream without EOF is an error. This replaces Go's raw TLS wire behavior and is **not wire-compatible** with the old prototype. The coordinator protocol also replaces the former fixture HTTP endpoint. Both sides are started together, so no upgrade interoperability is claimed.
+- Stream buffers, handlers, metadata and deadlines are bounded. Proxy uses daemon threads for inherited stdio with raw `os.read`/`os.write`; cancellation lets the CLI process exit even when a pipe blocks. It is a one-shot process helper, not a reusable embedded stdio component.
+- No automatic replay, relay fallback, CA-name bypass without pin checks, actual server login, or private endpoint inventory is included.
 
-Read [ARCHITECTURE.md](ARCHITECTURE.md) for a **future** transport/security plan and sources. Proposed tickets, leases and protocols there are not current features. Read [VALIDATION.md](VALIDATION.md) for actual test/build evidence. No package release or deployment is provided.
+See [ARCHITECTURE.md](ARCHITECTURE.md), [VALIDATION.md](VALIDATION.md), and [HANDOFF.md](HANDOFF.md). No package release, CI workflow, deployment, or license has been invented. The owner has not selected a license.
 
-## License
+## Layout
 
-A license has not yet been selected by the owner. No license grant is included.
-
-## Repository layout
-
-- `cmd/directssh/`: development CLI (`demo`, `forward`, `proxy`)
-- `internal/prototype/`: loopback-only transport, identities, coordinator and tests
-- `experiments/tcp-simopen/`: independent Go module, Linux active/active socket diagnostic
-- `scripts/`: Linux blocked-stdout CLI regression
-- `test-results/`: recorded baseline and consolidated validation evidence
-
-The nested experiment is a separate module: root `go test ./...` does not run its tests. Run both modules as described in [VALIDATION.md](VALIDATION.md).
+- `fan_ssh/identity.py`: short-lived synthetic PKI, TLS contexts, exact pins
+- `fan_ssh/transport.py`: bounded socket service, loopback validation, framing and duplex bridge
+- `fan_ssh/session.py`: metadata coordinator, directed ACL, synthetic session and forwarding
+- `fan_ssh/cli.py`: demo, local forward, raw-stdio proxy
+- `tests/`: stdlib unittest regression suite and real CLI subprocess tests
+- `experiments/tcp-simopen/`: independent Linux socket diagnostic and tests
