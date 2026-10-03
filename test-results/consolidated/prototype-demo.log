@@ -1,0 +1,2 @@
+DEV ONLY: ephemeral identities; loopback direct TCP/TLS; no hole punching, no relay; 30-second session deadline
+PASS: coordinator-discovered, mutually authenticated direct TLS echo; no relay

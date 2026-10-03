@@ -1,0 +1,27 @@
+=== RUN   TestBoundLoopbackOnly
+=== RUN   TestBoundLoopbackOnly/4
+=== RUN   TestBoundLoopbackOnly/6
+--- PASS: TestBoundLoopbackOnly (0.00s)
+    --- PASS: TestBoundLoopbackOnly/4 (0.00s)
+    --- PASS: TestBoundLoopbackOnly/6 (0.00s)
+=== RUN   TestNegativeNoPeerConnect
+    socket_linux_test.go:66: negative: initial=operation now in progress final=connection refused
+--- PASS: TestNegativeNoPeerConnect (0.00s)
+=== RUN   TestCanceledAndExpiredBeforeTrial
+--- PASS: TestCanceledAndExpiredBeforeTrial (0.00s)
+=== RUN   TestCompletionWaitBounds
+=== RUN   TestCompletionWaitBounds/timeout
+=== RUN   TestCompletionWaitBounds/cancel_in_progress
+=== RUN   TestCompletionWaitBounds/error
+--- PASS: TestCompletionWaitBounds (0.01s)
+    --- PASS: TestCompletionWaitBounds/timeout (0.01s)
+    --- PASS: TestCompletionWaitBounds/cancel_in_progress (0.00s)
+    --- PASS: TestCompletionWaitBounds/error (0.00s)
+=== RUN   TestPayloadTimeoutAndCancellation
+--- PASS: TestPayloadTimeoutAndCancellation (0.01s)
+=== RUN   TestRepeatTrialsAndDescriptorCleanup
+    socket_linux_test.go:146: family 4: verified 15/100; no listener
+    socket_linux_test.go:146: family 6: verified 9/100; no listener
+--- PASS: TestRepeatTrialsAndDescriptorCleanup (0.21s)
+PASS
+ok  	local/direct-ssh-diagnostics	1.234s
