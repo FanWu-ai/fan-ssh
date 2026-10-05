@@ -1,5 +1,182 @@
 # Python development notes
 
+## Pending local validation: usability/profile branch (2026-10-05)
+
+**Status: pending. This section is a test assignment, not a passing test report.**
+Local Codex and the cloud reviewer exchange this task and its results **only
+through GitHub**. Commit fixes and a sanitized report to the same independent
+branch; no manual log paste or direct agent messaging is required.
+
+### Scope and starting point
+
+- Repository: `FanWu-ai/fan-ssh`.
+- Work branch: `feat/usability-profiles-anonymized-docs`.
+- Reviewed implementation: `1ed85c24f5aec935320a8de8055271453026994e`.
+- Main when this task was prepared: `026d943e0b5ca03c8092cceb0f77d4f46ba31656`.
+- Validate the **complete usability/profile and anonymized-documentation
+  patch**, not only the newest test or an earlier main checkout. This includes
+  reusable connection profiles, `connect`, offline `doctor`, CLI behavior,
+  privacy-preserving documentation, and the existing native transports,
+  SSH entry and home bridge.
+- The cloud run against the reviewed implementation reported **112 discovered:
+  97 passed and 15 optional-UDP dependency skips**, for both source and installed
+  wheel. The 15 skips mean UDP coverage is missing, not that UDP passed.
+  Separate cloud TCP (26), STUN (7), EasyTier (6), offline CLI, demo, build and
+  compile/diff checks passed. These are prior cloud results, not local results
+  or proof of current Windows/native-network acceptance.
+
+Before doing anything, fetch the current branch, read its newer commits and any
+existing `TEST_REPORT.md` (or clearly identified equivalent), and preserve other
+work. If a complete newer report already exists, review it instead of repeating
+or overwriting it. Use the latest branch contents, including this handoff;
+record the exact source SHA being tested. The SHA above identifies the reviewed
+implementation, not an instruction to reset the branch. The older baseline and
+historical findings below remain context, not the target for this assignment.
+Read README.md, ARCHITECTURE.md, VALIDATION.md and any applicable repository
+instructions before changing code.
+
+### Environment and required checks
+
+Use Python **3.11 or newer**, preferably **3.12**, in a fresh virtual environment.
+Use the appropriate executable/activation syntax for the actual OS. Install the
+optional UDP dependencies and build tooling, then verify the environment:
+
+```sh
+python -m pip install -e '.[udp]' build
+python -m pip check
+python -c "import sys, platform, importlib.metadata as m; print(sys.version); print(platform.system(), platform.release(), platform.machine()); print({p: m.version(p) for p in ('fan-ssh', 'cryptography', 'aiortc', 'aioice')})"
+```
+
+The current project pins **aiortc 1.15.0** and **aioice 0.10.2**. Check those actual
+installed versions and successful imports; an optional-import failure must be
+reported and fixed or left explicitly blocked, never hidden as a successful
+full UDP run. Keep dependencies isolated; do not modify a production runtime.
+
+Run the complete root suite and the targeted suites, retaining real command
+exit codes and summaries. Discovery from the root suite does not cover the
+separate experimental suites.
+
+```sh
+python -m unittest discover -s tests -v
+python -m unittest discover -s tests -p 'test_udp.py' -v
+python -m unittest discover -s tests -p 'test_home_bridge.py' -v
+python -m unittest discover -s tests -p 'test_profiles.py' -v
+python -m unittest discover -s experiments/tcp-simopen -v
+python -m unittest discover -s experiments/stun-observer -v
+python -m unittest discover -s experiments/easytier-reference -v
+python -m fan_ssh demo
+python -m compileall -q fan_ssh tests scripts experiments
+git diff --check
+```
+
+Reference discovery sizes for the reviewed source are 112 root tests, 13 UDP,
+11 home-bridge and 22 profile tests; the three separate experimental suites have
+26 TCP, 7 STUN and 6 EasyTier tests. Report the observed counts if fixes add tests
+or platform conditions differ. Test stdout/stderr and background exceptions
+matter in addition to the final exit code.
+
+Also check the installed CLI's help and offline profile/doctor flows described
+in README.md using temporary synthetic fixtures. Preserve doctor’s explicit
+unchecked-network/host-key limits and nonzero error exits. Do not point these
+checks at private production profiles or write to the user's normal SSH/state
+configuration.
+
+### Wheel isolation check
+
+Build a wheel with `python -m build --wheel`. Create a **second fresh virtual
+environment**, install that exact wheel with its UDP extra (quote the local
+wheel path plus `[udp]`), and run `python -m pip check` again. Do not install the
+checkout editable in this second environment.
+
+Change to a temporary working directory **outside the repository**, clear any
+source-checkout `PYTHONPATH` override for the test process, and use the second
+environment's Python. Verify `fan_ssh.__file__` resolves to that environment's
+installed site-packages and check the installed distribution/dependency
+versions. Redact the actual private absolute path in the public report.
+
+From that external directory, rerun the full root suite by its absolute
+`tests` path (for example, `python -m unittest discover -s ABSOLUTE_REPO/tests -v`),
+the targeted UDP/home-bridge/profile suites, installed `fan-ssh --help`,
+`python -m fan_ssh --help`, and the demo. The test files may come from the source
+checkout, but imports and subprocess CLI calls must resolve to the installed
+wheel. Record the wheel SHA-256 and source SHA; repeat build and wheel checks
+after any source fix.
+
+### Platform skips and retained limitations
+
+For the reviewed root suite, native Windows has **five platform skips**:
+the Linux signal/pipe CLI case, two Linux source-bound TCP cases, the profile
+symlink case and the POSIX FIFO case. Two IPv6 loopback tests may additionally
+skip if IPv6 is unavailable. Record every skipped test and its actual reason.
+These platform/IPv6 skips are different from the cloud's **15 missing-UDP-
+dependency skips**. Platform skips do not validate the skipped behavior;
+Windows, WSL and native Linux are separate environments.
+
+Run ordinary Windows UDP coverage with the product's existing non-debug
+selector-loop configuration. Keep the separate, historically failing stress
+mode visible: set `FAN_SSH_UDP_DEBUG_TESTS=1` **only for a bounded test process**
+and rerun the UDP and UDP home-bridge coverage where that mode is supported.
+Record the exact commands, timeout if one is used, exit codes, failure/error
+details and any background exceptions separately. Do not relabel a timeout or
+interruption as a pass. Preserve the historical failed evidence already in
+`test-results/python-product-windows-debug-failed-20261005.txt` and
+`test-results/home-bridge-windows-full-failed-20261005.txt`, even if a new run
+passes. A normal-mode pass does not erase the intermittent debug stress issue.
+
+Fix reproducible regressions within this branch's scope and rerun the affected
+checks plus full source/wheel regressions. Do not delete or weaken assertions,
+silence failures, add skips, arbitrarily enlarge timeouts, or alter security
+checks merely to obtain green output. Preserve pinned identities, directed
+grants, fail-closed behavior, strict existing SSH host keys, direct-path evidence,
+binary integrity and half-close/cleanup checks.
+
+Loopback tests are synthetic. Do not claim full native Windows, real SSH,
+cross-network or two-leg home-bridge acceptance unless those exact checks were
+actually run with matching evidence. Do not infer new live-test authorization
+from historical notes. No production deployment, firewall/router/network
+changes, SSH credential or authentication changes, unknown-host-key acceptance,
+agent forwarding, new account permissions or relay workaround is authorized by
+this assignment.
+
+### GitHub result contract
+
+Create or update a public-safe `TEST_REPORT.md` on
+`feat/usability-profiles-anonymized-docs`, or preserve an established equivalent
+and identify it here. The report must include:
+
+1. Status: passed with explicit coverage limits, failed, blocked or pending.
+   Name the exact tested code SHA; after report-only commits, identify the
+   tested code parent and explain that only documentation changed.
+2. Actual OS/runtime and dependency versions, source versus installed-wheel
+   setup, wheel hash, and test date/time.
+3. Every command, its exit code, discovered/passed/failed/error/skipped counts,
+   and individual skip reasons. Keep failed, blocked, not-run and passed stages
+   distinct, including the separate debug stress result.
+4. Reproductions, root cause and fixes for new failures, with the matching
+   fix/test commit SHAs and rerun evidence. Preserve unresolved limitations.
+5. Whether real native Windows, real SSH, physical cross-network and two-leg
+   home-bridge checks were run; if not, say **not run**. Historical evidence
+   remains historical.
+6. Any CI status observed for the exact remote commit. Pending, absent,
+   skipped, or awaiting maintainer approval is not a passing online check.
+
+Use synthetic peer labels and sanitized excerpts. Never commit real machine
+aliases, private IPs/endpoints, account usernames/UIDs, keys, tokens, credential
+material, private absolute paths, inventories or raw private logs, including in
+intermediate commits. Review staged content and commit metadata for leakage.
+
+Commit the validated fixes and report to **this same independent branch**.
+Immediately before pushing, fetch again and compare the actual remote head.
+If another contributor advanced it, preserve and integrate their work safely
+and rerun applicable checks; stop and report conflicts rather than resetting,
+overwriting or force-pushing. Push only by a normal fast-forward update, then
+read GitHub back to verify the actual remote SHA, file contents and report.
+Do not merge into or push to `main`, create a PR, deploy, force-push or expand
+permissions without separate user approval. The cloud reviewer will read the
+report and review the resulting GitHub changes directly.
+
+---
+
 Read README.md, ARCHITECTURE.md and VALIDATION.md first. The baseline is Python main at `2cd46ec7d2b6705c2f12527b6c1dc67de7ab50c4`; do not reintroduce the earlier Go draft.
 
 ## Product objective and acceptance
