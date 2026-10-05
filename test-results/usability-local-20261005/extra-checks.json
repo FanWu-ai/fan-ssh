@@ -1,0 +1,19 @@
+{
+  "source_ux_exit": 0,
+  "wheel_ux_exit": 0,
+  "readme_after_documentation_update_ux_exit": 0,
+  "cli_subprocess_checks_per_ux_run": 22,
+  "readme_fan_ssh_examples_parsed": 25,
+  "fan_ssh_executable_help_exit": 0,
+  "directssh_executable_help_exit": 0,
+  "fan_ssh_executable_demo_exit": 0,
+  "directssh_executable_demo_exit": 0,
+  "installed_package_compileall_exit": 0,
+  "build_wheel_and_sdist_exit": 0,
+  "source_editable_install_exit": 0,
+  "source_build_install_exit": 0,
+  "wheel_install_exit": 0,
+  "wsl_initial_ensurepip_setup_exit": 1,
+  "wsl_reproduction_launch_with_unavailable_checkout": "setup failed; no tests executed",
+  "wsl_six_targeted_reproductions_exit": 0
+}

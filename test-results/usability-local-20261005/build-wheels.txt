@@ -1,0 +1,20 @@
+Collecting setuptools
+  Using cached setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting build
+  Using cached build-1.6.1-py3-none-any.whl.metadata (5.6 kB)
+Collecting packaging
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyproject_hooks
+  Using cached pyproject_hooks-1.3.3-py3-none-any.whl.metadata (1.3 kB)
+Using cached setuptools-84.0.0-py3-none-any.whl (818 kB)
+Using cached build-1.6.1-py3-none-any.whl (31 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Using cached pyproject_hooks-1.3.3-py3-none-any.whl (10 kB)
+Saved <validation-root>\build-wheels\setuptools-84.0.0-py3-none-any.whl
+Saved <validation-root>\build-wheels\build-1.6.1-py3-none-any.whl
+Saved <validation-root>\build-wheels\packaging-26.3-py3-none-any.whl
+Saved <validation-root>\build-wheels\pyproject_hooks-1.3.3-py3-none-any.whl
+Successfully downloaded setuptools build packaging pyproject_hooks
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: <validation-root>\source-venv\Scripts\python.exe -m pip install --upgrade pip

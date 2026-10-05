@@ -1,0 +1,45 @@
+test_pending_network_requests_share_cap_and_close_rejects_them (test_udp.UDPCapacityTests.test_pending_network_requests_share_cap_and_close_rejects_them) ... Executing <Task pending name='Task-2' coro=<UDPCapacityTests.test_pending_network_requests_share_cap_and_close_rejects_them() running at <workspace>\tests\test_udp.py:52> wait_for=<Future pending cb=[Task.task_wakeup()] created at <python-3.12>\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <python-3.12>\Lib\asyncio\base_events.py:181] created at <python-3.12>\Lib\asyncio\runners.py:100> took 0.188 seconds
+ok
+test_acl_denied_before_udp_path_or_service (test_udp.UDPSignalingTests.test_acl_denied_before_udp_path_or_service) ... Executing <Task pending name='Task-38' coro=<UDPSignalingTests.asyncSetUp() running at <workspace>\tests\test_udp.py:190> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(960, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <python-3.12>\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <python-3.12>\Lib\asyncio\base_events.py:181] created at <python-3.12>\Lib\asyncio\runners.py:100> took 0.250 seconds
+Executing <Task finished name='Task-38' coro=<UDPSignalingTests.asyncSetUp() done, defined at <workspace>\tests\test_udp.py:165> result=None created at <python-3.12>\Lib\asyncio\runners.py:100> took 0.110 seconds
+ok
+test_automatic_tcp_failure_then_pinned_prediction_stream (test_udp.UDPSignalingTests.test_automatic_tcp_failure_then_pinned_prediction_stream) ... Executing <Task pending name='Task-49' coro=<UDPSignalingTests.asyncSetUp() running at <workspace>\tests\test_udp.py:175> wait_for=<Future pending cb=[Task.task_wakeup()] created at <python-3.12>\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <python-3.12>\Lib\asyncio\base_events.py:181] created at <python-3.12>\Lib\asyncio\runners.py:100> took 0.125 seconds
+Executing <Task pending name='Task-49' coro=<UDPSignalingTests.asyncSetUp() running at <workspace>\tests\test_udp.py:190> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(1448, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <python-3.12>\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <python-3.12>\Lib\asyncio\base_events.py:181] created at <python-3.12>\Lib\asyncio\runners.py:100> took 0.235 seconds
+ok
+test_control_loss_closes_native_session (test_udp.UDPSignalingTests.test_control_loss_closes_native_session) ... Executing <Task pending name='Task-137' coro=<UDPSignalingTests.asyncSetUp() running at <workspace>\tests\test_udp.py:190> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(1500, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <python-3.12>\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <python-3.12>\Lib\asyncio\base_events.py:181] created at <python-3.12>\Lib\asyncio\runners.py:100> took 0.219 seconds
+ok
+test_signaled_direct_binary_half_close (test_udp.UDPSignalingTests.test_signaled_direct_binary_half_close) ... Executing <Task pending name='Task-181' coro=<UDPSignalingTests.asyncSetUp() running at <workspace>\tests\test_udp.py:190> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(1520, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <python-3.12>\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <python-3.12>\Lib\asyncio\base_events.py:181] created at <python-3.12>\Lib\asyncio\runners.py:100> took 0.234 seconds
+ERROR
+test_alternate_observer_uses_same_native_socket_when_primary_does_not_reply (test_udp.UDPTests.test_alternate_observer_uses_same_native_socket_when_primary_does_not_reply) ... ok
+test_disconnected_sctp_sender_closes_owned_stream_instead_of_background_exception (test_udp.UDPTests.test_disconnected_sctp_sender_closes_owned_stream_instead_of_background_exception) ... ok
+test_expected_sctp_shutdown_does_not_report_active_send_failure (test_udp.UDPTests.test_expected_sctp_shutdown_does_not_report_active_send_failure) ... ok
+test_native_dtls_credit_flow_binary_stream (test_udp.UDPTests.test_native_dtls_credit_flow_binary_stream) ... ok
+test_port_prediction_limits_irregular_and_changed_ip_observations (test_udp.UDPTests.test_port_prediction_limits_irregular_and_changed_ip_observations) ... ok
+test_relay_candidate_rejected_before_connectivity_checks (test_udp.UDPTests.test_relay_candidate_rejected_before_connectivity_checks) ... ok
+test_unapproved_candidate_rejected (test_udp.UDPTests.test_unapproved_candidate_rejected) ... ok
+test_wrong_dtls_pin_rejected (test_udp.UDPTests.test_wrong_dtls_pin_rejected) ... ok
+
+======================================================================
+ERROR: test_signaled_direct_binary_half_close (test_udp.UDPSignalingTests.test_signaled_direct_binary_half_close)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<python-3.12>\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python-3.12>\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "<workspace>\tests\test_udp.py", line 215, in test_signaled_direct_binary_half_close
+    while part := await pair[0].read():
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>\fan_ssh\transport.py", line 59, in read
+    length = struct.unpack('!I', await self.reader.readexactly(4))[0]
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>\fan_ssh\udp_path.py", line 176, in readexactly
+    raise asyncio.IncompleteReadError(bytes(result), size)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 4 expected bytes
+
+----------------------------------------------------------------------
+Ran 13 tests in 83.807s
+
+FAILED (errors=1)

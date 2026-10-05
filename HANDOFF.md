@@ -7,6 +7,11 @@ Local Codex and the cloud reviewer exchange this task and its results **only
 through GitHub**. Commit fixes and a sanitized report to the same independent
 branch; no manual log paste or direct agent messaging is required.
 
+Local follow-up: see [TEST_REPORT.md](TEST_REPORT.md) for completed Windows
+source/wheel and WSL checks with pinned UDP extras. The report retains a Windows
+debug UDP error and an intermittent WSL bridge EOF; it does not declare a clean
+acceptance pass. The assignment below is preserved as historical instructions.
+
 ### Scope and starting point
 
 - Repository: `FanWu-ai/fan-ssh`.

@@ -20,7 +20,7 @@ fan-ssh connect remote
 
 截至 2026-10-05，**本地 Windows 工作站 ↔ 远程局域网设备 D 的 Python 原生连接已验证**：实际 `python -m fan_ssh ssh` 完成 3 次严格主机密钥校验的 SSH 登录，8 MiB 上传和精确 8 MiB 往返数据均通过 SHA-256 校验。两端物理路由已核实，未启动 FRP 进程，业务数据未走 Tailscale 或云端中继。[Python 实测证据](test-results/python-ssh-remote-lan-d-20261005.json)
 
-新增的 `profile` / `connect` / `doctor` 本次仅完成云端 Linux 本地回归和安装检查，尚未在 Windows 或真实公网环境重新验证这些入口。上面的真实连接证据属于原 `ssh` 入口。
+新增的 `profile` / `connect` / `doctor` 已补做原生 Windows 的源码、独立 wheel 和离线使用检查；WSL 补跑了 Linux 用例。普通 Windows 回归为 107 项通过、5 项平台跳过，原先缺依赖的 15 项 UDP 用例已执行。WSL 桥接曾出现一次提前 EOF，复测通过但原因尚未确定；独立 Windows debug UDP 压力测试仍失败。详见 [本分支补测报告](TEST_REPORT.md)，目前不能宣称完整验证通过。新入口的真实跨网 SSH 尚未重测；上面的真实连接证据属于原 `ssh` 入口。
 
 **仍未验证：**远程局域网设备 A、C 的可用 Python 原生连接，最初要求的 A ↔ B 直连，以及 A ↔ 本地工作站 ↔ B 的完整桥接拓扑。一个网络组合或桥接中的一段成功，不能代表其他组合或完整拓扑成功。Windows 单独的 asyncio-debug 压力测试仍有间歇性流错误，未宣称修复。临时测试授权不等于永久部署授权。[完整验证记录](VALIDATION.md)
 

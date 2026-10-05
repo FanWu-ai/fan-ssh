@@ -1,0 +1,11 @@
+test_advertised_two_hop_route_is_not_a_connection (test_peer_check.SelectedPathTests.test_advertised_two_hop_route_is_not_a_connection) ... ok
+test_selected_connection_must_be_direct_and_live (test_peer_check.SelectedPathTests.test_selected_connection_must_be_direct_and_live) ... ok
+test_selected_native_path (test_peer_check.SelectedPathTests.test_selected_native_path) ... ok
+test_unused_native_connection_does_not_override_selected_overlay (test_peer_check.SelectedPathTests.test_unused_native_connection_does_not_override_selected_overlay) ... ok
+test_wrong_next_hop_or_target_rejected (test_peer_check.SelectedPathTests.test_wrong_next_hop_or_target_rejected) ... ok
+test_wrong_protocol_or_embedded_native_ip_rejected (test_peer_check.SelectedPathTests.test_wrong_protocol_or_embedded_native_ip_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.002s
+
+OK

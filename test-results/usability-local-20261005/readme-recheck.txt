@@ -1,0 +1,382 @@
+COMMAND: python -m fan_ssh --help
+EXIT: 0
+usage: fan-ssh [-h]
+               {demo,forward,proxy,ssh,identity-init,identity-export,policy-build,coordinator,node,diagnose,home-bridge,profile,connect,doctor}
+               ...
+
+Approved SSH streams over direct peer paths; optional explicit home bridge; no
+cloud data relay
+
+positional arguments:
+  {demo,forward,proxy,ssh,identity-init,identity-export,policy-build,coordinator,node,diagnose,home-bridge,profile,connect,doctor}
+    identity-init       explicitly create a new device key in a new private
+                        directory
+    identity-export     export a device public certificate for operator
+                        approval
+    policy-build        build a manually approved roster and directed service
+                        ACL
+    home-bridge         explicit business bridge to one fixed approved peer;
+                        no cloud data relay
+    profile             save/list/show reusable connection options; never
+                        stores keys or grants access
+    connect             connect using a saved profile and existing SSH
+                        credentials
+    doctor              check a profile offline; no connections, listeners or
+                        SSH config execution
+
+options:
+  -h, --help            show this help message and exit
+
+COMMAND: python -m fan_ssh profile --help
+EXIT: 0
+usage: fan-ssh profile [-h] {add,list,show} ...
+
+positional arguments:
+  {add,list,show}
+    add            save a new profile without overwriting an existing one
+    list           list saved profile names
+    show           show a profile and its file location
+
+options:
+  -h, --help       show this help message and exit
+
+COMMAND: python -m fan_ssh profile add --help
+EXIT: 0
+usage: fan-ssh profile add [-h] --peer PEER [--identity IDENTITY]
+                           [--policy POLICY] [--service SERVICE]
+                           [--transport {auto,tcp,udp}]
+                           [--udp-native UDP_NATIVE] [--stun STUN]
+                           [--stun-alternate STUN_ALTERNATE]
+                           [--udp-strategy {ice,predict}]
+                           [--reverse-listen REVERSE_LISTEN]
+                           [--reverse-candidate REVERSE_CANDIDATE]
+                           [--ssh-host SSH_HOST] [--ssh-user SSH_USER]
+                           [--ssh-port SSH_PORT] [--profiles-dir PROFILES_DIR]
+                           alias
+
+positional arguments:
+  alias
+
+options:
+  -h, --help            show this help message and exit
+  --peer PEER
+  --identity IDENTITY   existing user-private identity directory
+  --policy POLICY       existing approved roster/ACL file
+  --service SERVICE
+  --transport {auto,tcp,udp}
+                        default: automatic direct methods; no relay fallback
+  --udp-native UDP_NATIVE
+                        explicit approved physical IP; requires udp extra
+  --stun STUN           explicit numeric STUN observer for UDP transport
+  --stun-alternate STUN_ALTERNATE
+                        optional second explicitly approved numeric STUN
+                        observer
+  --udp-strategy {ice,predict}
+                        explicit UDP strategy; auto mode tries both
+  --reverse-listen REVERSE_LISTEN
+                        optional numeric high-port listener for reverse direct
+                        connections
+  --reverse-candidate REVERSE_CANDIDATE
+                        approved advertised reverse listener address, if
+                        different from bind
+  --ssh-host SSH_HOST   existing SSH alias for credentials and verified host
+                        key; defaults to peer ID
+  --ssh-user SSH_USER   optional existing SSH user
+  --ssh-port SSH_PORT   optional original SSH port for host-key lookup
+  --profiles-dir PROFILES_DIR
+                        override the per-user profile directory; put before
+                        the alias for connect
+
+COMMAND: python -m fan_ssh profile list --help
+EXIT: 0
+usage: fan-ssh profile list [-h] [--profiles-dir PROFILES_DIR]
+
+options:
+  -h, --help            show this help message and exit
+  --profiles-dir PROFILES_DIR
+                        override the per-user profile directory; put before
+                        the alias for connect
+
+COMMAND: python -m fan_ssh profile show --help
+EXIT: 0
+usage: fan-ssh profile show [-h] [--profiles-dir PROFILES_DIR] alias
+
+positional arguments:
+  alias
+
+options:
+  -h, --help            show this help message and exit
+  --profiles-dir PROFILES_DIR
+                        override the per-user profile directory; put before
+                        the alias for connect
+
+COMMAND: python -m fan_ssh connect --help
+EXIT: 0
+usage: fan-ssh connect [-h] [--profiles-dir PROFILES_DIR] alias ...
+
+positional arguments:
+  alias
+  command               optional remote command after --
+
+options:
+  -h, --help            show this help message and exit
+  --profiles-dir PROFILES_DIR
+                        override the per-user profile directory; put before
+                        the alias for connect
+
+Example: fan-ssh connect remote -- uname -a
+
+COMMAND: python -m fan_ssh doctor --help
+EXIT: 0
+usage: fan-ssh doctor [-h] [--profiles-dir PROFILES_DIR] alias
+
+positional arguments:
+  alias
+
+options:
+  -h, --help            show this help message and exit
+  --profiles-dir PROFILES_DIR
+                        override the per-user profile directory; put before
+                        the alias for connect
+
+COMMAND: python -m fan_ssh ssh --help
+EXIT: 0
+usage: fan-ssh ssh [-h] --peer PEER [--identity IDENTITY] [--policy POLICY]
+                   [--service SERVICE] [--transport {auto,tcp,udp}]
+                   [--udp-native UDP_NATIVE] [--stun STUN]
+                   [--stun-alternate STUN_ALTERNATE]
+                   [--udp-strategy {ice,predict}]
+                   [--reverse-listen REVERSE_LISTEN]
+                   [--reverse-candidate REVERSE_CANDIDATE]
+                   [--ssh-host SSH_HOST] [--ssh-user SSH_USER]
+                   [--ssh-port SSH_PORT]
+                   ...
+
+positional arguments:
+  command               optional remote command after --
+
+options:
+  -h, --help            show this help message and exit
+  --peer PEER           approved remote device ID
+  --identity IDENTITY   existing user-private identity directory
+  --policy POLICY       existing approved roster/ACL file
+  --service SERVICE
+  --transport {auto,tcp,udp}
+                        default: automatic direct methods; no relay fallback
+  --udp-native UDP_NATIVE
+                        explicit approved physical IP; requires udp extra
+  --stun STUN           explicit numeric STUN observer for UDP transport
+  --stun-alternate STUN_ALTERNATE
+                        optional second explicitly approved numeric STUN
+                        observer
+  --udp-strategy {ice,predict}
+                        explicit UDP strategy; auto mode tries both
+  --reverse-listen REVERSE_LISTEN
+                        optional numeric high-port listener for reverse direct
+                        connections
+  --reverse-candidate REVERSE_CANDIDATE
+                        approved advertised reverse listener address, if
+                        different from bind
+  --ssh-host SSH_HOST   existing SSH alias for credentials and verified host
+                        key; defaults to peer ID
+  --ssh-user SSH_USER   optional existing SSH user
+  --ssh-port SSH_PORT   optional original SSH port for host-key lookup
+
+COMMAND: python -m fan_ssh proxy --help
+EXIT: 0
+usage: fan-ssh proxy [-h] (--target TARGET | --peer PEER)
+                     [--identity IDENTITY] [--policy POLICY]
+                     [--service SERVICE] [--transport {auto,tcp,udp}]
+                     [--udp-native UDP_NATIVE] [--stun STUN]
+                     [--stun-alternate STUN_ALTERNATE]
+                     [--udp-strategy {ice,predict}]
+                     [--reverse-listen REVERSE_LISTEN]
+                     [--reverse-candidate REVERSE_CANDIDATE]
+
+options:
+  -h, --help            show this help message and exit
+  --target TARGET       synthetic fixture with fixed numeric loopback TCP
+                        target
+  --peer PEER           approved remote device ID
+  --identity IDENTITY   existing user-private identity directory
+  --policy POLICY       existing approved roster/ACL file
+  --service SERVICE
+  --transport {auto,tcp,udp}
+                        default: automatic direct methods; no relay fallback
+  --udp-native UDP_NATIVE
+                        explicit approved physical IP; requires udp extra
+  --stun STUN           explicit numeric STUN observer for UDP transport
+  --stun-alternate STUN_ALTERNATE
+                        optional second explicitly approved numeric STUN
+                        observer
+  --udp-strategy {ice,predict}
+                        explicit UDP strategy; auto mode tries both
+  --reverse-listen REVERSE_LISTEN
+                        optional numeric high-port listener for reverse direct
+                        connections
+  --reverse-candidate REVERSE_CANDIDATE
+                        approved advertised reverse listener address, if
+                        different from bind
+
+COMMAND: python -m fan_ssh forward --help
+EXIT: 0
+usage: fan-ssh forward [-h] (--target TARGET | --peer PEER)
+                       [--identity IDENTITY] [--policy POLICY]
+                       [--service SERVICE] [--transport {auto,tcp,udp}]
+                       [--udp-native UDP_NATIVE] [--stun STUN]
+                       [--stun-alternate STUN_ALTERNATE]
+                       [--udp-strategy {ice,predict}]
+                       [--reverse-listen REVERSE_LISTEN]
+                       [--reverse-candidate REVERSE_CANDIDATE]
+                       [--listen LISTEN]
+
+options:
+  -h, --help            show this help message and exit
+  --target TARGET       synthetic fixture with fixed numeric loopback TCP
+                        target
+  --peer PEER           approved remote device ID
+  --identity IDENTITY   existing user-private identity directory
+  --policy POLICY       existing approved roster/ACL file
+  --service SERVICE
+  --transport {auto,tcp,udp}
+                        default: automatic direct methods; no relay fallback
+  --udp-native UDP_NATIVE
+                        explicit approved physical IP; requires udp extra
+  --stun STUN           explicit numeric STUN observer for UDP transport
+  --stun-alternate STUN_ALTERNATE
+                        optional second explicitly approved numeric STUN
+                        observer
+  --udp-strategy {ice,predict}
+                        explicit UDP strategy; auto mode tries both
+  --reverse-listen REVERSE_LISTEN
+                        optional numeric high-port listener for reverse direct
+                        connections
+  --reverse-candidate REVERSE_CANDIDATE
+                        approved advertised reverse listener address, if
+                        different from bind
+  --listen LISTEN
+
+COMMAND: python -m fan_ssh profile list --profiles-dir '<temp>\fan-usability-rq28paph\saved profiles'
+EXIT: 0
+No profiles yet. Use fan-ssh profile add --help.
+
+COMMAND: python -m fan_ssh identity-init --id control --directory control --public control.public.json
+EXIT: 0
+Device control; SHA256 31fc6472bd9f93b0347cbf8a5ed75f681efd00c06bb913874f5beef4c473dbf1; public record control.public.json
+
+COMMAND: python -m fan_ssh identity-init --id a --directory a --public a.public.json
+EXIT: 0
+Device a; SHA256 5588192939ad57843f010810f026e2324b22e8afe509442cca20db1b9d6889f1; public record a.public.json
+
+COMMAND: python -m fan_ssh identity-init --id b --directory b --public b.public.json
+EXIT: 0
+Device b; SHA256 4c74feadef91c6e76871ab52dab9185a8691324b90f4dd187032fc16232e43e7; public record b.public.json
+
+COMMAND: python -m fan_ssh policy-build --account synthetic --revision 1 --coordinator control --coordinator-address 127.0.0.1:22090 --device control.public.json --device a.public.json --device b.public.json --candidate a=127.0.0.2:22022 --candidate b=127.0.0.3:22022 --allow a:b:ssh --output network.policy.json
+EXIT: 0
+Approved policy written: network.policy.json
+
+COMMAND: python -m fan_ssh profile add remote --profiles-dir '<temp>\fan-usability-rq28paph\saved profiles' --identity a --policy network.policy.json --peer b --ssh-host existing-alias --ssh-user example-user --ssh-port 2222 --udp-native 127.0.0.2 --stun 127.0.0.1:22092 --stun-alternate 127.0.0.1:22093
+EXIT: 0
+Profile saved: <temp>\fan-usability-rq28paph\saved profiles\remote.json
+Check local prerequisites: fan-ssh doctor --profiles-dir "<temp>\fan-usability-rq28paph\saved profiles" remote
+Connect: fan-ssh connect --profiles-dir "<temp>\fan-usability-rq28paph\saved profiles" remote
+
+COMMAND: python -m fan_ssh profile add remote --profiles-dir '<temp>\fan-usability-rq28paph\saved profiles' --identity a --policy network.policy.json --peer b --ssh-host existing-alias --ssh-user example-user --ssh-port 2222 --udp-native 127.0.0.2 --stun 127.0.0.1:22092 --stun-alternate 127.0.0.1:22093
+EXIT: 1
+FAILED: ValueError: PROFILE_ALREADY_EXISTS: choose another name or explicitly edit the existing profile
+
+COMMAND: python -m fan_ssh profile show remote --profiles-dir '<temp>\fan-usability-rq28paph\saved profiles'
+EXIT: 0
+{
+  "path": "<temp>\\fan-usability-rq28paph\\saved profiles\\remote.json",
+  "connection": {
+    "identity": "<temp>\\fan-usability-rq28paph\\a",
+    "policy": "<temp>\\fan-usability-rq28paph\\network.policy.json",
+    "peer": "b",
+    "service": "ssh",
+    "transport": "auto",
+    "ssh_host": "existing-alias",
+    "ssh_user": "example-user",
+    "ssh_port": 2222,
+    "udp_native": "127.0.0.2",
+    "stun": "127.0.0.1:22092",
+    "stun_alternate": "127.0.0.1:22093",
+    "udp_strategy": "ice",
+    "reverse_listen": null,
+    "reverse_candidate": null
+  }
+}
+
+COMMAND: python -m fan_ssh profile list --profiles-dir '<temp>\fan-usability-rq28paph\saved profiles'
+EXIT: 0
+remote
+
+COMMAND: python -m fan_ssh doctor --profiles-dir '<temp>\fan-usability-rq28paph\saved profiles' remote
+EXIT: 0
+{
+  "ok": true,
+  "scope": "offline-only",
+  "checks": [
+    {
+      "check": "identity-policy-acl",
+      "ok": true,
+      "detail": "a -> b:ssh; policy revision 1"
+    },
+    {
+      "check": "openssh-client",
+      "ok": true,
+      "detail": "C:\\Windows\\System32\\OpenSSH\\ssh.EXE"
+    },
+    {
+      "check": "udp-dependencies",
+      "ok": true,
+      "detail": "pinned UDP dependencies installed"
+    }
+  ],
+  "not_checked": [
+    "network reachability and NAT traversal",
+    "running coordinator or receiving node",
+    "SSH effective configuration, credentials and verified host key"
+  ]
+}
+
+PASS: doctor guarded against sockets/SSH and wrote no fixture files, including UDP dependency check
+PASS: saved connect options preserve strict OpenSSH effective proxy/user/port/auth settings using empty synthetic config; no login
+COMMAND: python -m fan_ssh connect --profiles-dir '<temp>\fan-usability-rq28paph\saved profiles' missing
+EXIT: 2
+usage: fan-ssh [-h]
+               {demo,forward,proxy,ssh,identity-init,identity-export,policy-build,coordinator,node,diagnose,home-bridge,profile,connect,doctor}
+               ...
+fan-ssh: error: PROFILE_NOT_FOUND: missing; use fan-ssh profile list or fan-ssh profile add
+
+COMMAND: python -m fan_ssh doctor --profiles-dir '<temp>\fan-usability-rq28paph\saved profiles' missing
+EXIT: 1
+FAILED: ValueError: PROFILE_NOT_FOUND: missing; use fan-ssh profile list or fan-ssh profile add
+
+README ARGUMENTS PASS: profile list
+README ARGUMENTS PASS: doctor remote
+README ARGUMENTS PASS: connect remote
+README ARGUMENTS PASS: identity-init --id control --directory .fan-ssh/control --public control.public.json
+README ARGUMENTS PASS: identity-init --id a --directory .fan-ssh/a --public a.public.json
+README ARGUMENTS PASS: identity-init --id b --directory .fan-ssh/b --public b.public.json
+README ARGUMENTS PASS: policy-build --account example-account --revision 1 --coordinator control --coordinator-address 198.51.100.10:22090 --device control.public.json --device a.public.json --device b.public.json --candidate a=192.0.2.10:22022 --candidate b=192.0.2.20:22022 --allow a:b:ssh --output network.policy.json
+README ARGUMENTS PASS: coordinator --identity .fan-ssh/control --policy network.policy.json --listen 198.51.100.10:22090 --stun-listen 198.51.100.10:22092 --stun-alternate-listen 198.51.100.10:22093
+README ARGUMENTS PASS: node --identity .fan-ssh/b --policy network.policy.json --listen 192.0.2.20:22022 --service ssh=127.0.0.1:22 --udp-native 192.0.2.20 --stun 198.51.100.10:22092 --stun-alternate 198.51.100.10:22093
+README ARGUMENTS PASS: profile add remote --identity .fan-ssh/a --policy network.policy.json --peer b --ssh-host existing-b-alias --udp-native 192.0.2.10 --stun 198.51.100.10:22092 --stun-alternate 198.51.100.10:22093
+README ARGUMENTS PASS: doctor remote
+README ARGUMENTS PASS: connect remote
+README ARGUMENTS PASS: connect remote -- uname -a
+README ARGUMENTS PASS: profile list
+README ARGUMENTS PASS: profile show remote
+README ARGUMENTS PASS: diagnose --identity .fan-ssh/a --policy network.policy.json --peer b
+README ARGUMENTS PASS: connect --profiles-dir /path/to/profiles remote -- uname -a
+README ARGUMENTS PASS: ssh --identity .fan-ssh/a --policy network.policy.json --peer b --ssh-host existing-b-alias --udp-native 192.0.2.10 --stun 198.51.100.10:22092 --stun-alternate 198.51.100.10:22093
+README ARGUMENTS PASS: forward --identity .fan-ssh/a --policy network.policy.json --peer b --transport tcp --listen 127.0.0.1:2222
+README ARGUMENTS PASS: identity-init --id bridge --directory .fan-ssh/bridge --public bridge.public.json
+README ARGUMENTS PASS: policy-build --account example-account --revision 1 --coordinator control --coordinator-address 198.51.100.10:22090 --device control.public.json --device a.public.json --device b.public.json --device bridge.public.json --candidate a=192.0.2.10:22022 --candidate b=192.0.2.20:22022 --candidate bridge=192.0.2.30:22022 --allow a:bridge:remote-ssh --allow bridge:b:ssh --output bridge.policy.json
+README ARGUMENTS PASS: node --identity .fan-ssh/b --policy bridge.policy.json --listen 192.0.2.20:22022 --service ssh=127.0.0.1:22
+README ARGUMENTS PASS: home-bridge --identity .fan-ssh/bridge --policy bridge.policy.json --listen 192.0.2.30:22022 --bridge-service remote-ssh --peer b --transport tcp
+README ARGUMENTS PASS: ssh --identity .fan-ssh/a --policy bridge.policy.json --peer bridge --service remote-ssh --ssh-host existing-b-alias --transport tcp
+README ARGUMENTS PASS: demo
+PASS: 22 CLI subprocess checks; 25 README examples parsed; synthetic offline/effective-SSH checks

@@ -1,0 +1,59 @@
+Obtaining file:///<workspace>
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting cryptography<51,>=42 (from fan-ssh==0.3.0)
+  Using cached cryptography-50.0.2-cp311-abi3-win_amd64.whl.metadata (4.4 kB)
+Collecting aiortc==1.15.0 (from fan-ssh==0.3.0)
+  Using cached aiortc-1.15.0-py3-none-any.whl.metadata (4.9 kB)
+Collecting aioice==0.10.2 (from fan-ssh==0.3.0)
+  Using cached aioice-0.10.2-py3-none-any.whl.metadata (4.1 kB)
+Collecting dnspython>=2.0.0 (from aioice==0.10.2->fan-ssh==0.3.0)
+  Using cached dnspython-2.8.0-py3-none-any.whl.metadata (5.7 kB)
+Collecting ifaddr>=0.2.0 (from aioice==0.10.2->fan-ssh==0.3.0)
+  Using cached ifaddr-0.2.0-py3-none-any.whl.metadata (4.9 kB)
+Collecting av<18.0.0,>=14.0.0 (from aiortc==1.15.0->fan-ssh==0.3.0)
+  Using cached av-17.1.0-cp311-abi3-win_amd64.whl.metadata (4.7 kB)
+Collecting google-crc32c>=1.1 (from aiortc==1.15.0->fan-ssh==0.3.0)
+  Using cached google_crc32c-1.9.0-cp312-cp312-win_amd64.whl.metadata (2.2 kB)
+Collecting pyee>=13.0.0 (from aiortc==1.15.0->fan-ssh==0.3.0)
+  Using cached pyee-14.0.0-py3-none-any.whl.metadata (1.8 kB)
+Collecting pylibsrtp>=0.10.0 (from aiortc==1.15.0->fan-ssh==0.3.0)
+  Using cached pylibsrtp-1.0.0-cp310-abi3-win_amd64.whl.metadata (4.2 kB)
+Collecting pyopenssl>=25.0.0 (from aiortc==1.15.0->fan-ssh==0.3.0)
+  Using cached pyopenssl-26.4.0-py3-none-any.whl.metadata (22 kB)
+Collecting cffi>=2.0.0 (from cryptography<51,>=42->fan-ssh==0.3.0)
+  Using cached cffi-2.1.1-cp312-cp312-win_amd64.whl.metadata (2.6 kB)
+Collecting pycparser (from cffi>=2.0.0->cryptography<51,>=42->fan-ssh==0.3.0)
+  Using cached pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting typing-extensions (from pyee>=13.0.0->aiortc==1.15.0->fan-ssh==0.3.0)
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Using cached aioice-0.10.2-py3-none-any.whl (24 kB)
+Using cached aiortc-1.15.0-py3-none-any.whl (93 kB)
+Using cached cryptography-50.0.2-cp311-abi3-win_amd64.whl (3.8 MB)
+Using cached av-17.1.0-cp311-abi3-win_amd64.whl (28.0 MB)
+Using cached cffi-2.1.1-cp312-cp312-win_amd64.whl (185 kB)
+Using cached dnspython-2.8.0-py3-none-any.whl (331 kB)
+Using cached google_crc32c-1.9.0-cp312-cp312-win_amd64.whl (35 kB)
+Using cached ifaddr-0.2.0-py3-none-any.whl (12 kB)
+Using cached pyee-14.0.0-py3-none-any.whl (15 kB)
+Using cached pylibsrtp-1.0.0-cp310-abi3-win_amd64.whl (1.6 MB)
+Using cached pyopenssl-26.4.0-py3-none-any.whl (56 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Using cached pycparser-3.0-py3-none-any.whl (48 kB)
+Building wheels for collected packages: fan-ssh
+  Building editable for fan-ssh (pyproject.toml): started
+  Building editable for fan-ssh (pyproject.toml): finished with status 'done'
+  Created wheel for fan-ssh: filename=fan_ssh-0.3.0-0.editable-py3-none-any.whl size=3052 sha256=2682e88b7d9fb045fd291cec7c632a6366b1ad59a5139263558210d1d97d411c
+  Stored in directory: <temp>\pip-ephem-wheel-cache-bgbaigij\wheels\f3\ef\4e\aa36ef11969139829f0fc63ee56ab0bc6b7a68c27755812dcd
+Successfully built fan-ssh
+Installing collected packages: ifaddr, typing-extensions, pycparser, google-crc32c, dnspython, av, pyee, cffi, aioice, pylibsrtp, cryptography, pyopenssl, fan-ssh, aiortc
+Successfully installed aioice-0.10.2 aiortc-1.15.0 av-17.1.0 cffi-2.1.1 cryptography-50.0.2 dnspython-2.8.0 fan-ssh-0.3.0 google-crc32c-1.9.0 ifaddr-0.2.0 pycparser-3.0 pyee-14.0.0 pylibsrtp-1.0.0 pyopenssl-26.4.0 typing-extensions-4.16.0
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: <validation-root>\source-venv\Scripts\python.exe -m pip install --upgrade pip

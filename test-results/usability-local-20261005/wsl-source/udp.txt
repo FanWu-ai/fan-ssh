@@ -1,0 +1,18 @@
+test_pending_network_requests_share_cap_and_close_rejects_them (test_udp.UDPCapacityTests.test_pending_network_requests_share_cap_and_close_rejects_them) ... ok
+test_acl_denied_before_udp_path_or_service (test_udp.UDPSignalingTests.test_acl_denied_before_udp_path_or_service) ... ok
+test_automatic_tcp_failure_then_pinned_prediction_stream (test_udp.UDPSignalingTests.test_automatic_tcp_failure_then_pinned_prediction_stream) ... ok
+test_control_loss_closes_native_session (test_udp.UDPSignalingTests.test_control_loss_closes_native_session) ... ok
+test_signaled_direct_binary_half_close (test_udp.UDPSignalingTests.test_signaled_direct_binary_half_close) ... ok
+test_alternate_observer_uses_same_native_socket_when_primary_does_not_reply (test_udp.UDPTests.test_alternate_observer_uses_same_native_socket_when_primary_does_not_reply) ... ok
+test_disconnected_sctp_sender_closes_owned_stream_instead_of_background_exception (test_udp.UDPTests.test_disconnected_sctp_sender_closes_owned_stream_instead_of_background_exception) ... ok
+test_expected_sctp_shutdown_does_not_report_active_send_failure (test_udp.UDPTests.test_expected_sctp_shutdown_does_not_report_active_send_failure) ... ok
+test_native_dtls_credit_flow_binary_stream (test_udp.UDPTests.test_native_dtls_credit_flow_binary_stream) ... ok
+test_port_prediction_limits_irregular_and_changed_ip_observations (test_udp.UDPTests.test_port_prediction_limits_irregular_and_changed_ip_observations) ... ok
+test_relay_candidate_rejected_before_connectivity_checks (test_udp.UDPTests.test_relay_candidate_rejected_before_connectivity_checks) ... ok
+test_unapproved_candidate_rejected (test_udp.UDPTests.test_unapproved_candidate_rejected) ... ok
+test_wrong_dtls_pin_rejected (test_udp.UDPTests.test_wrong_dtls_pin_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 25.316s
+
+OK

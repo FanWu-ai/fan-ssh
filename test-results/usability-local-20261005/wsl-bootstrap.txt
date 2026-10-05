@@ -1,0 +1,4 @@
+Looking in links: <offline-wheels>
+Processing ./.fan-ssh/wheels/pip-26.2.1-py3-none-any.whl
+Installing collected packages: pip
+Successfully installed pip-26.2.1

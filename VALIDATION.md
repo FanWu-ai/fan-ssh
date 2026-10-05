@@ -441,3 +441,16 @@ The 0.3 wheel SHA-256 is
 Evidence: `test-results/python-product-regressions-20261005.json`,
 `python-product-package-20261005.json`, `python-product-*-20261005.txt`.
 No further broad/repeated tests are counted without new changes or concerns.
+
+### Usability branch local follow-up (2026-10-05)
+
+See [TEST_REPORT.md](TEST_REPORT.md) for the exact tested code SHA, dependency
+versions, source and isolated-wheel commands, complete sanitized logs and skips.
+Native Windows ordinary mode passed 107 of 112 tests with five platform skips;
+all 13 optional UDP transport and two UDP bridge cases actually executed. WSL
+passed the full 112-test suite, but its first targeted bridge run had an early
+EOF. A later complete rerun and six targeted repetitions passed without a code
+change; the intermittent error remains unresolved. Windows debug UDP reported
+one early-EOF error while its bridge group passed. Neither the successful
+reruns nor the source/wheel ordinary results erase those failures. No new live
+SSH, physical cross-network or complete two-leg acceptance is claimed.

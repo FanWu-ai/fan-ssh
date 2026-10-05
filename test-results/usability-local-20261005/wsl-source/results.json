@@ -1,0 +1,241 @@
+[
+  {
+    "group": "full",
+    "command": [
+      "<wsl-validation>/venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<wsl-validation>/source/tests",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 52.573,
+    "total": 112,
+    "passed": 112,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "udp",
+    "command": [
+      "<wsl-validation>/venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<wsl-validation>/source/tests",
+      "-p",
+      "test_udp.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 25.666,
+    "total": 13,
+    "passed": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "home-bridge",
+    "command": [
+      "<wsl-validation>/venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<wsl-validation>/source/tests",
+      "-p",
+      "test_home_bridge.py",
+      "-v"
+    ],
+    "exit_code": 1,
+    "timed_out": false,
+    "seconds": 5.441,
+    "total": 11,
+    "passed": 10,
+    "failures": 0,
+    "errors": 1,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "profiles",
+    "command": [
+      "<wsl-validation>/venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<wsl-validation>/source/tests",
+      "-p",
+      "test_profiles.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 0.431,
+    "total": 22,
+    "passed": 22,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "tcp",
+    "command": [
+      "<wsl-validation>/venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<wsl-validation>/source/experiments/tcp-simopen",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 0.993,
+    "total": 26,
+    "passed": 26,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "stun",
+    "command": [
+      "<wsl-validation>/venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<wsl-validation>/source/experiments/stun-observer",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 0.127,
+    "total": 7,
+    "passed": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "easytier",
+    "command": [
+      "<wsl-validation>/venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<wsl-validation>/source/experiments/easytier-reference",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 0.076,
+    "total": 6,
+    "passed": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "demo",
+    "command": [
+      "<wsl-validation>/venv/bin/python",
+      "-m",
+      "fan_ssh",
+      "demo"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 0.279,
+    "total": null,
+    "passed": null,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "compileall",
+    "command": [
+      "<wsl-validation>/venv/bin/python",
+      "-m",
+      "compileall",
+      "-q",
+      "<wsl-validation>/source/fan_ssh",
+      "<wsl-validation>/source/tests",
+      "<wsl-validation>/source/scripts",
+      "<wsl-validation>/source/experiments"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 0.07,
+    "total": null,
+    "passed": null,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "pip-check",
+    "command": [
+      "<wsl-validation>/venv/bin/python",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 0.281,
+    "total": null,
+    "passed": null,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "versions",
+    "command": [
+      "<wsl-validation>/venv/bin/python",
+      "-c",
+      "import sys,platform,importlib.metadata as m,fan_ssh,aiortc,aioice;print(sys.version);print(platform.platform());print('fan_ssh.__file__='+fan_ssh.__file__);print({x:m.version(x) for x in ('fan-ssh','cryptography','aiortc','aioice')})"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 0.282,
+    "total": null,
+    "passed": null,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  }
+]

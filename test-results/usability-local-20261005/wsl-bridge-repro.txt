@@ -1,0 +1,43 @@
+REPRO ITERATION 1
+test_tcp_incoming_udp_outgoing_binary_and_half_close (test_home_bridge.HomeBridgeUDPTests.test_tcp_incoming_udp_outgoing_binary_and_half_close) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.101s
+
+OK
+REPRO ITERATION 2
+test_tcp_incoming_udp_outgoing_binary_and_half_close (test_home_bridge.HomeBridgeUDPTests.test_tcp_incoming_udp_outgoing_binary_and_half_close) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.037s
+
+OK
+REPRO ITERATION 3
+test_tcp_incoming_udp_outgoing_binary_and_half_close (test_home_bridge.HomeBridgeUDPTests.test_tcp_incoming_udp_outgoing_binary_and_half_close) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.245s
+
+OK
+REPRO ITERATION 4
+test_tcp_incoming_udp_outgoing_binary_and_half_close (test_home_bridge.HomeBridgeUDPTests.test_tcp_incoming_udp_outgoing_binary_and_half_close) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.100s
+
+OK
+REPRO ITERATION 5
+test_tcp_incoming_udp_outgoing_binary_and_half_close (test_home_bridge.HomeBridgeUDPTests.test_tcp_incoming_udp_outgoing_binary_and_half_close) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.060s
+
+OK
+REPRO ITERATION 6
+test_tcp_incoming_udp_outgoing_binary_and_half_close (test_home_bridge.HomeBridgeUDPTests.test_tcp_incoming_udp_outgoing_binary_and_half_close) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.993s
+
+OK
+[{"iteration": 1, "total": 1, "errors": 0, "failures": 0}, {"iteration": 2, "total": 1, "errors": 0, "failures": 0}, {"iteration": 3, "total": 1, "errors": 0, "failures": 0}, {"iteration": 4, "total": 1, "errors": 0, "failures": 0}, {"iteration": 5, "total": 1, "errors": 0, "failures": 0}, {"iteration": 6, "total": 1, "errors": 0, "failures": 0}]

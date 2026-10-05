@@ -1,0 +1,4 @@
+3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+Windows-11-10.0.22631-SP0
+fan_ssh.__file__=<validation-root>\wheel-venv\Lib\site-packages\fan_ssh\__init__.py
+{'fan-ssh': '0.3.0', 'cryptography': '50.0.2', 'aiortc': '1.15.0', 'aioice': '0.10.2'}

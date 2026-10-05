@@ -1,0 +1,4 @@
+3.12.3 (main, Aug 14 2025, 17:47:21) [GCC 13.3.0]
+Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39
+fan_ssh.__file__=<wsl-validation>/source/fan_ssh/__init__.py
+{'fan-ssh': '0.3.0', 'cryptography': '50.0.2', 'aiortc': '1.15.0', 'aioice': '0.10.2'}

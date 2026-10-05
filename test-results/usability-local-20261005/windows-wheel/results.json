@@ -1,0 +1,262 @@
+[
+  {
+    "group": "full",
+    "command": [
+      "<validation-root>/wheel-venv/Scripts/python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<workspace>\\tests",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 136.0,
+    "total": 112,
+    "passed": 107,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 5,
+    "skips": [
+      "test_proxy_blocked_stdout_cancellation (test_cli.CLITests.test_proxy_blocked_stdout_cancellation) ... skipped 'POSIX signal/pipe runtime regression'",
+      "test_cancelled_observation_closes_prebound_resources (test_native_diagnostics.LinuxBindingTests.test_cancelled_observation_closes_prebound_resources) ... skipped 'Linux source-bound TCP adapter; run on Linux hosts'",
+      "test_same_source_port_two_authenticated_observers_and_prebound_listener (test_native_diagnostics.LinuxBindingTests.test_same_source_port_two_authenticated_observers_and_prebound_listener) ... skipped 'Linux source-bound TCP adapter; run on Linux hosts'",
+      "test_named_pipe_profile_is_rejected_without_blocking (test_profiles.ProfileTests.test_named_pipe_profile_is_rejected_without_blocking) ... skipped 'POSIX FIFO regression'",
+      "test_symlink_profile_is_rejected_and_never_overwritten (test_profiles.ProfileTests.test_symlink_profile_is_rejected_and_never_overwritten) ... skipped 'symlink creation may require Windows privileges'"
+    ],
+    "background_errors": false
+  },
+  {
+    "group": "udp",
+    "command": [
+      "<validation-root>/wheel-venv/Scripts/python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<workspace>\\tests",
+      "-p",
+      "test_udp.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 29.203,
+    "total": 13,
+    "passed": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "home-bridge",
+    "command": [
+      "<validation-root>/wheel-venv/Scripts/python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<workspace>\\tests",
+      "-p",
+      "test_home_bridge.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 26.032,
+    "total": 11,
+    "passed": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "profiles",
+    "command": [
+      "<validation-root>/wheel-venv/Scripts/python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<workspace>\\tests",
+      "-p",
+      "test_profiles.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 7.0,
+    "total": 22,
+    "passed": 20,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 2,
+    "skips": [
+      "test_named_pipe_profile_is_rejected_without_blocking (test_profiles.ProfileTests.test_named_pipe_profile_is_rejected_without_blocking) ... skipped 'POSIX FIFO regression'",
+      "test_symlink_profile_is_rejected_and_never_overwritten (test_profiles.ProfileTests.test_symlink_profile_is_rejected_and_never_overwritten) ... skipped 'symlink creation may require Windows privileges'"
+    ],
+    "background_errors": false
+  },
+  {
+    "group": "tcp",
+    "command": [
+      "<validation-root>/wheel-venv/Scripts/python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<workspace>\\experiments\\tcp-simopen",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 0.593,
+    "total": 26,
+    "passed": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 11,
+    "skips": [
+      "test_both_listeners_select_same_authenticated_stream_and_halfclose (test_tcp_reuse.ReuseChannelControls.test_both_listeners_select_same_authenticated_stream_and_halfclose) ... skipped 'requires real Linux SO_REUSEPORT'",
+      "test_cancel_pending_accept_and_active_connect_leaves_no_descriptors (test_tcp_reuse.ReuseChannelControls.test_cancel_pending_accept_and_active_connect_leaves_no_descriptors) ... skipped 'requires real Linux SO_REUSEPORT'",
+      "test_observer_stdin_eof_closes_held_authenticated_client_promptly (test_tcp_reuse.ReuseChannelControls.test_observer_stdin_eof_closes_held_authenticated_client_promptly) ... skipped 'requires real Linux SO_REUSEPORT'",
+      "test_wrong_mac_cannot_select_a_connected_stream (test_tcp_reuse.ReuseChannelControls.test_wrong_mac_cannot_select_a_connected_stream) ... skipped 'requires real Linux SO_REUSEPORT'",
+      "test_bound_peer_that_never_connects_is_not_success (test_tcp_simopen.LocalSocketTests.test_bound_peer_that_never_connects_is_not_success) ... skipped 'Linux socket diagnostic'",
+      "test_numeric_loopback_bindings_distinct_and_noninheritable (test_tcp_simopen.LocalSocketTests.test_numeric_loopback_bindings_distinct_and_noninheritable) ... skipped 'Linux socket diagnostic'",
+      "test_payload_stall_and_cancellation_bounded (test_tcp_simopen.LocalSocketTests.test_payload_stall_and_cancellation_bounded) ... skipped 'Linux socket diagnostic'",
+      "test_repeat_trials_tuple_integrity_and_cleanup (test_tcp_simopen.LocalSocketTests.test_repeat_trials_tuple_integrity_and_cleanup) ... skipped 'Linux socket diagnostic'",
+      "test_roundtrip_local_socketpair (test_tcp_simopen.LocalSocketTests.test_roundtrip_local_socketpair) ... skipped 'Linux socket diagnostic'",
+      "test_second_bind_failure_closes_first_socket (test_tcp_simopen.LocalSocketTests.test_second_bind_failure_closes_first_socket) ... skipped 'Linux socket diagnostic'",
+      "test_total_budget_cli_smoke (test_tcp_simopen.LocalSocketTests.test_total_budget_cli_smoke) ... skipped 'Linux socket diagnostic'"
+    ],
+    "background_errors": false
+  },
+  {
+    "group": "stun",
+    "command": [
+      "<validation-root>/wheel-venv/Scripts/python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<workspace>\\experiments\\stun-observer",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 0.422,
+    "total": 7,
+    "passed": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "easytier",
+    "command": [
+      "<validation-root>/wheel-venv/Scripts/python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<workspace>\\experiments\\easytier-reference",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 0.266,
+    "total": 6,
+    "passed": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "demo",
+    "command": [
+      "<validation-root>/wheel-venv/Scripts/python.exe",
+      "-m",
+      "fan_ssh",
+      "demo"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 0.719,
+    "total": null,
+    "passed": null,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "compileall",
+    "command": [
+      "<validation-root>/wheel-venv/Scripts/python.exe",
+      "-m",
+      "compileall",
+      "-q",
+      "<workspace>\\fan_ssh",
+      "<workspace>\\tests",
+      "<workspace>\\scripts",
+      "<workspace>\\experiments"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 0.234,
+    "total": null,
+    "passed": null,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "pip-check",
+    "command": [
+      "<validation-root>/wheel-venv/Scripts/python.exe",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 1.172,
+    "total": null,
+    "passed": null,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "versions",
+    "command": [
+      "<validation-root>/wheel-venv/Scripts/python.exe",
+      "-c",
+      "import sys,platform,importlib.metadata as m,fan_ssh,aiortc,aioice;print(sys.version);print(platform.platform());print('fan_ssh.__file__='+fan_ssh.__file__);print({x:m.version(x) for x in ('fan-ssh','cryptography','aiortc','aioice')})"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 1.078,
+    "total": null,
+    "passed": null,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  }
+]

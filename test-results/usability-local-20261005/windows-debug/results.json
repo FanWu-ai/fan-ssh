@@ -1,0 +1,50 @@
+[
+  {
+    "group": "udp",
+    "command": [
+      "<validation-root>/source-venv/Scripts/python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<workspace>\\tests",
+      "-p",
+      "test_udp.py",
+      "-v"
+    ],
+    "exit_code": 1,
+    "timed_out": false,
+    "seconds": 85.016,
+    "total": 13,
+    "passed": 12,
+    "failures": 0,
+    "errors": 1,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  },
+  {
+    "group": "home-bridge",
+    "command": [
+      "<validation-root>/source-venv/Scripts/python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "<workspace>\\tests",
+      "-p",
+      "test_home_bridge.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "timed_out": false,
+    "seconds": 48.75,
+    "total": 11,
+    "passed": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "skips": [],
+    "background_errors": false
+  }
+]

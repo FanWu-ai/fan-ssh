@@ -1,0 +1,2 @@
+DEV ONLY: ephemeral identities; loopback TLS; no NAT traversal or relay; 30-second data deadline
+PASS: coordinator-discovered, mutually authenticated direct TLS echo; no relay

@@ -1,0 +1,27 @@
+test_add_prints_working_next_commands_for_custom_directory (test_profiles.ProfileTests.test_add_prints_working_next_commands_for_custom_directory) ... ok
+test_connect_reuses_existing_ssh_entry_and_remote_command (test_profiles.ProfileTests.test_connect_reuses_existing_ssh_entry_and_remote_command) ... ok
+test_connect_validates_existing_identity_before_starting_ssh (test_profiles.ProfileTests.test_connect_validates_existing_identity_before_starting_ssh) ... ok
+test_corrupt_duplicate_unknown_version_and_oversize_profiles_fail_closed (test_profiles.ProfileTests.test_corrupt_duplicate_unknown_version_and_oversize_profiles_fail_closed) ... ok
+test_default_directories_follow_platform_conventions (test_profiles.ProfileTests.test_default_directories_follow_platform_conventions) ... ok
+test_doctor_checks_native_address_and_pinned_optional_dependencies (test_profiles.ProfileTests.test_doctor_checks_native_address_and_pinned_optional_dependencies) ... ok
+test_doctor_cli_exit_code_and_json (test_profiles.ProfileTests.test_doctor_cli_exit_code_and_json) ... ok
+test_doctor_encrypted_identity_returns_actionable_json_and_other_checks (test_profiles.ProfileTests.test_doctor_encrypted_identity_returns_actionable_json_and_other_checks) ... ok
+test_doctor_reads_only_and_reports_unchecked_network_and_host_key (test_profiles.ProfileTests.test_doctor_reads_only_and_reports_unchecked_network_and_host_key) ... ok
+test_doctor_rejects_identity_not_enrolled (test_profiles.ProfileTests.test_doctor_rejects_identity_not_enrolled) ... ok
+test_doctor_reports_revoked_acl_and_missing_ssh_independently (test_profiles.ProfileTests.test_doctor_reports_revoked_acl_and_missing_ssh_independently) ... ok
+test_invalid_or_unpaired_options_fail_before_writing (test_profiles.ProfileTests.test_invalid_or_unpaired_options_fail_before_writing) ... ok
+test_missing_profile_cli_returns_error_without_traceback_or_creation (test_profiles.ProfileTests.test_missing_profile_cli_returns_error_without_traceback_or_creation) ... ok
+test_named_pipe_profile_is_rejected_without_blocking (test_profiles.ProfileTests.test_named_pipe_profile_is_rejected_without_blocking) ... ok
+test_names_cannot_escape_directory_or_use_windows_reserved_names (test_profiles.ProfileTests.test_names_cannot_escape_directory_or_use_windows_reserved_names) ... ok
+test_offline_cli_does_not_even_create_an_event_loop_socketpair (test_profiles.ProfileTests.test_offline_cli_does_not_even_create_an_event_loop_socketpair) ... ok
+test_profile_listing_show_and_first_run_are_readable (test_profiles.ProfileTests.test_profile_listing_show_and_first_run_are_readable) ... ok
+test_relative_paths_are_bound_to_creation_directory (test_profiles.ProfileTests.test_relative_paths_are_bound_to_creation_directory) ... ok
+test_roundtrip_stores_only_connection_options_and_cannot_overwrite (test_profiles.ProfileTests.test_roundtrip_stores_only_connection_options_and_cannot_overwrite) ... ok
+test_stored_relative_paths_are_rejected (test_profiles.ProfileTests.test_stored_relative_paths_are_rejected) ... ok
+test_symlink_profile_is_rejected_and_never_overwritten (test_profiles.ProfileTests.test_symlink_profile_is_rejected_and_never_overwritten) ... ok
+test_unknown_name_has_actionable_error (test_profiles.ProfileTests.test_unknown_name_has_actionable_error) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.885s
+
+OK

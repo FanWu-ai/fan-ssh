@@ -1,0 +1,4 @@
+Command-line pre-publication fetch: SSL connection timeout; not a successful fetch.
+Command-line ordinary push: connection reset, exit 1; not a successful push.
+Authenticated GitHub remote-ref read: branch remained at 38284740ca5b8303edc0dbeab3cb82995a9d7187.
+Fallback publication: create Git commit, update only the assigned branch with force=false, read remote SHA and report back.

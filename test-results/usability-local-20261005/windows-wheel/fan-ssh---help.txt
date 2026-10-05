@@ -1,0 +1,26 @@
+usage: fan-ssh [-h]
+               {demo,forward,proxy,ssh,identity-init,identity-export,policy-build,coordinator,node,diagnose,home-bridge,profile,connect,doctor}
+               ...
+
+Approved SSH streams over direct peer paths; optional explicit home bridge; no
+cloud data relay
+
+positional arguments:
+  {demo,forward,proxy,ssh,identity-init,identity-export,policy-build,coordinator,node,diagnose,home-bridge,profile,connect,doctor}
+    identity-init       explicitly create a new device key in a new private
+                        directory
+    identity-export     export a device public certificate for operator
+                        approval
+    policy-build        build a manually approved roster and directed service
+                        ACL
+    home-bridge         explicit business bridge to one fixed approved peer;
+                        no cloud data relay
+    profile             save/list/show reusable connection options; never
+                        stores keys or grants access
+    connect             connect using a saved profile and existing SSH
+                        credentials
+    doctor              check a profile offline; no connections, listeners or
+                        SSH config execution
+
+options:
+  -h, --help            show this help message and exit

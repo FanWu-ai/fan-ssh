@@ -1,0 +1,32 @@
+test_both_listeners_select_same_authenticated_stream_and_halfclose (test_tcp_reuse.ReuseChannelControls.test_both_listeners_select_same_authenticated_stream_and_halfclose) ... ok
+test_cancel_pending_accept_and_active_connect_leaves_no_descriptors (test_tcp_reuse.ReuseChannelControls.test_cancel_pending_accept_and_active_connect_leaves_no_descriptors) ... ok
+test_observer_stdin_eof_closes_held_authenticated_client_promptly (test_tcp_reuse.ReuseChannelControls.test_observer_stdin_eof_closes_held_authenticated_client_promptly) ... Executing <Task pending name='Task-21' coro=<ReuseChannelControls.test_observer_stdin_eof_closes_held_authenticated_client_promptly() running at <wsl-validation>/source/experiments/tcp-simopen/test_tcp_reuse.py:24> wait_for=<Future pending cb=[Task.task_wakeup()] created at /usr/lib/python3.12/asyncio/base_events.py:449> cb=[_run_until_complete_cb() at /usr/lib/python3.12/asyncio/base_events.py:182] created at /usr/lib/python3.12/asyncio/runners.py:100> took 0.271 seconds
+ok
+test_wrong_mac_cannot_select_a_connected_stream (test_tcp_reuse.ReuseChannelControls.test_wrong_mac_cannot_select_a_connected_stream) ... ok
+test_cli_rejects_out_of_bounds_and_network_arguments (test_tcp_simopen.DeterministicTests.test_cli_rejects_out_of_bounds_and_network_arguments) ... ok
+test_connected_tuple_mismatch_rejected (test_tcp_simopen.DeterministicTests.test_connected_tuple_mismatch_rejected) ... ok
+test_deadline_must_be_finite (test_tcp_simopen.DeterministicTests.test_deadline_must_be_finite) ... ok
+test_expired_and_cancelled_trials_do_not_bind (test_tcp_simopen.DeterministicTests.test_expired_and_cancelled_trials_do_not_bind) ... ok
+test_invalid_api_bounds (test_tcp_simopen.DeterministicTests.test_invalid_api_bounds) ... ok
+test_invalid_family_never_creates_socket (test_tcp_simopen.DeterministicTests.test_invalid_family_never_creates_socket) ... ok
+test_json_summary_and_exit_semantics (test_tcp_simopen.DeterministicTests.test_json_summary_and_exit_semantics) ... ok
+test_partial_io_and_early_eof (test_tcp_simopen.DeterministicTests.test_partial_io_and_early_eof) ... ok
+test_payload_and_echo_mismatch (test_tcp_simopen.DeterministicTests.test_payload_and_echo_mismatch) ... ok
+test_pending_probe_cancels (test_tcp_simopen.DeterministicTests.test_pending_probe_cancels) ... ok
+test_pending_probe_times_out (test_tcp_simopen.DeterministicTests.test_pending_probe_times_out) ... ok
+test_probe_propagates_error (test_tcp_simopen.DeterministicTests.test_probe_propagates_error) ... ok
+test_refuse_nonloopback_and_low_ports_before_connect (test_tcp_simopen.DeterministicTests.test_refuse_nonloopback_and_low_ports_before_connect) ... ok
+test_unsupported_platform_explicit_and_no_socket (test_tcp_simopen.DeterministicTests.test_unsupported_platform_explicit_and_no_socket) ... ok
+test_zero_socket_error_does_not_prove_connection (test_tcp_simopen.DeterministicTests.test_zero_socket_error_does_not_prove_connection) ... ok
+test_bound_peer_that_never_connects_is_not_success (test_tcp_simopen.LocalSocketTests.test_bound_peer_that_never_connects_is_not_success) ... ok
+test_numeric_loopback_bindings_distinct_and_noninheritable (test_tcp_simopen.LocalSocketTests.test_numeric_loopback_bindings_distinct_and_noninheritable) ... ok
+test_payload_stall_and_cancellation_bounded (test_tcp_simopen.LocalSocketTests.test_payload_stall_and_cancellation_bounded) ... ok
+test_repeat_trials_tuple_integrity_and_cleanup (test_tcp_simopen.LocalSocketTests.test_repeat_trials_tuple_integrity_and_cleanup) ... ok
+test_roundtrip_local_socketpair (test_tcp_simopen.LocalSocketTests.test_roundtrip_local_socketpair) ... ok
+test_second_bind_failure_closes_first_socket (test_tcp_simopen.LocalSocketTests.test_second_bind_failure_closes_first_socket) ... ok
+test_total_budget_cli_smoke (test_tcp_simopen.LocalSocketTests.test_total_budget_cli_smoke) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.860s
+
+OK
