@@ -1,6 +1,6 @@
 {
   "source": "windows",
-  "target": "hospital",
+  "target": "remote_lan_b",
   "reference": "frp 0.71.0 XTCP/QUIC IPv4",
   "relay": false,
   "fallback_configured": false,
@@ -12,7 +12,7 @@
       "ssh_verified": true
     }
   ],
-  "hospital_peer_established": true,
+  "remote_lan_b_peer_established": true,
   "windows_peer_established": true,
   "date": "2026-10-04",
   "strict_existing_host_key": true,
@@ -20,5 +20,5 @@
   "assisted_addresses": false,
   "cloud_role": "metadata only",
   "production_fan_ssh_acceptance": false,
-  "required_k3_hospital_acceptance": false
+  "required_remote_lan_a_remote_lan_b_acceptance": false
 }

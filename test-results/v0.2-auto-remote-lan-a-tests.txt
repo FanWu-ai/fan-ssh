@@ -15,11 +15,9 @@ Processing ./wheels/typing_extensions-4.16.0-py3-none-any.whl (from pyee>=13.0.0
 Installing collected packages: ifaddr, typing-extensions, pycparser, google-crc32c, dnspython, av, pyee, cffi, aioice, pylibsrtp, cryptography, pyopenssl, aiortc
 
 Successfully installed aioice-0.10.2 aiortc-1.15.0 av-17.1.0 cffi-2.1.1 cryptography-50.0.2 dnspython-2.8.0 google-crc32c-1.9.0 ifaddr-0.2.0 pycparser-3.0 pyee-14.0.0 pylibsrtp-1.0.0 pyopenssl-26.4.0 typing-extensions-4.16.0
-ENV Linux x86_64 3.12.10 OpenSSL 3.0.2 15 Mar 2022 cryptography 50.0.2 uid 1005
+ENV Linux x86_64 3.12.3 OpenSSL 3.0.13 30 Jan 2024 cryptography 50.0.2 ordinary-user UID (redacted)
 PASS: coordinator-discovered, mutually authenticated direct TLS echo; no relay
 CHECK_STATUS root=0 diagnostic=0 demo=0
-WARNING: Error parsing dependencies of python-debian: Invalid version: '0.1.43ubuntu1'
-WARNING: Error parsing dependencies of distro-info: Invalid version: '1.1build1'
 test_demo (test_cli.CLITests.test_demo) ... ok
 test_invalid_target_stdout_empty (test_cli.CLITests.test_invalid_target_stdout_empty) ... ok
 test_proxy_blocked_stdout_cancellation (test_cli.CLITests.test_proxy_blocked_stdout_cancellation) ... ok
@@ -91,7 +89,7 @@ test_unapproved_candidate_rejected (test_udp.UDPTests.test_unapproved_candidate_
 test_wrong_dtls_pin_rejected (test_udp.UDPTests.test_wrong_dtls_pin_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 69 tests in 31.833s
+Ran 69 tests in 33.041s
 
 OK
 test_cli_rejects_out_of_bounds_and_network_arguments (test_tcp_simopen.DeterministicTests.test_cli_rejects_out_of_bounds_and_network_arguments) ... ok
@@ -118,7 +116,7 @@ test_second_bind_failure_closes_first_socket (test_tcp_simopen.LocalSocketTests.
 test_total_budget_cli_smoke (test_tcp_simopen.LocalSocketTests.test_total_budget_cli_smoke) ... ok
 
 ----------------------------------------------------------------------
-Ran 22 tests in 0.114s
+Ran 22 tests in 0.169s
 
 OK
 DEV ONLY: ephemeral identities; loopback TLS; no NAT traversal or relay; 30-second data deadline

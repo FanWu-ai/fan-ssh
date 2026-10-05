@@ -10,21 +10,21 @@
     {
       "observation_profile": "external_numeric_stun",
       "peers": {
-        "3k": {
+        "remote_lan_a": {
           "client_checks": 6,
           "banner_checks_passed": 0,
           "both_native_peer_gates_passed": false,
           "strict_ssh_verified": false,
           "roundtrip_hash_verified": false
         },
-        "4k": {
+        "remote_lan_c": {
           "client_checks": 6,
           "banner_checks_passed": 0,
           "both_native_peer_gates_passed": false,
           "strict_ssh_verified": false,
           "roundtrip_hash_verified": false
         },
-        "5k": {
+        "remote_lan_d": {
           "client_checks": 6,
           "banner_checks_passed": 0,
           "both_native_peer_gates_passed": false,
@@ -36,21 +36,21 @@
     {
       "observation_profile": "fixed_cloud_numeric_stun",
       "peers": {
-        "3k": {
+        "remote_lan_a": {
           "client_checks": 6,
           "banner_checks_passed": 0,
           "both_native_peer_gates_passed": false,
           "strict_ssh_verified": false,
           "roundtrip_hash_verified": false
         },
-        "4k": {
+        "remote_lan_c": {
           "client_checks": 6,
           "banner_checks_passed": 0,
           "both_native_peer_gates_passed": false,
           "strict_ssh_verified": false,
           "roundtrip_hash_verified": false
         },
-        "5k": {
+        "remote_lan_d": {
           "client_checks": 2,
           "banner_checks_passed": 1,
           "both_native_peer_gates_passed": true,

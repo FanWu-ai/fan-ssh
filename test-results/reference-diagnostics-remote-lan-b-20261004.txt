@@ -1,4 +1,4 @@
-ordinary uid=1002
+ordinary-user UID (redacted)
 test_advertised_two_hop_route_is_not_a_connection (test_peer_check.SelectedPathTests.test_advertised_two_hop_route_is_not_a_connection) ... ok
 test_selected_connection_must_be_direct_and_live (test_peer_check.SelectedPathTests.test_selected_connection_must_be_direct_and_live) ... ok
 test_selected_native_path (test_peer_check.SelectedPathTests.test_selected_native_path) ... ok
@@ -7,7 +7,7 @@ test_wrong_next_hop_or_target_rejected (test_peer_check.SelectedPathTests.test_w
 test_wrong_protocol_or_embedded_native_ip_rejected (test_peer_check.SelectedPathTests.test_wrong_protocol_or_embedded_native_ip_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 0.001s
+Ran 6 tests in 0.000s
 
 OK
 test_malformed_attribute_does_not_leave_partial_success (test_binding.BindingCases.test_malformed_attribute_does_not_leave_partial_success) ... ok
@@ -19,6 +19,6 @@ test_modern_client_decodes_its_actual_tuple (test_tcp_observer.TcpBindingCases.t
 test_wrong_type_length_or_oversize_is_not_answered (test_tcp_observer.TcpBindingCases.test_wrong_type_length_or_oversize_is_not_answered) ... ok
 
 ----------------------------------------------------------------------
-Ran 7 tests in 0.001s
+Ran 7 tests in 0.000s
 
 OK

@@ -1,20 +1,20 @@
 {
   "date": "2026-10-05",
-  "scope": "Read-only inspection and strict SSH login through the user's existing running FRP visitor",
+  "scope": "Read-only inspection and strict SSH login through the existing running FRP visitor",
   "source": "Windows",
-  "target": "hospital",
+  "target": "remote_lan_b",
   "running_visitor_type": "xtcp",
   "visitor_port": 16022,
   "fallback_configured": false,
   "latest_peer_establishment_log_time": "2026-10-05 06:52:01",
   "log_transport": "QUIC over IPv4 UDP",
-  "selected_peer_matches_hospital_native_exit": true,
+  "selected_peer_matches_remote_lan_b_native_exit": true,
   "assisted_addresses_in_hole_response": [],
   "existing_host_key_strictly_verified": true,
   "ssh_exit_code": 0,
   "expected_login_marker_received": true,
   "download_speed_or_hash_remeasured": false,
   "configuration_or_deployment_changed": false,
-  "required_k3_hospital_acceptance": false,
-  "assessment": "The existing Windows/hospital FRP path remains usable. This positive pair is separate from the failed 3k/hospital native acceptance trials."
+  "required_remote_lan_a_remote_lan_b_acceptance": false,
+  "assessment": "The existing Windows/remote LAN device B FRP path remains usable. This positive pair is separate from the failed remote LAN device A/remote LAN device B native acceptance trials."
 }

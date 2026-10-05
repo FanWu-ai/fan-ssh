@@ -8,7 +8,7 @@
   "local_controls": [
     {
       "environment": "WSL Linux Python 3.12",
-      "uid": 1000,
+      "uid": "<ordinary-user UID redacted>",
       "release_observation_before_dial": false,
       "peer_mac_verified": true,
       "control_bytes": 65536,
@@ -18,7 +18,7 @@
     },
     {
       "environment": "WSL Linux Python 3.12",
-      "uid": 1000,
+      "uid": "<ordinary-user UID redacted>",
       "release_observation_before_dial": true,
       "peer_mac_verified": true,
       "control_bytes": 65536,
@@ -30,12 +30,12 @@
   "native_trials": [
     {
       "trial": 1,
-      "initiator": "k3",
+      "initiator": "remote_lan_a",
       "release_observation_before_dial": false,
       "peers": {
-        "k3": {
+        "remote_lan_a": {
           "role": 0,
-          "uid": 1002,
+          "uid": "<ordinary-user UID redacted>",
           "sync_complete": true,
           "relay_roundtrip_ms": 54.406,
           "dial_delay_ms": 27.203,
@@ -47,9 +47,9 @@
           ],
           "error": "TimeoutError"
         },
-        "hospital": {
+        "remote_lan_b": {
           "role": 1,
-          "uid": 1005,
+          "uid": "<ordinary-user UID redacted>",
           "sync_complete": true,
           "dial_delay_ms": 0,
           "accepted": 0,
@@ -64,12 +64,12 @@
     },
     {
       "trial": 2,
-      "initiator": "hospital",
+      "initiator": "remote_lan_b",
       "release_observation_before_dial": false,
       "peers": {
-        "hospital": {
+        "remote_lan_b": {
           "role": 0,
-          "uid": 1005,
+          "uid": "<ordinary-user UID redacted>",
           "sync_complete": true,
           "relay_roundtrip_ms": 55.255,
           "dial_delay_ms": 27.628,
@@ -78,9 +78,9 @@
           "authenticated_candidates": 0,
           "error": "TimeoutError"
         },
-        "k3": {
+        "remote_lan_a": {
           "role": 1,
-          "uid": 1002,
+          "uid": "<ordinary-user UID redacted>",
           "sync_complete": true,
           "dial_delay_ms": 0,
           "accepted": 0,
@@ -98,12 +98,12 @@
     },
     {
       "trial": 1,
-      "initiator": "k3",
+      "initiator": "remote_lan_a",
       "release_observation_before_dial": true,
       "peers": {
-        "k3": {
+        "remote_lan_a": {
           "role": 0,
-          "uid": 1002,
+          "uid": "<ordinary-user UID redacted>",
           "sync_complete": true,
           "relay_roundtrip_ms": 60.134,
           "dial_delay_ms": 30.067,
@@ -116,9 +116,9 @@
           ],
           "error": "TimeoutError"
         },
-        "hospital": {
+        "remote_lan_b": {
           "role": 1,
-          "uid": 1005,
+          "uid": "<ordinary-user UID redacted>",
           "sync_complete": true,
           "dial_delay_ms": 0,
           "observation_socket_released_before_peer_connect": true,
@@ -134,12 +134,12 @@
     },
     {
       "trial": 2,
-      "initiator": "hospital",
+      "initiator": "remote_lan_b",
       "release_observation_before_dial": true,
       "peers": {
-        "hospital": {
+        "remote_lan_b": {
           "role": 0,
-          "uid": 1005,
+          "uid": "<ordinary-user UID redacted>",
           "sync_complete": true,
           "relay_roundtrip_ms": 62.697,
           "dial_delay_ms": 31.349,
@@ -149,9 +149,9 @@
           "authenticated_candidates": 0,
           "error": "TimeoutError"
         },
-        "k3": {
+        "remote_lan_a": {
           "role": 1,
-          "uid": 1002,
+          "uid": "<ordinary-user UID redacted>",
           "sync_complete": true,
           "dial_delay_ms": 0,
           "observation_socket_released_before_peer_connect": true,
@@ -170,7 +170,7 @@
     }
   ],
   "setup_attempts_excluded": [
-    "hospital default Python 3.10 lacks asyncio.timeout",
+    "remote LAN device B default Python 3.10 lacks asyncio.timeout",
     "pre-barrier role wait expired",
     "fixed PEER/CONNECT frame-order race"
   ],

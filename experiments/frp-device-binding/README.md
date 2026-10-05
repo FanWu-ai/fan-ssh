@@ -35,5 +35,5 @@ closed. Run inside a bounded ordinary-user test supervisor, stop owned children,
 and remove only the validated temporary directory afterward.
 
 The Python fan-ssh direct selector does not yet integrate this external FRP
-reference. See ../../test-results/frp-home-peer5-native-20261005.json and the
+reference. See ../../test-results/frp-workstation-remote-lan-d-native-20261005.json and the
 remaining acceptance limits in ../../VALIDATION.md.

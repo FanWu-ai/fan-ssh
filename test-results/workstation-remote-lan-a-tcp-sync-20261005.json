@@ -1,6 +1,6 @@
 {
   "date": "2026-10-05",
-  "method": "Windows/k3 ordinary-user source-bound TCP reuse; CONNECT/SYNC/half-RTT timing",
+  "method": "Windows/remote LAN device A ordinary-user source-bound TCP reuse; CONNECT/SYNC/half-RTT timing",
   "actual_libp2p_or_rustdesk_binary": false,
   "windows_local_controls": [
     {
@@ -42,7 +42,7 @@
   ],
   "native_trials": [
     {
-      "initiator": "home Windows",
+      "initiator": "local Windows workstation",
       "release_observation": false,
       "physical_route_verified": true,
       "agents": [
@@ -61,9 +61,9 @@
           "error": "TimeoutError"
         },
         {
-          "host": "3k",
+          "host": "remote_lan_a",
           "role": 1,
-          "uid": 1002,
+          "uid": "<ordinary-user UID redacted>",
           "sync_complete": true,
           "stage": "NATIVE_PEER_MAC",
           "dial_delay_ms": 0,
@@ -82,14 +82,14 @@
       "cloud_business_bytes": 0
     },
     {
-      "initiator": "k3",
+      "initiator": "remote_lan_a",
       "release_observation": false,
       "physical_route_verified": true,
       "agents": [
         {
-          "host": "3k",
+          "host": "remote_lan_a",
           "role": 0,
-          "uid": 1002,
+          "uid": "<ordinary-user UID redacted>",
           "sync_complete": true,
           "stage": "NATIVE_PEER_MAC",
           "relay_roundtrip_ms": 39.292,
@@ -122,7 +122,7 @@
       "cloud_business_bytes": 0
     },
     {
-      "initiator": "home Windows",
+      "initiator": "local Windows workstation",
       "release_observation": true,
       "physical_route_verified": true,
       "agents": [
@@ -141,9 +141,9 @@
           "error": "TimeoutError"
         },
         {
-          "host": "3k",
+          "host": "remote_lan_a",
           "role": 1,
-          "uid": 1002,
+          "uid": "<ordinary-user UID redacted>",
           "sync_complete": true,
           "stage": "NATIVE_PEER_MAC",
           "dial_delay_ms": 0,
@@ -162,14 +162,14 @@
       "cloud_business_bytes": 0
     },
     {
-      "initiator": "k3",
+      "initiator": "remote_lan_a",
       "release_observation": true,
       "physical_route_verified": true,
       "agents": [
         {
-          "host": "3k",
+          "host": "remote_lan_a",
           "role": 0,
-          "uid": 1002,
+          "uid": "<ordinary-user UID redacted>",
           "sync_complete": true,
           "stage": "NATIVE_PEER_MAC",
           "relay_roundtrip_ms": 44.889,
@@ -203,5 +203,5 @@
     }
   ],
   "network_authentication_or_deployment_changed": false,
-  "assessment": "All four valid native coordination rounds completed. Home accepted no connection; k3 TCP connect completed but read zero peer-MAC bytes. No authenticated direct path."
+  "assessment": "All four valid native coordination rounds completed. local workstation accepted no connection; remote LAN device A TCP connect completed but read zero peer-MAC bytes. No authenticated direct path."
 }

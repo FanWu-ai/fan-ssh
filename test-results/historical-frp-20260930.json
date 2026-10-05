@@ -5,7 +5,7 @@
   "timezone": "Asia/Shanghai",
   "endpoints": [
     "Windows",
-    "hospital"
+    "remote_lan_b"
   ],
   "tool": "frp 0.71.0 XTCP",
   "transport": "QUIC over IPv4 UDP",
@@ -45,6 +45,6 @@
   },
   "original_provider_log_and_visitor_config_reinspected_read_only": true,
   "new_server_process_or_network_change_during_inspection": false,
-  "current_3k_hospital_acceptance_passed": false,
+  "current_remote_lan_a_remote_lan_b_acceptance_passed": false,
   "privacy": "Public peer tuples, session identifiers, tokens and secret keys omitted"
 }

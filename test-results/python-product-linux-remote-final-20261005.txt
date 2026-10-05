@@ -5,7 +5,7 @@ Processing ./wheels/pycparser-3.0-py3-none-any.whl
 Installing collected packages: pycparser, cffi, cryptography
 
 Successfully installed cffi-2.1.1 cryptography-50.0.2 pycparser-3.0
-ENV Linux x86_64 3.12.3 OpenSSL 3.0.13 30 Jan 2024 cryptography 50.0.2 uid 1002
+ENV Linux x86_64 3.12.3 OpenSSL 3.0.13 30 Jan 2024 cryptography 50.0.2 ordinary-user UID (redacted)
 PASS: coordinator-discovered, mutually authenticated direct TLS echo; no relay
 CHECK_STATUS root=0 diagnostic=0 demo=0
 test_expired_certificate_cannot_be_enrolled_or_renew_grant (test_remote.ConfigurationTests.test_expired_certificate_cannot_be_enrolled_or_renew_grant) ... ok

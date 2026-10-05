@@ -6,11 +6,11 @@
     22093
   ],
   "initial_before_user_added_second_rule": {
-    "hospital": {
+    "remote_lan_b": {
       "22092_binding_verified": true,
       "22093_binding_verified": false
     },
-    "k3": {
+    "remote_lan_a": {
       "22092_binding_verified": true,
       "22093_binding_verified": false
     },
@@ -23,11 +23,11 @@
     }
   },
   "after_user_added_second_rule": {
-    "hospital": {
+    "remote_lan_b": {
       "22092_binding_verified": true,
       "22093_binding_verified": true
     },
-    "k3": {
+    "remote_lan_a": {
       "22092_binding_verified": true,
       "22093_binding_verified": true
     }

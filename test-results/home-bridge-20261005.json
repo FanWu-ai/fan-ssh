@@ -1,6 +1,6 @@
 {
   "date": "2026-10-05",
-  "owner_accepts_two_native_home_legs": true,
+  "target_requires_two_native_workstation_legs": true,
   "implemented_command": "home-bridge",
   "fixed_target_service": true,
   "separate_directed_grants_each_leg": true,
@@ -13,14 +13,14 @@
     "delayed_reply_after_half_close_verified": true,
     "missing_acl_and_wrong_final_pin_rejected": true,
     "relay_evidence_rejected_before_forwarding_payload": true,
-    "home_and_final_revocation_close_stream": true,
+    "workstation_and_final_revocation_close_stream": true,
     "caller_disconnect_cancels_pending_upstream": true,
     "foreground_cli_stdout_binary_clean": true,
     "real_ssh_login_exercised": false
   },
   "linux": {
-    "hospital": {
-      "uid": 1005,
+    "remote_lan_b": {
+      "uid": "<ordinary-user UID redacted>",
       "full_suite_total": 80,
       "full_suite_passed": 80,
       "full_suite_skipped": 0,
@@ -30,8 +30,8 @@
       "latest_tcp_bridge_subset_passed": 9,
       "latest_tcp_bridge_subset_skipped": 0
     },
-    "k3": {
-      "uid": 1002,
+    "remote_lan_a": {
+      "uid": "<ordinary-user UID redacted>",
       "full_suite_total": 80,
       "full_suite_passed": 80,
       "full_suite_skipped": 0,
@@ -93,8 +93,8 @@
     "public_release": false
   },
   "real_topology": {
-    "home_hospital_frp_reference_ssh_verified": true,
-    "home_k3_native_leg_verified": false,
+    "workstation_remote_lan_b_frp_reference_ssh_verified": true,
+    "workstation_remote_lan_a_native_leg_verified": false,
     "complete_home_bridge_ssh_data_verified": false,
     "native_linux_pair_verified": false
   },

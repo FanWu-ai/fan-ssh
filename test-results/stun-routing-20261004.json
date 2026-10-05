@@ -7,51 +7,51 @@
       "stun.voipbuster.com",
       "stun.miwifi.com"
     ],
-    "k3_answers_in_198_18_benchmark_range": true,
-    "hospital_answers_public_ipv4": true,
+    "remote_lan_a_answers_in_198_18_benchmark_range": true,
+    "remote_lan_b_answers_public_ipv4": true,
     "windows_easyvoip_answer_in_benchmark_range": false
   },
   "numeric_easyvoip_pair_successful_check": {
-    "k3_bindings_verified": [
+    "remote_lan_a_bindings_verified": [
       true,
       true,
       true
     ],
-    "hospital_bindings_verified": [
+    "remote_lan_b_bindings_verified": [
       true,
       true,
       true
     ],
-    "k3_mapping_stable_within_pair": true,
-    "hospital_mapping_stable_within_pair": true,
-    "k3_egress_matches_cloud_observation": false,
-    "hospital_egress_matches_cloud_observation": true
+    "remote_lan_a_mapping_stable_within_pair": true,
+    "remote_lan_b_mapping_stable_within_pair": true,
+    "remote_lan_a_egress_matches_cloud_observation": false,
+    "remote_lan_b_egress_matches_cloud_observation": true
   },
   "subsequent_classic_and_modern_check": {
-    "k3_primary_response_verified": false,
-    "hospital_primary_and_advertised_alternate_verified": true,
+    "remote_lan_a_primary_response_verified": false,
+    "remote_lan_b_primary_and_advertised_alternate_verified": true,
     "limitation": "A later socket did not reproduce the earlier positive response; external observation is intermittent in this sample."
   },
   "numeric_frp_discovery": {
-    "k3_exit": 1,
+    "remote_lan_a_exit": 1,
     "error": "STUN_RESPONSE_TIMEOUT",
     "peer_hole_attempted": false
   },
   "domestic_cloud_miwifi_comparisons": {
     "alternate_ips_tested": 2,
-    "k3_each_trial": [
+    "remote_lan_a_each_trial": [
       true,
       false,
       true
     ],
-    "hospital_each_trial": [
+    "remote_lan_b_each_trial": [
       true,
       true,
       true
     ],
-    "k3_cross_ip_nat_classification_established": false
+    "remote_lan_a_cross_ip_nat_classification_established": false
   },
-  "k3_route_checks": {
+  "remote_lan_a_route_checks": {
     "real_observer_and_peer_routes_use_physical_nic": true,
     "active_local_clash_mihomo_singbox_process_found": false,
     "listed_host_nat_mangle_rules_show_proxy_redirect": false,
@@ -66,16 +66,16 @@
       "modern",
       "classic"
     ],
-    "k3_verified_external_responses": 0,
-    "hospital_verified_modern_external_responses": 3,
-    "hospital_verified_classic_external_responses": 0,
+    "remote_lan_a_verified_external_responses": 0,
+    "remote_lan_b_verified_modern_external_responses": 3,
+    "remote_lan_b_verified_classic_external_responses": 0,
     "cloud_before_after_verified_both_hosts": true,
     "full_nat_classification_established": false
   },
   "easytier_default_tcp_reference": {
-    "k3_default_stun_dns_in_benchmark_range": true,
-    "k3_tcp_stun_egress_matches_native_cloud": false,
-    "hospital_tcp_stun_egress_matches_native_cloud": true,
+    "remote_lan_a_default_stun_dns_in_benchmark_range": true,
+    "remote_lan_a_tcp_stun_egress_matches_native_cloud": false,
+    "remote_lan_b_tcp_stun_egress_matches_native_cloud": true,
     "tcp_peer_hole_established": false
   }
 }

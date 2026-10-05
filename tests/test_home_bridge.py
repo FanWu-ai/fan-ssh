@@ -26,7 +26,7 @@ class BridgeFixture:
     async def asyncSetUp(self):
         self.ids, self.data = fixture()
         # a cannot access b directly. The only permitted route is a -> c -> b.
-        self.data['allow'] = [{'from': 'a', 'to': 'c', 'service': 'hospital-ssh'},
+        self.data['allow'] = [{'from': 'a', 'to': 'c', 'service': 'remote-ssh'},
                               {'from': 'c', 'to': 'b', 'service': 'ssh'}]
         self.cleanup = []
         self.accepted = 0
@@ -58,7 +58,7 @@ class BridgeFixture:
         self.data['devices'][2]['candidates'] = [self.target_node.service.address]
         initial = Policy.parse(self.data)
         self.upstream = Client('c', self.ids['c'], initial)
-        self.home = await HomeBridge('c', self.ids['c'], initial, 'hospital-ssh', 'b', 'ssh',
+        self.home = await HomeBridge('c', self.ids['c'], initial, 'remote-ssh', 'b', 'ssh',
                                      self.upstream, self.log).start('127.0.0.1:0', poll=False)
         self.cleanup.append(self.home)
         self.data['devices'][3]['candidates'] = [self.home.service.address]
@@ -87,7 +87,7 @@ class HomeBridgeTests(BridgeFixture, unittest.IsolatedAsyncioTestCase):
             operations.append((policy.caller(identity.pin), dict(message)))
             return await original(identity, policy, message, **kwargs)
         with patch('fan_ssh.remote.request', observe):
-            pair, report = await self.client.dial('c', 'hospital-ssh')
+            pair, report = await self.client.dial('c', 'remote-ssh')
             payload = os.urandom(1024 * 1024)
             async def send():
                 for offset in range(0, len(payload), BUFFER):
@@ -111,7 +111,7 @@ class HomeBridgeTests(BridgeFixture, unittest.IsolatedAsyncioTestCase):
                 await asyncio.gather(sender, return_exceptions=True)
                 await close_writer(pair[1])
         grants = [(caller, op['target'], op['service']) for caller, op in operations if op['op'] == 'grant']
-        self.assertEqual(grants, [('a', 'c', 'hospital-ssh'), ('c', 'b', 'ssh')])
+        self.assertEqual(grants, [('a', 'c', 'remote-ssh'), ('c', 'b', 'ssh')])
         self.assertTrue(all(op['op'] in ('grant', 'renew') for _, op in operations))
         self.assertEqual(self.accepted, 1)
 
@@ -123,7 +123,7 @@ class HomeBridgeTests(BridgeFixture, unittest.IsolatedAsyncioTestCase):
         data = copy.deepcopy(self.data)
         data['allow'] = data['allow'][:1]
         with self.assertRaisesRegex(ValueError, 'BRIDGE_UPSTREAM_ACL_REQUIRED'):
-            HomeBridge('c', self.ids['c'], Policy.parse(data), 'hospital-ssh', 'b', 'ssh', self.upstream)
+            HomeBridge('c', self.ids['c'], Policy.parse(data), 'remote-ssh', 'b', 'ssh', self.upstream)
         self.assertEqual(self.accepted, 0)
         self.assertFalse(self.home.brokers)
         with self.assertRaisesRegex(ValueError, 'INVALID_ADDRESS'):
@@ -131,7 +131,7 @@ class HomeBridgeTests(BridgeFixture, unittest.IsolatedAsyncioTestCase):
 
     async def test_wrong_final_peer_pin_fails_without_service_dial(self):
         self.target_node.service.context = tls_context(self.ids['a'], self.policy, server=True)
-        pair, _ = await self.client.dial('c', 'hospital-ssh')
+        pair, _ = await self.client.dial('c', 'remote-ssh')
         try:
             async with asyncio.timeout(3):
                 try:
@@ -144,7 +144,7 @@ class HomeBridgeTests(BridgeFixture, unittest.IsolatedAsyncioTestCase):
             await close_writer(pair[1])
 
     async def test_policy_change_closes_live_two_leg_stream_and_requires_restart(self):
-        pair, _ = await self.client.dial('c', 'hospital-ssh')
+        pair, _ = await self.client.dial('c', 'remote-ssh')
         await asyncio.wait_for(self.connected.wait(), 3)
         data = copy.deepcopy(self.data)
         data['revision'] = 2
@@ -157,7 +157,7 @@ class HomeBridgeTests(BridgeFixture, unittest.IsolatedAsyncioTestCase):
                 except asyncio.IncompleteReadError:
                     pass
             with self.assertRaisesRegex(ValueError, 'BRIDGE_POLICY_CHANGED_RESTART_REQUIRED'):
-                await self.home.open_service('hospital-ssh')
+                await self.home.open_service('remote-ssh')
         finally:
             await close_writer(pair[1])
         await self.wait_settled()
@@ -173,7 +173,7 @@ class HomeBridgeTests(BridgeFixture, unittest.IsolatedAsyncioTestCase):
             finally:
                 cancelled.set()
         with patch.object(self.upstream, 'dial', pending), patch.object(self.upstream, 'close', wraps=self.upstream.close) as closed:
-            pair, _ = await self.client.dial('c', 'hospital-ssh')
+            pair, _ = await self.client.dial('c', 'remote-ssh')
             await asyncio.wait_for(started.wait(), 3)
             await close_writer(pair[1])
             await asyncio.wait_for(cancelled.wait(), 3)
@@ -184,7 +184,7 @@ class HomeBridgeTests(BridgeFixture, unittest.IsolatedAsyncioTestCase):
 
     async def test_unstarted_broker_cancellation_closes_anonymous_socket(self):
         with patch.object(self.upstream, 'dial', wraps=self.upstream.dial) as dial:
-            pair = await self.home.open_service('hospital-ssh')
+            pair = await self.home.open_service('remote-ssh')
             broker = next(iter(self.home.brokers))
             broker.cancel()  # No event-loop yield after creating the broker.
             await asyncio.gather(broker, return_exceptions=True)
@@ -196,7 +196,7 @@ class HomeBridgeTests(BridgeFixture, unittest.IsolatedAsyncioTestCase):
                 await close_writer(pair[1])
 
     async def test_final_node_revocation_closes_incoming_bridge_stream(self):
-        pair, _ = await self.client.dial('c', 'hospital-ssh')
+        pair, _ = await self.client.dial('c', 'remote-ssh')
         await asyncio.wait_for(self.connected.wait(), 3)
         data = copy.deepcopy(self.data)
         data['revision'] = 2
@@ -220,7 +220,7 @@ class HomeBridgeTests(BridgeFixture, unittest.IsolatedAsyncioTestCase):
             pair, report = await original(*args)
             return pair, dict(report, relay=True)
         with patch.object(self.upstream, 'dial', relayed):
-            pair, _ = await self.client.dial('c', 'hospital-ssh')
+            pair, _ = await self.client.dial('c', 'remote-ssh')
             pair[1].write(b'ssh-credentials-must-not-reach-final-service')
             await pair[1].drain()
             try:
@@ -246,7 +246,7 @@ class HomeBridgeTests(BridgeFixture, unittest.IsolatedAsyncioTestCase):
             with (root / 'stderr.log').open('wb') as log:
                 process = subprocess.Popen([sys.executable, '-m', 'fan_ssh', 'home-bridge',
                                             '--identity', str(root / 'identity'), '--policy', str(policy),
-                                            '--listen', endpoint, '--bridge-service', 'hospital-ssh',
+                                            '--listen', endpoint, '--bridge-service', 'remote-ssh',
                                             '--peer', 'b', '--transport', 'auto', '--no-reverse'],
                                            stdout=subprocess.PIPE, stderr=log)
                 try:
@@ -254,7 +254,7 @@ class HomeBridgeTests(BridgeFixture, unittest.IsolatedAsyncioTestCase):
                         while b'HOME-BRIDGE listening=' not in (root / 'stderr.log').read_bytes():
                             self.assertIsNone(process.poll(), (root / 'stderr.log').read_bytes())
                             await asyncio.sleep(0.05)
-                    pair, _ = await self.client.dial('c', 'hospital-ssh')
+                    pair, _ = await self.client.dial('c', 'remote-ssh')
                     payload = bytes(range(256)) * 32
                     try:
                         pair[1].write(payload)
@@ -308,7 +308,7 @@ class HomeBridgeUDPTests(BridgeFixture, NativeTestCase):
             client = UDPClient('a', self.ids['a'], self.policy, '127.0.0.1', stun,
                                context=tls_context(self.ids['a'], self.policy))
             self.cleanup.append(client)
-        pair, report = await client.dial('c', 'hospital-ssh')
+        pair, report = await client.dial('c', 'remote-ssh')
         payload = os.urandom(128 * 1024)
         async def send():
             for offset in range(0, len(payload), BUFFER):

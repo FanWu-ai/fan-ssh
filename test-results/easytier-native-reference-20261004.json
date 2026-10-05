@@ -16,8 +16,8 @@
   ],
   "scope": "Temporary ordinary-user reference comparison; not a Python transport integration",
   "linux_uids": {
-    "k3": 1002,
-    "hospital": 1005
+    "remote_lan_a": "<ordinary-user UID redacted>",
+    "remote_lan_b": "<ordinary-user UID redacted>"
   },
   "effective_constraints_verified": {
     "no_tun": true,
@@ -46,8 +46,8 @@
   },
   "default_tcp_reference": {
     "peer_snapshots": 8,
-    "k3_tcp_stun_egress_matches_native_cloud": false,
-    "hospital_tcp_stun_egress_matches_native_cloud": true,
+    "remote_lan_a_tcp_stun_egress_matches_native_cloud": false,
+    "remote_lan_b_tcp_stun_egress_matches_native_cloud": true,
     "tcp_punch_attempted": true,
     "either_target_direct_peer_present": false,
     "ssh_payload_attempted": false
@@ -61,7 +61,7 @@
     "cloud_binding_responses": 17,
     "ordinary_user_instrumentation": "Only two explicitly resolved TCP STUN destinations in the supervised test child were redirected; other default STUN endpoints were refused. The static release binary and host configuration were unchanged.",
     "endpoints": {
-      "k3": {
+      "remote_lan_a": {
         "tcp_stun_redirect_calls": 8,
         "tcp_classification_observations_all_native": true,
         "same_local_port_mappings_differ_by_cloud_destination_port": true,
@@ -71,7 +71,7 @@
         "last_target_direct_peer_present": false,
         "last_selected_native_peer_verified": false
       },
-      "hospital": {
+      "remote_lan_b": {
         "tcp_stun_redirect_calls": 9,
         "tcp_classification_observations_all_native": true,
         "same_local_port_mappings_differ_by_cloud_destination_port": false,
@@ -89,8 +89,8 @@
   "invalid_instrumentation_attempts_counted_as_corrected_references": false,
   "new_diagnostic_tests": {
     "windows": 13,
-    "hospital": 13,
-    "k3": 13,
+    "remote_lan_b": 13,
+    "remote_lan_a": 13,
     "skips": 0
   },
   "native_linux_pair_ssh_verified": false,

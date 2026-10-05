@@ -1,17 +1,17 @@
 {
   "date": "2026-10-04",
-  "router_model": "ZTE ZXHN E2633",
-  "home_computer": {
+  "router_model": "<redacted>",
+  "workstation_computer": {
     "physical_interface_has_global_ipv6": true,
     "physical_ipv6_default_route": true,
     "source_bound_ipv6_https_succeeded": true,
     "reported_source_matches_native_ipv6": true
   },
   "linux_hosts": {
-    "k3": {
+    "remote_lan_a": {
       "native_global_ipv6_present": false,
       "native_ipv6_default_route_present": false,
-      "route_to_home_ipv6": "Network is unreachable",
+      "route_to_workstation_ipv6": "Network is unreachable",
       "networkmanager_ipv6_method": "ignore",
       "kernel_accept_ra": 1,
       "active_router_solicitation": {
@@ -21,10 +21,10 @@
         "routes_or_addresses_changed": false
       }
     },
-    "hospital": {
+    "remote_lan_b": {
       "native_global_ipv6_present": false,
       "native_ipv6_default_route_present": false,
-      "route_to_home_ipv6": "Network is unreachable",
+      "route_to_workstation_ipv6": "Network is unreachable",
       "networkmanager_ipv6_method": "auto",
       "kernel_accept_ra": 0,
       "existing_local_proxy_ipv6_check": {
@@ -36,20 +36,19 @@
     }
   },
   "router_admin": {
-    "user_reports_logged_in": true,
-    "page_read_tool": "CDP operation exceeded deadline before command dispatch",
+    "page_read_tool": "Gateway-page inspection did not complete",
     "wan_ipv4_status_read": true,
     "ipv6_inbound_firewall_read": false,
     "wan_ipv4_read_method": "source-bound UPnP GetExternalIPAddress; no mapping operation",
     "wan_ipv4_class": "RFC1918 private; another upstream IPv4 layer",
-    "upstream_model_from_public_page": "HX5-9saLite",
+    "upstream_model_from_public_page": "<redacted>",
     "upstream_page": "HTTP 200 login page only; upstream WAN not obtained",
     "upstream_login_attempted": false,
     "upstream_public_ipv4_or_cgnat": "not established"
   },
-  "home_relay_deployed": false,
+  "workstation_relay_deployed": false,
   "network_or_authentication_configuration_changed": false,
-  "assessment": "Home native IPv6 egress works, but both Linux hosts lack a native IPv6 path. Read-only discovery also found a private downstream IPv4 WAN. Upstream IPv4 ingress and an IPv4/IPv6 bridge remain unverified; no home relay is deployed.",
+  "assessment": "local workstation native IPv6 egress works, but both Linux hosts lack a native IPv6 path. Read-only discovery also found a private downstream IPv4 WAN. Upstream IPv4 ingress and an IPv4/IPv6 bridge remain unverified; no local workstation relay is deployed.",
   "continued_on": "2026-10-05",
   "interpretation_limits": [
     "NM ignore leaves IPv6 alone; it does not by itself mean disabled.",

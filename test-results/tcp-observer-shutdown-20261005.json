@@ -11,14 +11,14 @@
     "listener port can be rebound"
   ],
   "linux_regression": {
-    "hospital": {
-      "uid": 1005,
+    "remote_lan_b": {
+      "uid": "<ordinary-user UID redacted>",
       "tests": 26,
       "passed": 26,
       "skipped": 0
     },
-    "k3": {
-      "uid": 1002,
+    "remote_lan_a": {
+      "uid": "<ordinary-user UID redacted>",
       "tests": 26,
       "passed": 26,
       "skipped": 0

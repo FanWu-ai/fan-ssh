@@ -54,18 +54,18 @@ exact Python command. No bypass to the original alias's management network is
 allowed. The alias supplies original host identity/credentials; no SSH config or
 authentication change is made. Parent cancellation terminates its SSH child.
 
-## Explicit home bridge
+## Explicit local workstation bridge
 
 `home_bridge.py` implements an opt-in `HomeBridge` peer with one immutable
-peer/service target. Incoming grants authorize a named service on the home peer;
-the outgoing client obtains a separate grant for home -> final peer/service.
+peer/service target. Incoming grants authorize a named service on the local workstation peer;
+the outgoing client obtains a separate grant for local workstation -> final peer/service.
 Callers cannot supply another destination. Ordinary `Node` service validation
 continues to reject anything except fixed loopback targets; only `HomeBridge`
 accepts the internal `PeerService` descriptor. The coordinator is unchanged.
 
 An anonymous socket pair composes the admitted incoming stream with an outgoing
 client using the existing direct-method selector. There is no extra local
-forwarding listener. Incoming readiness refers to the home bridge admission;
+forwarding listener. Incoming readiness refers to the local workstation bridge admission;
 outgoing readiness is separately logged only with affirmative direct evidence.
 Full success still requires final SSH identity/login/data checks and native paths
 on both legs. SSH remains end-to-end between the source and final host.
@@ -90,8 +90,8 @@ Different observations for the same local port at different destination ports de
 
 ## Open acceptance gate
 
-Ordinary-user, many-to-many SSH across different LANs remains the product objective. The owner now also accepts a home Windows business bridge between 3k and hospital, provided both legs independently use verified native peer paths and neither Tailscale nor the cloud carries business traffic. The explicit `home-bridge` mode uses a separate peer identity and two directed service approvals; synthetic checks do not satisfy the real-network gate.
+Ordinary-user, many-to-many SSH across different LANs remains the product objective. The alternative accepted topology uses a local Windows workstation business bridge between remote LAN device A and remote LAN device B, provided both legs independently use verified native peer paths and neither Tailscale nor the cloud carries business traffic. The explicit `home-bridge` mode uses a separate peer identity and two directed service approvals; synthetic checks do not satisfy the real-network gate.
 
-The Linux pair is unsolved, and the alternative topology is incomplete: home ↔ hospital FRP reference SSH works, but home ↔ 3k is unverified. Address observations alone do not pass either gate. No global native IPv6 candidate or gateway mapping interface was found on the Linux hosts. Measurements are environment-specific, not proof that every possible direct technique fails.
+The Linux pair is unsolved, and the alternative topology is incomplete: local workstation ↔ remote LAN device B FRP reference SSH works, but local workstation ↔ remote LAN device A is unverified. Address observations alone do not pass either gate. No global native IPv6 candidate or gateway mapping interface was found on the Linux hosts. Measurements are environment-specific, not proof that every possible direct technique fails.
 
-Next work needs new evidence: a verified home ↔ 3k native path or native Linux pair, followed by complete SSH/data validation. Preserve explicit failure when the selected topology lacks a path. Deployment, SSH auth changes and network configuration require user approval. No automatic relay fallback, production service installation, roaming/sleep recovery, macOS validation or universal hard-NAT solution is claimed.
+Next work needs new evidence: a verified local workstation ↔ remote LAN device A native path or native Linux pair, followed by complete SSH/data validation. Preserve explicit failure when the selected topology lacks a path. Deployment, SSH auth changes and network configuration require user approval. No automatic relay fallback, production service installation, roaming/sleep recovery, macOS validation or universal hard-NAT solution is claimed.

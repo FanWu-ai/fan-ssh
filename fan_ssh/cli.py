@@ -127,32 +127,29 @@ def main():
     parser = argparse.ArgumentParser(prog='fan-ssh', description='Approved SSH streams over direct peer paths; optional explicit home bridge; no cloud data relay')
     commands = parser.add_subparsers(dest='mode', required=True)
     commands.add_parser('demo')
+    from .profiles import connection_options
     for name in ('forward', 'proxy', 'ssh'):
         command = commands.add_parser(name)
         destination = command.add_mutually_exclusive_group(required=True)
         if name != 'ssh':
             destination.add_argument('--target', help='synthetic fixture with fixed numeric loopback TCP target')
         destination.add_argument('--peer', help='approved remote device ID')
-        command.add_argument('--identity', help='user-private identity directory (remote mode)')
-        command.add_argument('--policy', help='approved roster/ACL file (remote mode)')
-        command.add_argument('--service', default='ssh')
-        command.add_argument('--transport', choices=('auto', 'tcp', 'udp'), help='remote default: automatic direct methods; no relay fallback')
-        command.add_argument('--udp-native', help='explicit approved physical IP; UDP transport requires udp extra')
-        command.add_argument('--stun', help='explicit numeric STUN observer for UDP transport')
-        command.add_argument('--stun-alternate', help='optional second explicitly approved numeric STUN observer')
-        command.add_argument('--udp-strategy', choices=('ice', 'predict'), default='ice', help='explicit UDP strategy; auto mode tries both')
-        command.add_argument('--reverse-listen', help='optional numeric high-port listener for reverse direct connections')
-        command.add_argument('--reverse-candidate', help='approved advertised address of reverse listener, if different from local bind')
+        connection_options(command, ssh=name == 'ssh')
         if name == 'forward':
             command.add_argument('--listen', default='127.0.0.1:2222')
         if name == 'ssh':
-            command.add_argument('--ssh-host', help='existing SSH alias for credentials and verified host key; defaults to peer ID')
-            command.add_argument('--ssh-user', help='optional existing SSH user')
-            command.add_argument('--ssh-port', type=int, help='optional original SSH port for host-key lookup')
             command.add_argument('command', nargs=argparse.REMAINDER, help='optional remote command after --')
     from .commands import add_commands
     add_commands(commands)
+    from .profiles import add_commands as add_profile_commands
+    add_profile_commands(commands)
     args = parser.parse_args()
+    if args.mode == 'connect':
+        from .profiles import connection_args
+        try:
+            args = connection_args(args)
+        except (OSError, ValueError) as error:
+            parser.error(str(error))
     if args.mode in ('proxy', 'forward', 'ssh') and args.transport is None:
         args.transport = 'tcp' if getattr(args, 'target', None) else 'auto'
     if args.mode in ('proxy', 'forward') and args.target:
@@ -177,6 +174,9 @@ def main():
             for sig, handler in old.items():
                 signal.signal(sig, handler)
     try:
+        if args.mode in ('profile', 'doctor'):
+            from .profiles import run_profile
+            return run_profile(args)
         # Python 3.12 Proactor UDP stalled in sustained bidirectional DTLS tests.
         # Use the verified socket-only selector loop for explicit UDP operation.
         native_udp = getattr(args, 'transport', None) == 'udp' or bool(getattr(args, 'udp_native', None))

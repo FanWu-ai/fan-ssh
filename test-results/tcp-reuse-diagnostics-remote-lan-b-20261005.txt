@@ -1,24 +1,8 @@
-Looking in links: <temporary-test-directory>/wheels
-Processing ./wheels/cryptography-50.0.2-cp311-abi3-manylinux_2_28_x86_64.whl
-Processing ./wheels/cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
-Processing ./wheels/pycparser-3.0-py3-none-any.whl
-Installing collected packages: pycparser, cffi, cryptography
-
-Successfully installed cffi-2.1.1 cryptography-50.0.2 pycparser-3.0
-ENV Linux x86_64 3.12.10 OpenSSL 3.0.2 15 Mar 2022 cryptography 50.0.2 uid 1005
-PASS: coordinator-discovered, mutually authenticated direct TLS echo; no relay
-CHECK_STATUS root=0 diagnostic=0 demo=0
-WARNING: Error parsing dependencies of python-debian: Invalid version: '0.1.43ubuntu1'
-WARNING: Error parsing dependencies of distro-info: Invalid version: '1.1build1'
-test_demo (test_cli.CLITests.test_demo) ... ok
-test_invalid_target_stdout_empty (test_cli.CLITests.test_invalid_target_stdout_empty) ... ok
-test_proxy_blocked_stdout_cancellation (test_cli.CLITests.test_proxy_blocked_stdout_cancellation) ... ok
-test_proxy_clean_binary_and_half_close (test_cli.CLITests.test_proxy_clean_binary_and_half_close) ... ok
-
-----------------------------------------------------------------------
-Ran 4 tests in 1.004s
-
-OK
+ordinary-user UID (redacted)
+test_both_listeners_select_same_authenticated_stream_and_halfclose (test_tcp_reuse.ReuseChannelControls.test_both_listeners_select_same_authenticated_stream_and_halfclose) ... ok
+test_cancel_pending_accept_and_active_connect_leaves_no_descriptors (test_tcp_reuse.ReuseChannelControls.test_cancel_pending_accept_and_active_connect_leaves_no_descriptors) ... ok
+test_observer_stdin_eof_closes_held_authenticated_client_promptly (test_tcp_reuse.ReuseChannelControls.test_observer_stdin_eof_closes_held_authenticated_client_promptly) ... ok
+test_wrong_mac_cannot_select_a_connected_stream (test_tcp_reuse.ReuseChannelControls.test_wrong_mac_cannot_select_a_connected_stream) ... ok
 test_cli_rejects_out_of_bounds_and_network_arguments (test_tcp_simopen.DeterministicTests.test_cli_rejects_out_of_bounds_and_network_arguments) ... ok
 test_connected_tuple_mismatch_rejected (test_tcp_simopen.DeterministicTests.test_connected_tuple_mismatch_rejected) ... ok
 test_deadline_must_be_finite (test_tcp_simopen.DeterministicTests.test_deadline_must_be_finite) ... ok
@@ -43,7 +27,6 @@ test_second_bind_failure_closes_first_socket (test_tcp_simopen.LocalSocketTests.
 test_total_budget_cli_smoke (test_tcp_simopen.LocalSocketTests.test_total_budget_cli_smoke) ... ok
 
 ----------------------------------------------------------------------
-Ran 22 tests in 0.113s
+Ran 26 tests in 0.473s
 
 OK
-DEV ONLY: ephemeral identities; loopback TLS; no NAT traversal or relay; 30-second data deadline

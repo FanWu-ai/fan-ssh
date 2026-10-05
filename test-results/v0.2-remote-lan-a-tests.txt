@@ -15,11 +15,9 @@ Processing ./wheels/typing_extensions-4.16.0-py3-none-any.whl (from pyee>=13.0.0
 Installing collected packages: ifaddr, typing-extensions, pycparser, google-crc32c, dnspython, av, pyee, cffi, aioice, pylibsrtp, cryptography, pyopenssl, aiortc
 
 Successfully installed aioice-0.10.2 aiortc-1.15.0 av-17.1.0 cffi-2.1.1 cryptography-50.0.2 dnspython-2.8.0 google-crc32c-1.9.0 ifaddr-0.2.0 pycparser-3.0 pyee-14.0.0 pylibsrtp-1.0.0 pyopenssl-26.4.0 typing-extensions-4.16.0
-ENV Linux x86_64 3.12.10 OpenSSL 3.0.2 15 Mar 2022 cryptography 50.0.2 uid 1005
+ENV Linux x86_64 3.12.3 OpenSSL 3.0.13 30 Jan 2024 cryptography 50.0.2 ordinary-user UID (redacted)
 PASS: coordinator-discovered, mutually authenticated direct TLS echo; no relay
 CHECK_STATUS root=0 diagnostic=0 demo=0
-WARNING: Error parsing dependencies of python-debian: Invalid version: '0.1.43ubuntu1'
-WARNING: Error parsing dependencies of distro-info: Invalid version: '1.1build1'
 test_demo (test_cli.CLITests.test_demo) ... ok
 test_invalid_target_stdout_empty (test_cli.CLITests.test_invalid_target_stdout_empty) ... ok
 test_proxy_blocked_stdout_cancellation (test_cli.CLITests.test_proxy_blocked_stdout_cancellation) ... ok
@@ -47,17 +45,6 @@ test_session_cancellation_closes_active_stream (test_core.AsyncTests.test_sessio
 test_truncated_frame_not_eof (test_core.AsyncTests.test_truncated_frame_not_eof) ... ok
 test_unknown_ca_rejected (test_core.AsyncTests.test_unknown_ca_rejected) ... ok
 test_wrong_coordinator_pin (test_core.AsyncTests.test_wrong_coordinator_pin) ... ok
-test_caller_disconnect_cancels_pending_upstream_and_closes_owned_client (test_home_bridge.HomeBridgeTests.test_caller_disconnect_cancels_pending_upstream_and_closes_owned_client) ... ok
-test_final_node_revocation_closes_incoming_bridge_stream (test_home_bridge.HomeBridgeTests.test_final_node_revocation_closes_incoming_bridge_stream) ... ok
-test_foreground_cli_fixed_target_and_binary_clean_stdout (test_home_bridge.HomeBridgeTests.test_foreground_cli_fixed_target_and_binary_clean_stdout) ... ok
-test_missing_either_directed_permission_never_opens_final_service (test_home_bridge.HomeBridgeTests.test_missing_either_directed_permission_never_opens_final_service) ... ok
-test_policy_change_closes_live_two_leg_stream_and_requires_restart (test_home_bridge.HomeBridgeTests.test_policy_change_closes_live_two_leg_stream_and_requires_restart) ... ok
-test_two_independent_grants_binary_integrity_and_delayed_half_close (test_home_bridge.HomeBridgeTests.test_two_independent_grants_binary_integrity_and_delayed_half_close) ... ok
-test_unstarted_broker_cancellation_closes_anonymous_socket (test_home_bridge.HomeBridgeTests.test_unstarted_broker_cancellation_closes_anonymous_socket) ... ok
-test_upstream_relay_report_is_rejected_before_forwarding_payload (test_home_bridge.HomeBridgeTests.test_upstream_relay_report_is_rejected_before_forwarding_payload) ... ok
-test_wrong_final_peer_pin_fails_without_service_dial (test_home_bridge.HomeBridgeTests.test_wrong_final_peer_pin_fails_without_service_dial) ... ok
-test_tcp_incoming_udp_outgoing_binary_and_half_close (test_home_bridge.HomeBridgeUDPTests.test_tcp_incoming_udp_outgoing_binary_and_half_close) ... ok
-test_two_udp_legs_binary_and_half_close (test_home_bridge.HomeBridgeUDPTests.test_two_udp_legs_binary_and_half_close) ... ok
 test_cancelled_observation_closes_prebound_resources (test_native_diagnostics.LinuxBindingTests.test_cancelled_observation_closes_prebound_resources) ... ok
 test_same_source_port_two_authenticated_observers_and_prebound_listener (test_native_diagnostics.LinuxBindingTests.test_same_source_port_two_authenticated_observers_and_prebound_listener) ... ok
 test_only_approved_small_binding_requests_and_rate_limit (test_native_diagnostics.ObserverTests.test_only_approved_small_binding_requests_and_rate_limit) ... ok
@@ -84,31 +71,19 @@ test_reverse_direct_path_when_target_cannot_receive (test_remote.RemoteTests.tes
 test_service_acl_denied_before_any_direct_dial (test_remote.RemoteTests.test_service_acl_denied_before_any_direct_dial) ... ok
 test_unknown_device_never_dials_service (test_remote.RemoteTests.test_unknown_device_never_dials_service) ... ok
 test_wrong_tls_caller_expired_grant_and_replay (test_remote.RemoteTests.test_wrong_tls_caller_expired_grant_and_replay) ... ok
-test_all_methods_unreachable_report_without_relay (test_strategies.StrategyTests.test_all_methods_unreachable_report_without_relay) ... ok
-test_connectivity_failure_then_next_method_with_attempt_evidence (test_strategies.StrategyTests.test_connectivity_failure_then_next_method_with_attempt_evidence) ... ok
-test_deadline_cancels_first_path_before_starting_next (test_strategies.StrategyTests.test_deadline_cancels_first_path_before_starting_next) ... ok
-test_identity_acl_and_permission_failures_do_not_attempt_next_method (test_strategies.StrategyTests.test_identity_acl_and_permission_failures_do_not_attempt_next_method) ... ok
-test_user_cancellation_does_not_start_another_method (test_strategies.StrategyTests.test_user_cancellation_does_not_start_another_method) ... ok
 test_pending_network_requests_share_cap_and_close_rejects_them (test_udp.UDPCapacityTests.test_pending_network_requests_share_cap_and_close_rejects_them) ... ok
 test_acl_denied_before_udp_path_or_service (test_udp.UDPSignalingTests.test_acl_denied_before_udp_path_or_service) ... ok
-test_automatic_tcp_failure_then_pinned_prediction_stream (test_udp.UDPSignalingTests.test_automatic_tcp_failure_then_pinned_prediction_stream) ... ok
 test_control_loss_closes_native_session (test_udp.UDPSignalingTests.test_control_loss_closes_native_session) ... ok
 test_signaled_direct_binary_half_close (test_udp.UDPSignalingTests.test_signaled_direct_binary_half_close) ... ok
-test_alternate_observer_uses_same_native_socket_when_primary_does_not_reply (test_udp.UDPTests.test_alternate_observer_uses_same_native_socket_when_primary_does_not_reply) ... ok
 test_native_dtls_credit_flow_binary_stream (test_udp.UDPTests.test_native_dtls_credit_flow_binary_stream) ... ok
-test_port_prediction_limits_irregular_and_changed_ip_observations (test_udp.UDPTests.test_port_prediction_limits_irregular_and_changed_ip_observations) ... ok
 test_relay_candidate_rejected_before_connectivity_checks (test_udp.UDPTests.test_relay_candidate_rejected_before_connectivity_checks) ... ok
 test_unapproved_candidate_rejected (test_udp.UDPTests.test_unapproved_candidate_rejected) ... ok
 test_wrong_dtls_pin_rejected (test_udp.UDPTests.test_wrong_dtls_pin_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 80 tests in 37.597s
+Ran 61 tests in 28.999s
 
 OK
-test_both_listeners_select_same_authenticated_stream_and_halfclose (test_tcp_reuse.ReuseChannelControls.test_both_listeners_select_same_authenticated_stream_and_halfclose) ... ok
-test_cancel_pending_accept_and_active_connect_leaves_no_descriptors (test_tcp_reuse.ReuseChannelControls.test_cancel_pending_accept_and_active_connect_leaves_no_descriptors) ... ok
-test_observer_stdin_eof_closes_held_authenticated_client_promptly (test_tcp_reuse.ReuseChannelControls.test_observer_stdin_eof_closes_held_authenticated_client_promptly) ... ok
-test_wrong_mac_cannot_select_a_connected_stream (test_tcp_reuse.ReuseChannelControls.test_wrong_mac_cannot_select_a_connected_stream) ... ok
 test_cli_rejects_out_of_bounds_and_network_arguments (test_tcp_simopen.DeterministicTests.test_cli_rejects_out_of_bounds_and_network_arguments) ... ok
 test_connected_tuple_mismatch_rejected (test_tcp_simopen.DeterministicTests.test_connected_tuple_mismatch_rejected) ... ok
 test_deadline_must_be_finite (test_tcp_simopen.DeterministicTests.test_deadline_must_be_finite) ... ok
@@ -133,7 +108,7 @@ test_second_bind_failure_closes_first_socket (test_tcp_simopen.LocalSocketTests.
 test_total_budget_cli_smoke (test_tcp_simopen.LocalSocketTests.test_total_budget_cli_smoke) ... ok
 
 ----------------------------------------------------------------------
-Ran 26 tests in 0.535s
+Ran 22 tests in 0.139s
 
 OK
 DEV ONLY: ephemeral identities; loopback TLS; no NAT traversal or relay; 30-second data deadline

@@ -1,4 +1,4 @@
-ordinary uid=1002
+ordinary-user UID (redacted)
 test_both_listeners_select_same_authenticated_stream_and_halfclose (test_tcp_reuse.ReuseChannelControls.test_both_listeners_select_same_authenticated_stream_and_halfclose) ... ok
 test_cancel_pending_accept_and_active_connect_leaves_no_descriptors (test_tcp_reuse.ReuseChannelControls.test_cancel_pending_accept_and_active_connect_leaves_no_descriptors) ... ok
 test_wrong_mac_cannot_select_a_connected_stream (test_tcp_reuse.ReuseChannelControls.test_wrong_mac_cannot_select_a_connected_stream) ... ok

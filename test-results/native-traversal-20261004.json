@@ -1,11 +1,11 @@
 {
   "date": "2026-10-04",
-  "required_pair": "3k <-> hospital",
+  "required_pair": "remote LAN device A <-> remote LAN device B",
   "ssh_acceptance_passed": false,
   "cloud_role": "temporary bounded address observation / authenticated coordination only",
   "prediction_control_trials": [
     {
-      "role_assignment": "3k sender",
+      "role_assignment": "remote LAN device A sender",
       "ttl": 7,
       "received_verified": [
         0,
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "role_assignment": "3k sender",
+      "role_assignment": "remote LAN device A sender",
       "ttl": 4,
       "received_verified": [
         0,
@@ -29,7 +29,7 @@
       ]
     },
     {
-      "role_assignment": "hospital sender",
+      "role_assignment": "remote LAN device B sender",
       "ttl": 7,
       "received_verified": [
         0,
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "role_assignment": "hospital sender",
+      "role_assignment": "remote LAN device B sender",
       "ttl": 4,
       "received_verified": [
         0,
@@ -55,7 +55,7 @@
   ],
   "multi_socket_control_trials": [
     {
-      "pool_host": "3k",
+      "pool_host": "remote_lan_a",
       "results": [
         {
           "socket_count": 256,
@@ -84,7 +84,7 @@
       ]
     },
     {
-      "pool_host": "3k",
+      "pool_host": "remote_lan_a",
       "results": [
         {
           "socket_count": 256,
@@ -113,7 +113,7 @@
       ]
     },
     {
-      "pool_host": "hospital",
+      "pool_host": "remote_lan_b",
       "results": [
         {
           "socket_count": 256,
@@ -142,7 +142,7 @@
       ]
     },
     {
-      "pool_host": "hospital",
+      "pool_host": "remote_lan_b",
       "results": [
         {
           "socket_count": 256,
@@ -171,7 +171,7 @@
       ]
     },
     {
-      "pool_host": "3k",
+      "pool_host": "remote_lan_a",
       "results": [
         {
           "socket_count": 256,
@@ -200,7 +200,7 @@
       ]
     },
     {
-      "pool_host": "hospital",
+      "pool_host": "remote_lan_b",
       "results": [
         {
           "socket_count": 256,
@@ -231,7 +231,7 @@
   ],
   "tcp_ttl_control_trials": [
     {
-      "source": "3k",
+      "source": "remote_lan_a",
       "ttl": 7,
       "results": [
         {
@@ -258,7 +258,7 @@
       ]
     },
     {
-      "source": "3k",
+      "source": "remote_lan_a",
       "ttl": 4,
       "results": [
         {
@@ -285,7 +285,7 @@
       ]
     },
     {
-      "source": "hospital",
+      "source": "remote_lan_b",
       "ttl": 7,
       "results": [
         {
@@ -312,7 +312,7 @@
       ]
     },
     {
-      "source": "hospital",
+      "source": "remote_lan_b",
       "ttl": 4,
       "results": [
         {
@@ -365,7 +365,7 @@
       }
     }
   ],
-  "frp_k3_hospital_reference": {
+  "frp_remote_lan_a_remote_lan_b_reference": {
     "version": "0.71.0",
     "observer": "stun.easyvoip.com:3478",
     "trials": 3,

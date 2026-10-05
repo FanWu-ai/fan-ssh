@@ -2,7 +2,7 @@
   "date": "2026-10-05",
   "implementation": "fan-ssh Python CLI, ICE/DTLS/SCTP; no FRP process started",
   "entry": "python -m fan_ssh ssh",
-  "peer": "peer-5",
+  "peer": "remote_lan_d",
   "real_ssh_logins_verified": 3,
   "original_ssh_host_key_strictly_checked": true,
   "python_proxy_preflight_checked": true,

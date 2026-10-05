@@ -10,16 +10,16 @@
     "half_close": true
   },
   "tests": {
-    "hospital": 25,
-    "k3": 25,
+    "remote_lan_b": 25,
+    "remote_lan_a": 25,
     "skips": 0
   },
   "native_trials": [
     {
       "trial": 1,
       "endpoints": {
-        "k3": {
-          "uid": 1002,
+        "remote_lan_a": {
+          "uid": "<ordinary-user UID redacted>",
           "both_listen": true,
           "reuseport": true,
           "accepted": 0,
@@ -29,8 +29,8 @@
           "error": "TimeoutError",
           "observer_source_port_preserved": false
         },
-        "hospital": {
-          "uid": 1005,
+        "remote_lan_b": {
+          "uid": "<ordinary-user UID redacted>",
           "both_listen": true,
           "reuseport": true,
           "accepted": 0,
@@ -47,8 +47,8 @@
     {
       "trial": 2,
       "endpoints": {
-        "k3": {
-          "uid": 1002,
+        "remote_lan_a": {
+          "uid": "<ordinary-user UID redacted>",
           "both_listen": true,
           "reuseport": true,
           "accepted": 0,
@@ -58,8 +58,8 @@
           "error": "TimeoutError",
           "observer_source_port_preserved": false
         },
-        "hospital": {
-          "uid": 1005,
+        "remote_lan_b": {
+          "uid": "<ordinary-user UID redacted>",
           "both_listen": true,
           "reuseport": true,
           "accepted": 0,
@@ -76,8 +76,8 @@
     {
       "trial": 3,
       "endpoints": {
-        "k3": {
-          "uid": 1002,
+        "remote_lan_a": {
+          "uid": "<ordinary-user UID redacted>",
           "both_listen": true,
           "reuseport": true,
           "accepted": 0,
@@ -87,8 +87,8 @@
           "error": "TimeoutError",
           "observer_source_port_preserved": false
         },
-        "hospital": {
-          "uid": 1005,
+        "remote_lan_b": {
+          "uid": "<ordinary-user UID redacted>",
           "both_listen": true,
           "reuseport": true,
           "accepted": 0,
@@ -105,8 +105,8 @@
     {
       "trial": 4,
       "endpoints": {
-        "k3": {
-          "uid": 1002,
+        "remote_lan_a": {
+          "uid": "<ordinary-user UID redacted>",
           "both_listen": true,
           "reuseport": true,
           "accepted": 0,
@@ -119,8 +119,8 @@
             0
           ]
         },
-        "hospital": {
-          "uid": 1005,
+        "remote_lan_b": {
+          "uid": "<ordinary-user UID redacted>",
           "both_listen": true,
           "reuseport": true,
           "accepted": 0,
@@ -150,7 +150,7 @@
       "incoming:F.": 1,
       "outgoing:F.": 1
     },
-    "conclusion": "Apparent TCP handshake at k3 did not reach a matching accepted authenticated stream at hospital. Header source addresses alone do not identify the responding device."
+    "conclusion": "Apparent TCP handshake at remote LAN device A did not reach a matching accepted authenticated stream at remote LAN device B. Header source addresses alone do not identify the responding device."
   },
   "native_linux_pair_ssh_verified": false,
   "cleanup": {

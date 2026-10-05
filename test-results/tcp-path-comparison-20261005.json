@@ -1,7 +1,7 @@
 {
   "date": "2026-10-05",
-  "source": "k3 physical interface, ordinary uid 1002",
-  "target": "hospital fresh authenticated observer tuple; prelistening ordinary uid 1005",
+  "source": "remote LAN device A physical interface, ordinary ordinary-user UID (redacted)",
+  "target": "remote LAN device B fresh authenticated observer tuple; prelistening ordinary ordinary-user UID (redacted)",
   "observer_metadata_only": true,
   "target_prelistening_before_observation": true,
   "native_tcp_probes": [
@@ -40,9 +40,9 @@
       "error": "TimeoutError"
     }
   ],
-  "hospital_accepts": 0,
-  "hospital_authenticated_peers": 0,
-  "k3_capture": {
+  "remote_lan_b_accepts": 0,
+  "remote_lan_b_authenticated_peers": 0,
+  "remote_lan_a_capture": {
     "packets_captured": 37,
     "kernel_drops": 0,
     "promiscuous": false,
@@ -117,7 +117,7 @@
     }
   ],
   "existing_native_ssh_identity_checks": {
-    "k3": {
+    "remote_lan_a": {
       "physical_route_verified": true,
       "credentials_sent": false,
       "ports": [
@@ -135,7 +135,7 @@
         }
       ]
     },
-    "hospital": {
+    "remote_lan_b": {
       "physical_route_verified": true,
       "credentials_sent": false,
       "ports": [

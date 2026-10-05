@@ -1,5 +1,5 @@
 {
-  "acceptance": "3k <-> hospital native-network SSH not passed",
+  "acceptance": "remote LAN device A <-> remote LAN device B native-network SSH not passed",
   "relay": false,
   "udp_control_trials": [
     {
@@ -70,25 +70,25 @@
   "tcp_mapping_trials": [
     {
       "trial": 1,
-      "hospital_mapping_changed_by_observer_port": false,
-      "k3_mapping_changed_by_observer_port": true,
+      "remote_lan_b_mapping_changed_by_observer_port": false,
+      "remote_lan_a_mapping_changed_by_observer_port": true,
       "authenticated_direct_success": false
     },
     {
       "trial": 2,
-      "hospital_mapping_changed_by_observer_port": false,
-      "k3_mapping_changed_by_observer_port": true,
+      "remote_lan_b_mapping_changed_by_observer_port": false,
+      "remote_lan_a_mapping_changed_by_observer_port": true,
       "authenticated_direct_success": false
     },
     {
       "trial": 3,
-      "hospital_mapping_changed_by_observer_port": false,
-      "k3_mapping_changed_by_observer_port": true,
+      "remote_lan_b_mapping_changed_by_observer_port": false,
+      "remote_lan_a_mapping_changed_by_observer_port": true,
       "authenticated_direct_success": false
     }
   ],
   "public_rule_cleanup": "temporary UDP 22092 deletion requested; confirmation pending",
-  "k3_read_only_physical_capture": {
+  "remote_lan_a_read_only_physical_capture": {
     "peer_egress_datagrams": 40,
     "cloud_binding_requests": 1,
     "cloud_binding_responses": 1,
@@ -96,6 +96,6 @@
     "promiscuous_mode": false,
     "interface_or_firewall_changes": false
   },
-  "gateway_visibility": "owner cannot inspect exit gateways",
-  "hospital_firewall_visibility": "administrator access required; read-only check requested"
+  "gateway_visibility": "gateway inspection unavailable",
+  "remote_lan_b_firewall_visibility": "read-only visibility incomplete"
 }

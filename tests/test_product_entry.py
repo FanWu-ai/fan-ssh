@@ -51,7 +51,9 @@ class ProductEntryTests(unittest.TestCase):
             self.assertIn('--stun-alternate', proxy)
             self.assertNotIn('UserKnownHostsFile', ' '.join(command))
             if shutil.which('ssh'):
-                checked = subprocess.run([command[0], '-G', *command[1:]],
+                config = Path(root) / 'empty-ssh-config'
+                config.write_text('', encoding='utf8')
+                checked = subprocess.run([command[0], '-F', str(config), '-G', *command[1:]],
                                          capture_output=True, text=True, timeout=10)
                 self.assertEqual(checked.returncode, 0, checked.stderr)
                 self.assertTrue(any(line.startswith('proxycommand ') and 'fan_ssh proxy' in line

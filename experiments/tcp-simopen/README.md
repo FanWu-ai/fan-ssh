@@ -96,7 +96,7 @@ possible direct TCP approach.
 
 ## Fresh observation: 2026-10-03 UTC
 
-In this execution environment: Linux 6.18.44, x86_64, Python 3.12.14, uid 1000.
+In this execution environment: Linux 6.18.44, x86_64, Python 3.12.14, ordinary-user UID (redacted).
 The command above with 200 attempts per family produced:
 
 - IPv4: 2 payload-verified pairs / 200 attempts
