@@ -1,0 +1,47 @@
+Looking in links: <temporary-test-directory>/wheels
+Processing ./wheels/cryptography-50.0.2-cp311-abi3-manylinux_2_28_x86_64.whl
+Processing ./wheels/cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Processing ./wheels/pycparser-3.0-py3-none-any.whl
+Installing collected packages: pycparser, cffi, cryptography
+
+Successfully installed cffi-2.1.1 cryptography-50.0.2 pycparser-3.0
+ENV Linux x86_64 3.12.3 OpenSSL 3.0.13 30 Jan 2024 cryptography 50.0.2 uid 1002
+PASS: coordinator-discovered, mutually authenticated direct TLS echo; no relay
+CHECK_STATUS root=0 diagnostic=0 demo=0
+test_demo (test_cli.CLITests.test_demo) ... ok
+test_invalid_target_stdout_empty (test_cli.CLITests.test_invalid_target_stdout_empty) ... ok
+test_proxy_blocked_stdout_cancellation (test_cli.CLITests.test_proxy_blocked_stdout_cancellation) ... ok
+test_proxy_clean_binary_and_half_close (test_cli.CLITests.test_proxy_clean_binary_and_half_close) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.400s
+
+OK
+test_cli_rejects_out_of_bounds_and_network_arguments (test_tcp_simopen.DeterministicTests.test_cli_rejects_out_of_bounds_and_network_arguments) ... ok
+test_connected_tuple_mismatch_rejected (test_tcp_simopen.DeterministicTests.test_connected_tuple_mismatch_rejected) ... ok
+test_deadline_must_be_finite (test_tcp_simopen.DeterministicTests.test_deadline_must_be_finite) ... ok
+test_expired_and_cancelled_trials_do_not_bind (test_tcp_simopen.DeterministicTests.test_expired_and_cancelled_trials_do_not_bind) ... ok
+test_invalid_api_bounds (test_tcp_simopen.DeterministicTests.test_invalid_api_bounds) ... ok
+test_invalid_family_never_creates_socket (test_tcp_simopen.DeterministicTests.test_invalid_family_never_creates_socket) ... ok
+test_json_summary_and_exit_semantics (test_tcp_simopen.DeterministicTests.test_json_summary_and_exit_semantics) ... ok
+test_partial_io_and_early_eof (test_tcp_simopen.DeterministicTests.test_partial_io_and_early_eof) ... ok
+test_payload_and_echo_mismatch (test_tcp_simopen.DeterministicTests.test_payload_and_echo_mismatch) ... ok
+test_pending_probe_cancels (test_tcp_simopen.DeterministicTests.test_pending_probe_cancels) ... ok
+test_pending_probe_times_out (test_tcp_simopen.DeterministicTests.test_pending_probe_times_out) ... ok
+test_probe_propagates_error (test_tcp_simopen.DeterministicTests.test_probe_propagates_error) ... ok
+test_refuse_nonloopback_and_low_ports_before_connect (test_tcp_simopen.DeterministicTests.test_refuse_nonloopback_and_low_ports_before_connect) ... ok
+test_unsupported_platform_explicit_and_no_socket (test_tcp_simopen.DeterministicTests.test_unsupported_platform_explicit_and_no_socket) ... ok
+test_zero_socket_error_does_not_prove_connection (test_tcp_simopen.DeterministicTests.test_zero_socket_error_does_not_prove_connection) ... ok
+test_bound_peer_that_never_connects_is_not_success (test_tcp_simopen.LocalSocketTests.test_bound_peer_that_never_connects_is_not_success) ... ok
+test_numeric_loopback_bindings_distinct_and_noninheritable (test_tcp_simopen.LocalSocketTests.test_numeric_loopback_bindings_distinct_and_noninheritable) ... ok
+test_payload_stall_and_cancellation_bounded (test_tcp_simopen.LocalSocketTests.test_payload_stall_and_cancellation_bounded) ... ok
+test_repeat_trials_tuple_integrity_and_cleanup (test_tcp_simopen.LocalSocketTests.test_repeat_trials_tuple_integrity_and_cleanup) ... ok
+test_roundtrip_local_socketpair (test_tcp_simopen.LocalSocketTests.test_roundtrip_local_socketpair) ... ok
+test_second_bind_failure_closes_first_socket (test_tcp_simopen.LocalSocketTests.test_second_bind_failure_closes_first_socket) ... ok
+test_total_budget_cli_smoke (test_tcp_simopen.LocalSocketTests.test_total_budget_cli_smoke) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.163s
+
+OK
+DEV ONLY: ephemeral identities; loopback TLS; no NAT traversal or relay; 30-second data deadline

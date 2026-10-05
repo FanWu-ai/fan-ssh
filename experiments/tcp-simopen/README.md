@@ -1,5 +1,15 @@
 # Bounded Python TCP simultaneous-open diagnostic
 
+The original `tcp_simopen.py` below remains a no-listener, no-reuse, Python 3.10+
+loopback experiment. A separate `test_tcp_reuse.py` now covers the dual-listener
+research implementation in `scripts/native_tcp_ttl_probe.py`; those three real
+Linux controls require Python 3.11+. They verify same-stream MAC selection and a
+64 KiB exact echo with half-close, wrong-MAC rejection, and pending-connection
+cancellation without leaked descriptors. They do not prove NAT traversal.
+Full discovery now runs 25 tests on Linux. The two authorized Linux hosts each
+passed all 25 without skips on 2026-10-04. Four external dual-listener trials
+still failed peer authentication; see `test-results/tcp-reuse-native-20261004.json`.
+
 This is a **Linux, numeric-loopback-only socket experiment**, isolated from the
 main fan-ssh implementation. It uses Python's standard library. It does not
 implement or demonstrate NAT traversal, ICE, authenticated peer connectivity,

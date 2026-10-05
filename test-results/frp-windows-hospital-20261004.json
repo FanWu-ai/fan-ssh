@@ -1,0 +1,24 @@
+{
+  "source": "windows",
+  "target": "hospital",
+  "reference": "frp 0.71.0 XTCP/QUIC IPv4",
+  "relay": false,
+  "fallback_configured": false,
+  "trials": [
+    {
+      "trial": 1,
+      "banner": true,
+      "ssh_exit": 0,
+      "ssh_verified": true
+    }
+  ],
+  "hospital_peer_established": true,
+  "windows_peer_established": true,
+  "date": "2026-10-04",
+  "strict_existing_host_key": true,
+  "native_ipv4": true,
+  "assisted_addresses": false,
+  "cloud_role": "metadata only",
+  "production_fan_ssh_acceptance": false,
+  "required_k3_hospital_acceptance": false
+}

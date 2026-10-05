@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-04",
+  "strategy": "both prelisten and active connect with Linux SO_REUSEADDR/SO_REUSEPORT",
+  "control": "verified existing SSH carries metadata only; whitelisted cloud TCP observation uses port 22090",
+  "payload_goal_bytes": 65536,
+  "local_linux_comparator": {
+    "authenticated_observation": true,
+    "peer_mac": true,
+    "payload_exact": true,
+    "half_close": true
+  },
+  "tests": {
+    "hospital": 25,
+    "k3": 25,
+    "skips": 0
+  },
+  "native_trials": [
+    {
+      "trial": 1,
+      "endpoints": {
+        "k3": {
+          "uid": 1002,
+          "both_listen": true,
+          "reuseport": true,
+          "accepted": 0,
+          "connected": 1,
+          "authenticated_candidates": 0,
+          "peer_verified": false,
+          "error": "TimeoutError",
+          "observer_source_port_preserved": false
+        },
+        "hospital": {
+          "uid": 1005,
+          "both_listen": true,
+          "reuseport": true,
+          "accepted": 0,
+          "connected": 0,
+          "authenticated_candidates": 0,
+          "peer_verified": false,
+          "error": "TimeoutError",
+          "observer_source_port_preserved": true
+        }
+      },
+      "authenticated_peer_path": false,
+      "ssh_login_verified": false
+    },
+    {
+      "trial": 2,
+      "endpoints": {
+        "k3": {
+          "uid": 1002,
+          "both_listen": true,
+          "reuseport": true,
+          "accepted": 0,
+          "connected": 1,
+          "authenticated_candidates": 0,
+          "peer_verified": false,
+          "error": "TimeoutError",
+          "observer_source_port_preserved": false
+        },
+        "hospital": {
+          "uid": 1005,
+          "both_listen": true,
+          "reuseport": true,
+          "accepted": 0,
+          "connected": 0,
+          "authenticated_candidates": 0,
+          "peer_verified": false,
+          "error": "TimeoutError",
+          "observer_source_port_preserved": true
+        }
+      },
+      "authenticated_peer_path": false,
+      "ssh_login_verified": false
+    },
+    {
+      "trial": 3,
+      "endpoints": {
+        "k3": {
+          "uid": 1002,
+          "both_listen": true,
+          "reuseport": true,
+          "accepted": 0,
+          "connected": 1,
+          "authenticated_candidates": 0,
+          "peer_verified": false,
+          "error": "TimeoutError",
+          "observer_source_port_preserved": false
+        },
+        "hospital": {
+          "uid": 1005,
+          "both_listen": true,
+          "reuseport": true,
+          "accepted": 0,
+          "connected": 0,
+          "authenticated_candidates": 0,
+          "peer_verified": false,
+          "error": "TimeoutError",
+          "observer_source_port_preserved": true
+        }
+      },
+      "authenticated_peer_path": false,
+      "ssh_login_verified": false
+    },
+    {
+      "trial": 4,
+      "endpoints": {
+        "k3": {
+          "uid": 1002,
+          "both_listen": true,
+          "reuseport": true,
+          "accepted": 0,
+          "connected": 1,
+          "authenticated_candidates": 0,
+          "peer_verified": false,
+          "error": "TimeoutError",
+          "observer_source_port_preserved": false,
+          "incomplete_peer_mac_bytes": [
+            0
+          ]
+        },
+        "hospital": {
+          "uid": 1005,
+          "both_listen": true,
+          "reuseport": true,
+          "accepted": 0,
+          "connected": 0,
+          "authenticated_candidates": 0,
+          "peer_verified": false,
+          "error": "TimeoutError",
+          "observer_source_port_preserved": true
+        }
+      },
+      "authenticated_peer_path": false,
+      "ssh_login_verified": false
+    }
+  ],
+  "capture_trial": {
+    "trial": 4,
+    "interface_kind": "physical",
+    "promiscuous": false,
+    "packets_captured": 9,
+    "kernel_drops": 0,
+    "tcp_flags_by_direction": {
+      "outgoing:S": 1,
+      "incoming:S.": 1,
+      "outgoing:.": 2,
+      "outgoing:P.": 1,
+      "incoming:.": 2,
+      "incoming:F.": 1,
+      "outgoing:F.": 1
+    },
+    "conclusion": "Apparent TCP handshake at k3 did not reach a matching accepted authenticated stream at hospital. Header source addresses alone do not identify the responding device."
+  },
+  "native_linux_pair_ssh_verified": false,
+  "cleanup": {
+    "owned_processes_directories_removed": true,
+    "cloud_test_listeners_closed": true,
+    "temporary_udp_security_group_rules_removal_verified": false
+  }
+}

@@ -1,0 +1,168 @@
+test_demo (test_cli.CLITests.test_demo) ... ok
+test_invalid_target_stdout_empty (test_cli.CLITests.test_invalid_target_stdout_empty) ... ok
+test_proxy_blocked_stdout_cancellation (test_cli.CLITests.test_proxy_blocked_stdout_cancellation) ... skipped 'POSIX signal/pipe runtime regression'
+test_proxy_clean_binary_and_half_close (test_cli.CLITests.test_proxy_clean_binary_and_half_close) ... ok
+test_loopback (test_core.AddressTests.test_loopback) ... ok
+test_reject_unsafe (test_core.AddressTests.test_reject_unsafe) ... ok
+test_absolute_bridge_timeout (test_core.AsyncTests.test_absolute_bridge_timeout) ... ok
+test_actual_server_pin_checked (test_core.AsyncTests.test_actual_server_pin_checked) ... ok
+test_binary_echo_and_concurrency (test_core.AsyncTests.test_binary_echo_and_concurrency) ... ok
+test_cancellation_closes_stalled_handshake (test_core.AsyncTests.test_cancellation_closes_stalled_handshake) ... ok
+test_coordinator_rejects_body_and_operations (test_core.AsyncTests.test_coordinator_rejects_body_and_operations) ... ok
+test_coordinator_rejects_unapproved_enrolled_leaf (test_core.AsyncTests.test_coordinator_rejects_unapproved_enrolled_leaf) ... ok
+test_directional_acl_and_snapshot (test_core.AsyncTests.test_directional_acl_and_snapshot) ... ok
+test_frame_size_before_payload (test_core.AsyncTests.test_frame_size_before_payload) ... ok
+test_half_close_delayed_response (test_core.AsyncTests.test_half_close_delayed_response) ... ok
+test_handshake_admission_cap (test_core.AsyncTests.test_handshake_admission_cap) ... ok
+test_independent_destination_pin_before_dial (test_core.AsyncTests.test_independent_destination_pin_before_dial) ... ok
+test_ipv6_encrypted_peer_path (test_core.AsyncTests.test_ipv6_encrypted_peer_path) ... ok
+test_ipv6_target (test_core.AsyncTests.test_ipv6_target) ... ok
+test_local_forward (test_core.AsyncTests.test_local_forward) ... ok
+test_metadata_rejects_deep_json (test_core.AsyncTests.test_metadata_rejects_deep_json) ... ok
+test_metadata_rejects_duplicates_and_constants (test_core.AsyncTests.test_metadata_rejects_duplicates_and_constants) ... ok
+test_metadata_size_before_payload (test_core.AsyncTests.test_metadata_size_before_payload) ... ok
+test_session_cancellation_closes_active_stream (test_core.AsyncTests.test_session_cancellation_closes_active_stream) ... ok
+test_truncated_frame_not_eof (test_core.AsyncTests.test_truncated_frame_not_eof) ... ok
+test_unknown_ca_rejected (test_core.AsyncTests.test_unknown_ca_rejected) ... ok
+test_wrong_coordinator_pin (test_core.AsyncTests.test_wrong_coordinator_pin) ... ok
+test_caller_disconnect_cancels_pending_upstream_and_closes_owned_client (test_home_bridge.HomeBridgeTests.test_caller_disconnect_cancels_pending_upstream_and_closes_owned_client) ... Executing <Task finished name='Task-313' coro=<BridgeFixture.asyncSetUp() done, defined at <repository>\tests\test_home_bridge.py:26> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.500 seconds
+ok
+test_final_node_revocation_closes_incoming_bridge_stream (test_home_bridge.HomeBridgeTests.test_final_node_revocation_closes_incoming_bridge_stream) ... Executing <Task finished name='Task-338' coro=<BridgeFixture.asyncSetUp() done, defined at <repository>\tests\test_home_bridge.py:26> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.485 seconds
+Executing <Task pending name='Task-347' coro=<HomeBridgeTests.test_final_node_revocation_closes_incoming_bridge_stream() running at <repository>\tests\test_home_bridge.py:208> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.125 seconds
+ok
+test_foreground_cli_fixed_target_and_binary_clean_stdout (test_home_bridge.HomeBridgeTests.test_foreground_cli_fixed_target_and_binary_clean_stdout) ... Executing <Task finished name='Task-380' coro=<BridgeFixture.asyncSetUp() done, defined at <repository>\tests\test_home_bridge.py:26> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.484 seconds
+Executing <Task pending name='Task-389' coro=<HomeBridgeTests.test_foreground_cli_fixed_target_and_binary_clean_stdout() running at <repository>\tests\test_home_bridge.py:256> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.641 seconds
+ok
+test_missing_either_directed_permission_never_opens_final_service (test_home_bridge.HomeBridgeTests.test_missing_either_directed_permission_never_opens_final_service) ... Executing <Task finished name='Task-408' coro=<BridgeFixture.asyncSetUp() done, defined at <repository>\tests\test_home_bridge.py:26> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.484 seconds
+ok
+test_policy_change_closes_live_two_leg_stream_and_requires_restart (test_home_bridge.HomeBridgeTests.test_policy_change_closes_live_two_leg_stream_and_requires_restart) ... Executing <Task finished name='Task-421' coro=<BridgeFixture.asyncSetUp() done, defined at <repository>\tests\test_home_bridge.py:26> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.485 seconds
+Executing <Task pending name='Task-430' coro=<HomeBridgeTests.test_policy_change_closes_live_two_leg_stream_and_requires_restart() running at <repository>\tests\test_home_bridge.py:156> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.125 seconds
+ok
+test_two_independent_grants_binary_integrity_and_delayed_half_close (test_home_bridge.HomeBridgeTests.test_two_independent_grants_binary_integrity_and_delayed_half_close) ... Executing <Task finished name='Task-459' coro=<BridgeFixture.asyncSetUp() done, defined at <repository>\tests\test_home_bridge.py:26> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.484 seconds
+Executing <Task pending name='Task-491' coro=<bridge.<locals>.copy() running at <repository>\fan_ssh\transport.py:100> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[gather.<locals>._done_callback() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:767] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:420> took 0.328 seconds
+ok
+test_unstarted_broker_cancellation_closes_anonymous_socket (test_home_bridge.HomeBridgeTests.test_unstarted_broker_cancellation_closes_anonymous_socket) ... Executing <Task finished name='Task-502' coro=<BridgeFixture.asyncSetUp() done, defined at <repository>\tests\test_home_bridge.py:26> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.484 seconds
+ok
+test_upstream_relay_report_is_rejected_before_forwarding_payload (test_home_bridge.HomeBridgeTests.test_upstream_relay_report_is_rejected_before_forwarding_payload) ... Executing <Task finished name='Task-516' coro=<BridgeFixture.asyncSetUp() done, defined at <repository>\tests\test_home_bridge.py:26> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.484 seconds
+ok
+test_wrong_final_peer_pin_fails_without_service_dial (test_home_bridge.HomeBridgeTests.test_wrong_final_peer_pin_fails_without_service_dial) ... Executing <Task finished name='Task-554' coro=<BridgeFixture.asyncSetUp() done, defined at <repository>\tests\test_home_bridge.py:26> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.484 seconds
+ok
+test_tcp_incoming_udp_outgoing_binary_and_half_close (test_home_bridge.HomeBridgeUDPTests.test_tcp_incoming_udp_outgoing_binary_and_half_close) ... Executing <Task finished name='Task-584' coro=<BridgeFixture.asyncSetUp() done, defined at <repository>\tests\test_home_bridge.py:26> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.484 seconds
+ok
+test_two_udp_legs_binary_and_half_close (test_home_bridge.HomeBridgeUDPTests.test_two_udp_legs_binary_and_half_close) ... Executing <Task finished name='Task-715' coro=<BridgeFixture.asyncSetUp() done, defined at <repository>\tests\test_home_bridge.py:26> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.485 seconds
+Executing <Task pending name='Task-720' coro=<HomeBridgeUDPTests.test_two_udp_legs_binary_and_half_close() running at <repository>\tests\test_home_bridge.py:343> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(1148, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.140 seconds
+ok
+test_cancelled_observation_closes_prebound_resources (test_native_diagnostics.LinuxBindingTests.test_cancelled_observation_closes_prebound_resources) ... skipped 'Linux source-bound TCP adapter; run on Linux hosts'
+test_same_source_port_two_authenticated_observers_and_prebound_listener (test_native_diagnostics.LinuxBindingTests.test_same_source_port_two_authenticated_observers_and_prebound_listener) ... skipped 'Linux source-bound TCP adapter; run on Linux hosts'
+test_only_approved_small_binding_requests_and_rate_limit (test_native_diagnostics.ObserverTests.test_only_approved_small_binding_requests_and_rate_limit) ... ok
+test_cancelling_python_entry_stops_its_native_ssh_child (test_product_entry.ProductControlTests.test_cancelling_python_entry_stops_its_native_ssh_child) ... Executing <Task finished name='Task-953' coro=<ProductControlTests.asyncSetUp() done, defined at <repository>\tests\test_product_entry.py:74> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.141 seconds
+ok
+test_inactive_python_proxy_never_starts_a_direct_management_ssh (test_product_entry.ProductControlTests.test_inactive_python_proxy_never_starts_a_direct_management_ssh) ... Executing <Task finished name='Task-961' coro=<ProductControlTests.asyncSetUp() done, defined at <repository>\tests\test_product_entry.py:74> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.141 seconds
+ok
+test_roster_removal_rejects_next_operation_on_already_open_tls (test_product_entry.ProductControlTests.test_roster_removal_rejects_next_operation_on_already_open_tls) ... Executing <Task finished name='Task-968' coro=<ProductControlTests.asyncSetUp() done, defined at <repository>\tests\test_product_entry.py:74> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.157 seconds
+ok
+test_two_fresh_grants_reuse_one_pinned_tcp_mapping (test_product_entry.ProductControlTests.test_two_fresh_grants_reuse_one_pinned_tcp_mapping) ... Executing <Task finished name='Task-977' coro=<ProductControlTests.asyncSetUp() done, defined at <repository>\tests\test_product_entry.py:74> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.140 seconds
+ok
+test_two_real_observer_sockets_share_the_aggregate_rate_budget (test_product_entry.ProductControlTests.test_two_real_observer_sockets_share_the_aggregate_rate_budget) ... Executing <Task finished name='Task-986' coro=<ProductControlTests.asyncSetUp() done, defined at <repository>\tests\test_product_entry.py:74> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.156 seconds
+ok
+test_existing_alias_and_credentials_are_used_with_python_proxy (test_product_entry.ProductEntryTests.test_existing_alias_and_credentials_are_used_with_python_proxy) ... ok
+test_invalid_original_host_or_port_rejected_before_process (test_product_entry.ProductEntryTests.test_invalid_original_host_or_port_rejected_before_process) ... ok
+test_localized_whoami_does_not_decode_the_account_name (test_product_entry.ProductEntryTests.test_localized_whoami_does_not_decode_the_account_name) ... ok
+test_expired_certificate_cannot_be_enrolled_or_renew_grant (test_remote.ConfigurationTests.test_expired_certificate_cannot_be_enrolled_or_renew_grant) ... ok
+test_explicit_numeric_scope_and_unprivileged_ports (test_remote.ConfigurationTests.test_explicit_numeric_scope_and_unprivileged_ports) ... ok
+test_identity_roundtrip_no_overwrite (test_remote.ConfigurationTests.test_identity_roundtrip_no_overwrite) ... ok
+test_key_mismatch_and_policy_schema (test_remote.ConfigurationTests.test_key_mismatch_and_policy_schema) ... ok
+test_policy_snapshots_and_monotonic_revision (test_remote.ConfigurationTests.test_policy_snapshots_and_monotonic_revision) ... ok
+test_private_key_readable_by_other_users_rejected (test_remote.ConfigurationTests.test_private_key_readable_by_other_users_rejected) ... ok
+test_bounded_replay_cache_never_evicts_live_tokens (test_remote.GrantTests.test_bounded_replay_cache_never_evicts_live_tokens) ... ok
+test_replay_and_renewal_cannot_admit (test_remote.GrantTests.test_replay_and_renewal_cannot_admit) ... ok
+test_signature_tampering_expiry_and_future (test_remote.GrantTests.test_signature_tampering_expiry_and_future) ... ok
+test_candidate_racing_cancels_stalled_handshake (test_remote.RemoteTests.test_candidate_racing_cancels_stalled_handshake) ... Executing <Task finished name='Task-993' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.281 seconds
+ok
+test_control_unknown_operations_bodies_rate_and_offer_scope (test_remote.RemoteTests.test_control_unknown_operations_bodies_rate_and_offer_scope) ... Executing <Task finished name='Task-1023' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.297 seconds
+ok
+test_coordinator_cannot_replace_identity_or_candidates (test_remote.RemoteTests.test_coordinator_cannot_replace_identity_or_candidates) ... Executing <Task finished name='Task-1042' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.282 seconds
+ok
+test_coordinator_loss_and_revocation_close_sessions (test_remote.RemoteTests.test_coordinator_loss_and_revocation_close_sessions) ... Executing <Task finished name='Task-1057' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.297 seconds
+ok
+test_diagnosis_authenticates_without_opening_service (test_remote.RemoteTests.test_diagnosis_authenticates_without_opening_service) ... Executing <Task finished name='Task-1083' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.297 seconds
+ok
+test_direct_concurrent_payload_and_metadata_only_control (test_remote.RemoteTests.test_direct_concurrent_payload_and_metadata_only_control) ... Executing <Task finished name='Task-1099' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.297 seconds
+ok
+test_failed_candidates_honest_no_relay (test_remote.RemoteTests.test_failed_candidates_honest_no_relay) ... Executing <Task finished name='Task-1230' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.297 seconds
+ok
+test_local_policy_update_closes_active_session (test_remote.RemoteTests.test_local_policy_update_closes_active_session) ... Executing <Task finished name='Task-1244' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.281 seconds
+Executing <Task pending name='Task-1251' coro=<RemoteTests.test_local_policy_update_closes_active_session() running at <repository>\tests\test_remote.py:349> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.125 seconds
+ok
+test_many_to_many_both_devices_initiate_and_receive (test_remote.RemoteTests.test_many_to_many_both_devices_initiate_and_receive) ... Executing <Task finished name='Task-1268' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.297 seconds
+Executing <Task pending name='Task-1275' coro=<RemoteTests.test_many_to_many_both_devices_initiate_and_receive() running at <repository>\tests\test_remote.py:377> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:712> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.250 seconds
+ok
+test_renewed_session_survives_initial_expiry (test_remote.RemoteTests.test_renewed_session_survives_initial_expiry) ... Executing <Task finished name='Task-1311' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.297 seconds
+ok
+test_reverse_direct_path_when_target_cannot_receive (test_remote.RemoteTests.test_reverse_direct_path_when_target_cannot_receive) ... Executing <Task finished name='Task-1343' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.297 seconds
+ok
+test_service_acl_denied_before_any_direct_dial (test_remote.RemoteTests.test_service_acl_denied_before_any_direct_dial) ... Executing <Task finished name='Task-1384' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.281 seconds
+ok
+test_unknown_device_never_dials_service (test_remote.RemoteTests.test_unknown_device_never_dials_service) ... Executing <Task finished name='Task-1395' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.282 seconds
+ok
+test_wrong_tls_caller_expired_grant_and_replay (test_remote.RemoteTests.test_wrong_tls_caller_expired_grant_and_replay) ... Executing <Task finished name='Task-1408' coro=<RemoteTests.asyncSetUp() done, defined at <repository>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.297 seconds
+ok
+test_all_methods_unreachable_report_without_relay (test_strategies.StrategyTests.test_all_methods_unreachable_report_without_relay) ... ok
+test_connectivity_failure_then_next_method_with_attempt_evidence (test_strategies.StrategyTests.test_connectivity_failure_then_next_method_with_attempt_evidence) ... ok
+test_deadline_cancels_first_path_before_starting_next (test_strategies.StrategyTests.test_deadline_cancels_first_path_before_starting_next) ... ok
+test_identity_acl_and_permission_failures_do_not_attempt_next_method (test_strategies.StrategyTests.test_identity_acl_and_permission_failures_do_not_attempt_next_method) ... ok
+test_user_cancellation_does_not_start_another_method (test_strategies.StrategyTests.test_user_cancellation_does_not_start_another_method) ... ok
+test_pending_network_requests_share_cap_and_close_rejects_them (test_udp.UDPCapacityTests.test_pending_network_requests_share_cap_and_close_rejects_them) ... Executing <Task pending name='Task-1477' coro=<UDPCapacityTests.test_pending_network_requests_share_cap_and_close_rejects_them() running at <repository>\tests\test_udp.py:49> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.156 seconds
+ok
+test_acl_denied_before_udp_path_or_service (test_udp.UDPSignalingTests.test_acl_denied_before_udp_path_or_service) ... Executing <Task pending name='Task-1513' coro=<UDPSignalingTests.asyncSetUp() running at <repository>\tests\test_udp.py:187> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(1828, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.219 seconds
+ok
+test_automatic_tcp_failure_then_pinned_prediction_stream (test_udp.UDPSignalingTests.test_automatic_tcp_failure_then_pinned_prediction_stream) ... Executing <Task pending name='Task-1524' coro=<UDPSignalingTests.asyncSetUp() running at <repository>\tests\test_udp.py:187> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(1512, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.219 seconds
+ok
+test_control_loss_closes_native_session (test_udp.UDPSignalingTests.test_control_loss_closes_native_session) ... Executing <Task pending name='Task-1613' coro=<UDPSignalingTests.asyncSetUp() running at <repository>\tests\test_udp.py:187> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(2112, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.219 seconds
+ok
+test_signaled_direct_binary_half_close (test_udp.UDPSignalingTests.test_signaled_direct_binary_half_close) ... Executing <Task pending name='Task-1656' coro=<UDPSignalingTests.asyncSetUp() running at <repository>\tests\test_udp.py:187> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(2168, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.219 seconds
+Executing <Task pending name='Task-1663' coro=<UDPSignalingTests.test_signaled_direct_binary_half_close() running at <repository>\tests\test_udp.py:212> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.156 seconds
+Executing <Task pending name='Task-1686' coro=<bridge.<locals>.copy() running at <repository>\fan_ssh\transport.py:100> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[gather.<locals>._done_callback() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:767] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:420> took 0.110 seconds
+Executing <Task pending name='Task-1677' coro=<RTCDtlsTransport.__run() running at <repository>\.venv\Lib\site-packages\aiortc\rtcdtlstransport.py:570> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:695> took 0.110 seconds
+Executing <Task pending name='Task-1676' coro=<RTCDtlsTransport.__run() running at <repository>\.venv\Lib\site-packages\aiortc\rtcdtlstransport.py:570> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:695> took 0.344 seconds
+Executing <Task pending name='Task-1660' coro=<Node.poll() running at <repository>\fan_ssh\remote.py:155> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(2032, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:420> took 0.359 seconds
+Executing <Task pending name='Task-1677' coro=<RTCDtlsTransport.__run() running at <repository>\.venv\Lib\site-packages\aiortc\rtcdtlstransport.py:570> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:695> took 0.359 seconds
+Executing <Task pending name='Task-1676' coro=<RTCDtlsTransport.__run() running at <repository>\.venv\Lib\site-packages\aiortc\rtcdtlstransport.py:570> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:695> took 0.344 seconds
+ERROR
+test_alternate_observer_uses_same_native_socket_when_primary_does_not_reply (test_udp.UDPTests.test_alternate_observer_uses_same_native_socket_when_primary_does_not_reply) ... ok
+test_disconnected_sctp_sender_closes_owned_stream_instead_of_background_exception (test_udp.UDPTests.test_disconnected_sctp_sender_closes_owned_stream_instead_of_background_exception) ... ok
+test_expected_sctp_shutdown_does_not_report_active_send_failure (test_udp.UDPTests.test_expected_sctp_shutdown_does_not_report_active_send_failure) ... ok
+test_native_dtls_credit_flow_binary_stream (test_udp.UDPTests.test_native_dtls_credit_flow_binary_stream) ... Executing <Task pending name='Task-2270' coro=<RTCDtlsTransport.__run() running at <repository>\.venv\Lib\site-packages\aiortc\rtcdtlstransport.py:570> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:695> took 0.344 seconds
+Executing <Task pending name='Task-2269' coro=<RTCDtlsTransport.__run() running at <repository>\.venv\Lib\site-packages\aiortc\rtcdtlstransport.py:570> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:695> took 0.328 seconds
+Executing <Task pending name='Task-2270' coro=<RTCDtlsTransport.__run() running at <repository>\.venv\Lib\site-packages\aiortc\rtcdtlstransport.py:570> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:695> took 0.343 seconds
+ok
+test_port_prediction_limits_irregular_and_changed_ip_observations (test_udp.UDPTests.test_port_prediction_limits_irregular_and_changed_ip_observations) ... ok
+test_relay_candidate_rejected_before_connectivity_checks (test_udp.UDPTests.test_relay_candidate_rejected_before_connectivity_checks) ... ok
+test_unapproved_candidate_rejected (test_udp.UDPTests.test_unapproved_candidate_rejected) ... ok
+test_wrong_dtls_pin_rejected (test_udp.UDPTests.test_wrong_dtls_pin_rejected) ... Executing <Task pending name='Task-2455' coro=<Connection.query_consent() running at <repository>\.venv\Lib\site-packages\aioice\ice.py:1079> wait_for=<Future pending cb=[Task.task_wakeup()] created at <repository>\.venv\Lib\site-packages\aioice\stun.py:302> created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:420> took 0.344 seconds
+ok
+
+======================================================================
+ERROR: test_signaled_direct_binary_half_close (test_udp.UDPSignalingTests.test_signaled_direct_binary_half_close)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "<repository>\tests\test_udp.py", line 212, in test_signaled_direct_binary_half_close
+    while part := await pair[0].read():
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "<repository>\fan_ssh\transport.py", line 59, in read
+    length = struct.unpack('!I', await self.reader.readexactly(4))[0]
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repository>\fan_ssh\udp_path.py", line 176, in readexactly
+    raise asyncio.IncompleteReadError(bytes(result), size)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 4 expected bytes
+
+----------------------------------------------------------------------
+Ran 90 tests in 178.306s
+
+FAILED (errors=1, skipped=3)

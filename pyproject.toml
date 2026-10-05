@@ -4,10 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fan-ssh"
-version = "0.1.0"
-description = "Loopback-only direct SSH transport research prototype"
+version = "0.3.0"
+description = "Multi-device SSH over authenticated direct paths with explicit home bridging"
 requires-python = ">=3.11"
 dependencies = ["cryptography>=42,<51"]
+
+[project.optional-dependencies]
+udp = ["aiortc==1.15.0", "aioice==0.10.2"]
 
 [project.scripts]
 fan-ssh = "fan_ssh.cli:main"

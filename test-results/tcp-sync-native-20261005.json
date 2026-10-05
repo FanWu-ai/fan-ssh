@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-05",
+  "method": "DCUtR-inspired CONNECT/SYNC/half-RTT timing with same-port dual listeners",
+  "actual_libp2p_wire_implementation": false,
+  "actual_rustdesk_binary_test": false,
+  "release_variant_inspiration": "RustDesk releases rendezvous socket before peer dial",
+  "startup_ready_barrier": true,
+  "local_controls": [
+    {
+      "environment": "WSL Linux Python 3.12",
+      "uid": 1000,
+      "release_observation_before_dial": false,
+      "peer_mac_verified": true,
+      "control_bytes": 65536,
+      "payload_hash_matched": true,
+      "half_close_verified": true,
+      "coordinator_business_bytes": 0
+    },
+    {
+      "environment": "WSL Linux Python 3.12",
+      "uid": 1000,
+      "release_observation_before_dial": true,
+      "peer_mac_verified": true,
+      "control_bytes": 65536,
+      "payload_hash_matched": true,
+      "half_close_verified": true,
+      "coordinator_business_bytes": 0
+    }
+  ],
+  "native_trials": [
+    {
+      "trial": 1,
+      "initiator": "k3",
+      "release_observation_before_dial": false,
+      "peers": {
+        "k3": {
+          "role": 0,
+          "uid": 1002,
+          "sync_complete": true,
+          "relay_roundtrip_ms": 54.406,
+          "dial_delay_ms": 27.203,
+          "accepted": 0,
+          "connected": 1,
+          "authenticated_candidates": 0,
+          "incomplete_peer_mac_bytes": [
+            0
+          ],
+          "error": "TimeoutError"
+        },
+        "hospital": {
+          "role": 1,
+          "uid": 1005,
+          "sync_complete": true,
+          "dial_delay_ms": 0,
+          "accepted": 0,
+          "connected": 0,
+          "authenticated_candidates": 0,
+          "error": "TimeoutError"
+        }
+      },
+      "peer_authenticated": false,
+      "ssh_attempted": false,
+      "coordinator_business_bytes": 0
+    },
+    {
+      "trial": 2,
+      "initiator": "hospital",
+      "release_observation_before_dial": false,
+      "peers": {
+        "hospital": {
+          "role": 0,
+          "uid": 1005,
+          "sync_complete": true,
+          "relay_roundtrip_ms": 55.255,
+          "dial_delay_ms": 27.628,
+          "accepted": 0,
+          "connected": 0,
+          "authenticated_candidates": 0,
+          "error": "TimeoutError"
+        },
+        "k3": {
+          "role": 1,
+          "uid": 1002,
+          "sync_complete": true,
+          "dial_delay_ms": 0,
+          "accepted": 0,
+          "connected": 1,
+          "authenticated_candidates": 0,
+          "incomplete_peer_mac_bytes": [
+            0
+          ],
+          "error": "TimeoutError"
+        }
+      },
+      "peer_authenticated": false,
+      "ssh_attempted": false,
+      "coordinator_business_bytes": 0
+    },
+    {
+      "trial": 1,
+      "initiator": "k3",
+      "release_observation_before_dial": true,
+      "peers": {
+        "k3": {
+          "role": 0,
+          "uid": 1002,
+          "sync_complete": true,
+          "relay_roundtrip_ms": 60.134,
+          "dial_delay_ms": 30.067,
+          "observation_socket_released_before_peer_connect": true,
+          "accepted": 0,
+          "connected": 1,
+          "authenticated_candidates": 0,
+          "incomplete_peer_mac_bytes": [
+            0
+          ],
+          "error": "TimeoutError"
+        },
+        "hospital": {
+          "role": 1,
+          "uid": 1005,
+          "sync_complete": true,
+          "dial_delay_ms": 0,
+          "observation_socket_released_before_peer_connect": true,
+          "accepted": 0,
+          "connected": 0,
+          "authenticated_candidates": 0,
+          "error": "TimeoutError"
+        }
+      },
+      "peer_authenticated": false,
+      "ssh_attempted": false,
+      "coordinator_business_bytes": 0
+    },
+    {
+      "trial": 2,
+      "initiator": "hospital",
+      "release_observation_before_dial": true,
+      "peers": {
+        "hospital": {
+          "role": 0,
+          "uid": 1005,
+          "sync_complete": true,
+          "relay_roundtrip_ms": 62.697,
+          "dial_delay_ms": 31.349,
+          "observation_socket_released_before_peer_connect": true,
+          "accepted": 0,
+          "connected": 0,
+          "authenticated_candidates": 0,
+          "error": "TimeoutError"
+        },
+        "k3": {
+          "role": 1,
+          "uid": 1002,
+          "sync_complete": true,
+          "dial_delay_ms": 0,
+          "observation_socket_released_before_peer_connect": true,
+          "accepted": 0,
+          "connected": 1,
+          "authenticated_candidates": 0,
+          "incomplete_peer_mac_bytes": [
+            0
+          ],
+          "error": "TimeoutError"
+        }
+      },
+      "peer_authenticated": false,
+      "ssh_attempted": false,
+      "coordinator_business_bytes": 0
+    }
+  ],
+  "setup_attempts_excluded": [
+    "hospital default Python 3.10 lacks asyncio.timeout",
+    "pre-barrier role wait expired",
+    "fixed PEER/CONNECT frame-order race"
+  ],
+  "network_or_authentication_configuration_changed": false,
+  "assessment": "Both roles completed authenticated synchronization; all four native trials failed peer authentication. Timing changes alone did not establish the required path."
+}

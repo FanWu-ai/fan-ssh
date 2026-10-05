@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-05",
+  "failure": "Python 3.12 observer wait_closed blocked behind an authenticated client held open after controller stdin EOF",
+  "before_fix_regression": "held-client test timed out at process.wait after 3 seconds on WSL Python 3.12",
+  "fix": "stop accepting, cancel and gather active handlers before server.wait_closed; bound writer shutdown",
+  "observable_checks": [
+    "authenticated observation response",
+    "controller stdin EOF with client held open",
+    "process exits within 3 seconds",
+    "client gets EOF",
+    "listener port can be rebound"
+  ],
+  "linux_regression": {
+    "hospital": {
+      "uid": 1005,
+      "tests": 26,
+      "passed": 26,
+      "skipped": 0
+    },
+    "k3": {
+      "uid": 1002,
+      "tests": 26,
+      "passed": 26,
+      "skipped": 0
+    },
+    "WSL": {
+      "tests": 26,
+      "passed": 26,
+      "skipped": 0
+    }
+  },
+  "production_transport_changed": false,
+  "native_traversal_success_claimed": false
+}

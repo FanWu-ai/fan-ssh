@@ -19,6 +19,20 @@ class CLITests(unittest.TestCase):
         result = subprocess.run([sys.executable, '-m', 'fan_ssh', 'proxy', '--target', '192.0.2.1:22'], capture_output=True, timeout=5)
         self.assertNotEqual(result.returncode, 0)
         self.assertEqual(result.stdout, b'')
+        with socket.socket() as listener:
+            listener.bind(('127.0.0.1', 0))
+            listener.listen(1)
+            listener.setblocking(False)
+            target = '%s:%s' % listener.getsockname()
+            for options in (['--transport', 'udp'], ['--identity', 'unapproved'], ['--service', 'other']):
+                with self.subTest(options=options):
+                    result = subprocess.run([sys.executable, '-m', 'fan_ssh', 'proxy', '--target', target, *options],
+                                            capture_output=True, timeout=5)
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertEqual(result.stdout, b'')
+                    self.assertIn(b'require --peer', result.stderr)
+                    with self.assertRaises(BlockingIOError):
+                        listener.accept()  # No silent UDP-to-TCP fixture fallback/local service dial.
 
     def target(self, flood=False):
         listener = socket.socket()

@@ -1,0 +1,18 @@
+test_cancelling_python_entry_stops_its_native_ssh_child (test_product_entry.ProductControlTests.test_cancelling_python_entry_stops_its_native_ssh_child) ... Executing <Task finished name='Task-1' coro=<ProductControlTests.asyncSetUp() done, defined at <user-home>\AppData\Local\Temp\fan-installed-entry-test-qqvcwuy3\tests\test_product_entry.py:74> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.188 seconds
+ok
+test_inactive_python_proxy_never_starts_a_direct_management_ssh (test_product_entry.ProductControlTests.test_inactive_python_proxy_never_starts_a_direct_management_ssh) ... Executing <Task finished name='Task-9' coro=<ProductControlTests.asyncSetUp() done, defined at <user-home>\AppData\Local\Temp\fan-installed-entry-test-qqvcwuy3\tests\test_product_entry.py:74> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.156 seconds
+ok
+test_roster_removal_rejects_next_operation_on_already_open_tls (test_product_entry.ProductControlTests.test_roster_removal_rejects_next_operation_on_already_open_tls) ... Executing <Task finished name='Task-16' coro=<ProductControlTests.asyncSetUp() done, defined at <user-home>\AppData\Local\Temp\fan-installed-entry-test-qqvcwuy3\tests\test_product_entry.py:74> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.156 seconds
+ok
+test_two_fresh_grants_reuse_one_pinned_tcp_mapping (test_product_entry.ProductControlTests.test_two_fresh_grants_reuse_one_pinned_tcp_mapping) ... Executing <Task finished name='Task-25' coro=<ProductControlTests.asyncSetUp() done, defined at <user-home>\AppData\Local\Temp\fan-installed-entry-test-qqvcwuy3\tests\test_product_entry.py:74> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.157 seconds
+ok
+test_two_real_observer_sockets_share_the_aggregate_rate_budget (test_product_entry.ProductControlTests.test_two_real_observer_sockets_share_the_aggregate_rate_budget) ... Executing <Task finished name='Task-34' coro=<ProductControlTests.asyncSetUp() done, defined at <user-home>\AppData\Local\Temp\fan-installed-entry-test-qqvcwuy3\tests\test_product_entry.py:74> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.157 seconds
+ok
+test_existing_alias_and_credentials_are_used_with_python_proxy (test_product_entry.ProductEntryTests.test_existing_alias_and_credentials_are_used_with_python_proxy) ... ok
+test_invalid_original_host_or_port_rejected_before_process (test_product_entry.ProductEntryTests.test_invalid_original_host_or_port_rejected_before_process) ... ok
+test_localized_whoami_does_not_decode_the_account_name (test_product_entry.ProductEntryTests.test_localized_whoami_does_not_decode_the_account_name) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 3.697s
+
+OK

@@ -1,0 +1,39 @@
+test_unstarted_broker_cancellation_closes_anonymous_socket (test_home_bridge.HomeBridgeTests.test_unstarted_broker_cancellation_closes_anonymous_socket) ... Executing <Task finished name='Task-1' coro=<BridgeFixture.asyncSetUp() done, defined at <user-home>\AppData\Local\Temp\fan-bridge-before-fix-v_2b0_ew\tests\test_home_bridge.py:26> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.485 seconds
+ERROR
+
+======================================================================
+ERROR: test_unstarted_broker_cancellation_closes_anonymous_socket (test_home_bridge.HomeBridgeTests.test_unstarted_broker_cancellation_closes_anonymous_socket)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "<user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\streams.py", line 713, in read
+    await self._wait_for_data('read')
+  File "<user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "<user-home>\AppData\Local\Temp\fan-bridge-before-fix-v_2b0_ew\tests\test_home_bridge.py", line 186, in test_unstarted_broker_cancellation_closes_anonymous_socket
+    self.assertEqual(await asyncio.wait_for(pair[0].read(1), 1), b'')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 519, in wait_for
+    async with timeouts.timeout(timeout):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+----------------------------------------------------------------------
+Ran 1 test in 1.728s
+
+FAILED (errors=1)

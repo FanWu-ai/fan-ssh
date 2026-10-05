@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-04",
+  "reference": "EasyTier v2.6.4 / 2.6.4-8428a89d",
+  "release_source": "https://github.com/EasyTier/EasyTier/releases/tag/v2.6.4",
+  "official_archive_sha256": [
+    {
+      "platform": "linux",
+      "sha256": "61b659eaedba658fa66fe47d17e1426cdd77e5d02fa15fed447bb4357c09dfd6",
+      "compressed_bytes": 25506523
+    },
+    {
+      "platform": "windows",
+      "sha256": "27af91e270e554709b048bd32327fefd2dfce5062ae1e8701af7550c6f525f84",
+      "compressed_bytes": 32657720
+    }
+  ],
+  "scope": "Temporary ordinary-user reference comparison; not a Python transport integration",
+  "linux_uids": {
+    "k3": 1002,
+    "hospital": 1005
+  },
+  "effective_constraints_verified": {
+    "no_tun": true,
+    "disable_upnp": true,
+    "disable_relay_data": true,
+    "p2p_only_real_references": true,
+    "enable_ipv6": false,
+    "accept_dns": false,
+    "enable_exit_node": false
+  },
+  "loopback_smoke": {
+    "direct_bytes": 65536,
+    "direct_sha256_verified": true,
+    "half_close_verified": true,
+    "direct_actual_cli_selected_path_gate": true,
+    "relay_denial_target_route_cost": 2,
+    "relay_denial_target_accepts": 0,
+    "relay_denial_bytes": 0,
+    "relay_denial_actual_cli_selected_path_gate": false
+  },
+  "udp_reference": {
+    "peer_snapshots": 8,
+    "cloud_binding_responses": 89,
+    "either_target_direct_peer_present": false,
+    "ssh_payload_attempted": false
+  },
+  "default_tcp_reference": {
+    "peer_snapshots": 8,
+    "k3_tcp_stun_egress_matches_native_cloud": false,
+    "hospital_tcp_stun_egress_matches_native_cloud": true,
+    "tcp_punch_attempted": true,
+    "either_target_direct_peer_present": false,
+    "ssh_payload_attempted": false
+  },
+  "fixed_native_tcp_reference": {
+    "peer_snapshots": 8,
+    "observer_ports": [
+      22090,
+      22110
+    ],
+    "cloud_binding_responses": 17,
+    "ordinary_user_instrumentation": "Only two explicitly resolved TCP STUN destinations in the supervised test child were redirected; other default STUN endpoints were refused. The static release binary and host configuration were unchanged.",
+    "endpoints": {
+      "k3": {
+        "tcp_stun_redirect_calls": 8,
+        "tcp_classification_observations_all_native": true,
+        "same_local_port_mappings_differ_by_cloud_destination_port": true,
+        "observed_source_port_preserved": false,
+        "tcp_initiator_started": false,
+        "last_target_route_cost": 2,
+        "last_target_direct_peer_present": false,
+        "last_selected_native_peer_verified": false
+      },
+      "hospital": {
+        "tcp_stun_redirect_calls": 9,
+        "tcp_classification_observations_all_native": true,
+        "same_local_port_mappings_differ_by_cloud_destination_port": false,
+        "observed_source_port_preserved": true,
+        "tcp_initiator_started": true,
+        "last_target_route_cost": 2,
+        "last_target_direct_peer_present": false,
+        "last_selected_native_peer_verified": false
+      }
+    },
+    "either_selected_native_peer_verified": false,
+    "ssh_payload_attempted": false,
+    "observation_limitation": "One cloud IP with two ports; not a full cross-IP NAT/filter classification."
+  },
+  "invalid_instrumentation_attempts_counted_as_corrected_references": false,
+  "new_diagnostic_tests": {
+    "windows": 13,
+    "hospital": 13,
+    "k3": 13,
+    "skips": 0
+  },
+  "native_linux_pair_ssh_verified": false,
+  "cleanup": {
+    "owned_processes_directories_removed": true,
+    "cloud_test_observation_listeners_closed": true,
+    "temporary_security_group_rules_removed_verified": false
+  }
+}

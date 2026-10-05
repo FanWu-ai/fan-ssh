@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-05",
+  "source": "k3 physical interface, ordinary uid 1002",
+  "target": "hospital fresh authenticated observer tuple; prelistening ordinary uid 1005",
+  "observer_metadata_only": true,
+  "target_prelistening_before_observation": true,
+  "native_tcp_probes": [
+    {
+      "ttl": 1,
+      "connected": false,
+      "peer_authenticated": false,
+      "error": "OSError"
+    },
+    {
+      "ttl": 2,
+      "connected": true,
+      "peer_authenticated": false,
+      "connect_ms": 0.884,
+      "error": "TimeoutError"
+    },
+    {
+      "ttl": 4,
+      "connected": true,
+      "peer_authenticated": false,
+      "connect_ms": 0.928,
+      "error": "TimeoutError"
+    },
+    {
+      "ttl": 7,
+      "connected": true,
+      "peer_authenticated": false,
+      "connect_ms": 0.849,
+      "error": "TimeoutError"
+    },
+    {
+      "ttl": 64,
+      "connected": true,
+      "peer_authenticated": false,
+      "connect_ms": 0.722,
+      "error": "TimeoutError"
+    }
+  ],
+  "hospital_accepts": 0,
+  "hospital_authenticated_peers": 0,
+  "k3_capture": {
+    "packets_captured": 37,
+    "kernel_drops": 0,
+    "promiscuous": false,
+    "outgoing_low_ttl_seen": true,
+    "incoming_synack_ttl": 63
+  },
+  "known_reachable_cloud_control": {
+    "tcp": [
+      {
+        "ttl": 1,
+        "observation_verified": false,
+        "error": "OSError"
+      },
+      {
+        "ttl": 2,
+        "observation_verified": false,
+        "error": "TimeoutError"
+      },
+      {
+        "ttl": 64,
+        "observation_verified": true,
+        "connect_ms": 27.208,
+        "application_roundtrip_ms": 53.353
+      }
+    ],
+    "udp": [
+      {
+        "ttl": 1,
+        "observation_verified": false,
+        "error": "TimeoutError"
+      },
+      {
+        "ttl": 2,
+        "observation_verified": false,
+        "error": "TimeoutError"
+      },
+      {
+        "ttl": 64,
+        "observation_verified": true,
+        "roundtrip_ms": 23.715
+      }
+    ]
+  },
+  "icmp_exit_address_control": [
+    {
+      "ttl": 1,
+      "echo_reply_received": false,
+      "ttl_exceeded": true,
+      "roundtrip_ms": null,
+      "reply_ttl": null
+    },
+    {
+      "ttl": 2,
+      "echo_reply_received": true,
+      "ttl_exceeded": false,
+      "roundtrip_ms": 29.1,
+      "reply_ttl": 56
+    },
+    {
+      "ttl": 4,
+      "echo_reply_received": true,
+      "ttl_exceeded": false,
+      "roundtrip_ms": 32.7,
+      "reply_ttl": 56
+    },
+    {
+      "ttl": 64,
+      "echo_reply_received": true,
+      "ttl_exceeded": false,
+      "roundtrip_ms": 30.2,
+      "reply_ttl": 56
+    }
+  ],
+  "existing_native_ssh_identity_checks": {
+    "k3": {
+      "physical_route_verified": true,
+      "credentials_sent": false,
+      "ports": [
+        {
+          "port": 22,
+          "keyscan_exit": 1,
+          "key_offered": false,
+          "matches_verified_target_key": false
+        },
+        {
+          "port": 2222,
+          "keyscan_exit": 0,
+          "key_offered": true,
+          "matches_verified_target_key": false
+        }
+      ]
+    },
+    "hospital": {
+      "physical_route_verified": true,
+      "credentials_sent": false,
+      "ports": [
+        {
+          "port": 22,
+          "keyscan_exit": 1,
+          "key_offered": false,
+          "matches_verified_target_key": false
+        },
+        {
+          "port": 2222,
+          "keyscan_exit": 1,
+          "key_offered": false,
+          "matches_verified_target_key": false
+        }
+      ]
+    }
+  },
+  "interpretation": "Sub-millisecond TCP handshakes without any target accept/MAC are consistent with a nearer TCP intermediary or handshake responder. Destination handling differs from the known cloud path. The exact device and all UDP failures are not isolated.",
+  "interpretation_limit": "TTL-2 ICMP also elicited a roughly 29 ms exit-address reply; tunneling, TTL rewriting or protocol-specific processing prevent assigning an exact physical hop count solely from these probes. ICMP replies do not identify the SSH host.",
+  "ssh_credentials_sent": false,
+  "ssh_attempted_over_unverified_peer": false,
+  "network_or_authentication_configuration_changed": false,
+  "owned_processes_directories_observation_listeners_absent_afterward": true,
+  "temporary_security_group_rule_deletion_verified": false,
+  "native_linux_pair_ssh_verified": false
+}

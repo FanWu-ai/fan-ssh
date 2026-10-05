@@ -1,0 +1,207 @@
+{
+  "date": "2026-10-05",
+  "method": "Windows/k3 ordinary-user source-bound TCP reuse; CONNECT/SYNC/half-RTT timing",
+  "actual_libp2p_or_rustdesk_binary": false,
+  "windows_local_controls": [
+    {
+      "initiator_role_reversed": false,
+      "release_observation": false,
+      "peer_mac_verified": true,
+      "payload_bytes": 65536,
+      "hash_matched": true,
+      "half_close": true,
+      "coordinator_business_bytes": 0
+    },
+    {
+      "initiator_role_reversed": true,
+      "release_observation": false,
+      "peer_mac_verified": true,
+      "payload_bytes": 65536,
+      "hash_matched": true,
+      "half_close": true,
+      "coordinator_business_bytes": 0
+    },
+    {
+      "initiator_role_reversed": false,
+      "release_observation": true,
+      "peer_mac_verified": true,
+      "payload_bytes": 65536,
+      "hash_matched": true,
+      "half_close": true,
+      "coordinator_business_bytes": 0
+    },
+    {
+      "initiator_role_reversed": true,
+      "release_observation": true,
+      "peer_mac_verified": true,
+      "payload_bytes": 65536,
+      "hash_matched": true,
+      "half_close": true,
+      "coordinator_business_bytes": 0
+    }
+  ],
+  "native_trials": [
+    {
+      "initiator": "home Windows",
+      "release_observation": false,
+      "physical_route_verified": true,
+      "agents": [
+        {
+          "host": "Windows",
+          "role": 0,
+          "uid": null,
+          "sync_complete": true,
+          "stage": "NATIVE_PEER_MAC",
+          "relay_roundtrip_ms": 48.936,
+          "dial_delay_ms": 24.468,
+          "accepted": 0,
+          "connected": 0,
+          "authenticated_candidates": 0,
+          "peer_verified": false,
+          "error": "TimeoutError"
+        },
+        {
+          "host": "3k",
+          "role": 1,
+          "uid": 1002,
+          "sync_complete": true,
+          "stage": "NATIVE_PEER_MAC",
+          "dial_delay_ms": 0,
+          "accepted": 0,
+          "connected": 1,
+          "authenticated_candidates": 0,
+          "incomplete_peer_mac_bytes": [
+            0
+          ],
+          "peer_verified": false,
+          "error": "TimeoutError"
+        }
+      ],
+      "peer_mac_passed": false,
+      "ssh_attempted": false,
+      "cloud_business_bytes": 0
+    },
+    {
+      "initiator": "k3",
+      "release_observation": false,
+      "physical_route_verified": true,
+      "agents": [
+        {
+          "host": "3k",
+          "role": 0,
+          "uid": 1002,
+          "sync_complete": true,
+          "stage": "NATIVE_PEER_MAC",
+          "relay_roundtrip_ms": 39.292,
+          "dial_delay_ms": 19.646,
+          "accepted": 0,
+          "connected": 1,
+          "authenticated_candidates": 0,
+          "incomplete_peer_mac_bytes": [
+            0
+          ],
+          "peer_verified": false,
+          "error": "TimeoutError"
+        },
+        {
+          "host": "Windows",
+          "role": 1,
+          "uid": null,
+          "sync_complete": true,
+          "stage": "NATIVE_PEER_MAC",
+          "dial_delay_ms": 0,
+          "accepted": 0,
+          "connected": 0,
+          "authenticated_candidates": 0,
+          "peer_verified": false,
+          "error": "TimeoutError"
+        }
+      ],
+      "peer_mac_passed": false,
+      "ssh_attempted": false,
+      "cloud_business_bytes": 0
+    },
+    {
+      "initiator": "home Windows",
+      "release_observation": true,
+      "physical_route_verified": true,
+      "agents": [
+        {
+          "host": "Windows",
+          "role": 0,
+          "uid": null,
+          "sync_complete": true,
+          "stage": "NATIVE_PEER_MAC",
+          "relay_roundtrip_ms": 47.257,
+          "dial_delay_ms": 23.629,
+          "accepted": 0,
+          "connected": 0,
+          "authenticated_candidates": 0,
+          "peer_verified": false,
+          "error": "TimeoutError"
+        },
+        {
+          "host": "3k",
+          "role": 1,
+          "uid": 1002,
+          "sync_complete": true,
+          "stage": "NATIVE_PEER_MAC",
+          "dial_delay_ms": 0,
+          "accepted": 0,
+          "connected": 1,
+          "authenticated_candidates": 0,
+          "incomplete_peer_mac_bytes": [
+            0
+          ],
+          "peer_verified": false,
+          "error": "TimeoutError"
+        }
+      ],
+      "peer_mac_passed": false,
+      "ssh_attempted": false,
+      "cloud_business_bytes": 0
+    },
+    {
+      "initiator": "k3",
+      "release_observation": true,
+      "physical_route_verified": true,
+      "agents": [
+        {
+          "host": "3k",
+          "role": 0,
+          "uid": 1002,
+          "sync_complete": true,
+          "stage": "NATIVE_PEER_MAC",
+          "relay_roundtrip_ms": 44.889,
+          "dial_delay_ms": 22.445,
+          "accepted": 0,
+          "connected": 1,
+          "authenticated_candidates": 0,
+          "incomplete_peer_mac_bytes": [
+            0
+          ],
+          "peer_verified": false,
+          "error": "TimeoutError"
+        },
+        {
+          "host": "Windows",
+          "role": 1,
+          "uid": null,
+          "sync_complete": true,
+          "stage": "NATIVE_PEER_MAC",
+          "dial_delay_ms": 0,
+          "accepted": 0,
+          "connected": 0,
+          "authenticated_candidates": 0,
+          "peer_verified": false,
+          "error": "TimeoutError"
+        }
+      ],
+      "peer_mac_passed": false,
+      "ssh_attempted": false,
+      "cloud_business_bytes": 0
+    }
+  ],
+  "network_authentication_or_deployment_changed": false,
+  "assessment": "All four valid native coordination rounds completed. Home accepted no connection; k3 TCP connect completed but read zero peer-MAC bytes. No authenticated direct path."
+}

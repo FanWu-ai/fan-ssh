@@ -7,3 +7,7 @@ dist/
 *.pem
 *.key
 .env
+.fan-ssh/
+*.public.json
+*.policy.json
+**/device.json

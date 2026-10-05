@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-05",
+  "reference": "frp 0.71.0 XTCP/QUIC",
+  "provider": "home Windows",
+  "visitor": "k3 uid 1002",
+  "numeric_cloud_udp_observers_reachable": [
+    true,
+    true
+  ],
+  "fallback_configured": false,
+  "assisted_addresses": false,
+  "cloud_business_relay": false,
+  "client_checks": 4,
+  "payload_checks_passed": 0,
+  "native_hole_verified": false,
+  "ssh_attempted": false,
+  "completed_paired_hole_strategies": 7,
+  "completed_bounded_long_mode": {
+    "home_receiver_sockets": 256,
+    "home_receiver_window_ms": 38000,
+    "home_receiver_ttl": 7,
+    "k3_random_consenting_peer_ports": 1000,
+    "k3_send_delay_ms": 3000,
+    "k3_window_ms": 35000
+  },
+  "last_long_mode_excluded": "Home log records its full window, but saved k3 log and physical capture stop earlier; paired completion is unverified.",
+  "physical_k3_capture": {
+    "packets": 2082,
+    "egress_udp": 2082,
+    "ingress_udp": 0,
+    "kernel_drops": 0,
+    "promiscuous": false
+  },
+  "network_authentication_or_deployment_changed": false
+}

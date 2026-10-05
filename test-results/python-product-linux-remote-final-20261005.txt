@@ -1,0 +1,70 @@
+Looking in links: <temporary-test-directory>/wheels
+Processing ./wheels/cryptography-50.0.2-cp311-abi3-manylinux_2_28_x86_64.whl
+Processing ./wheels/cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Processing ./wheels/pycparser-3.0-py3-none-any.whl
+Installing collected packages: pycparser, cffi, cryptography
+
+Successfully installed cffi-2.1.1 cryptography-50.0.2 pycparser-3.0
+ENV Linux x86_64 3.12.3 OpenSSL 3.0.13 30 Jan 2024 cryptography 50.0.2 uid 1002
+PASS: coordinator-discovered, mutually authenticated direct TLS echo; no relay
+CHECK_STATUS root=0 diagnostic=0 demo=0
+test_expired_certificate_cannot_be_enrolled_or_renew_grant (test_remote.ConfigurationTests.test_expired_certificate_cannot_be_enrolled_or_renew_grant) ... ok
+test_explicit_numeric_scope_and_unprivileged_ports (test_remote.ConfigurationTests.test_explicit_numeric_scope_and_unprivileged_ports) ... ok
+test_identity_roundtrip_no_overwrite (test_remote.ConfigurationTests.test_identity_roundtrip_no_overwrite) ... ok
+test_key_mismatch_and_policy_schema (test_remote.ConfigurationTests.test_key_mismatch_and_policy_schema) ... ok
+test_policy_snapshots_and_monotonic_revision (test_remote.ConfigurationTests.test_policy_snapshots_and_monotonic_revision) ... ok
+test_private_key_readable_by_other_users_rejected (test_remote.ConfigurationTests.test_private_key_readable_by_other_users_rejected) ... ok
+test_bounded_replay_cache_never_evicts_live_tokens (test_remote.GrantTests.test_bounded_replay_cache_never_evicts_live_tokens) ... ok
+test_replay_and_renewal_cannot_admit (test_remote.GrantTests.test_replay_and_renewal_cannot_admit) ... ok
+test_signature_tampering_expiry_and_future (test_remote.GrantTests.test_signature_tampering_expiry_and_future) ... ok
+test_candidate_racing_cancels_stalled_handshake (test_remote.RemoteTests.test_candidate_racing_cancels_stalled_handshake) ... ok
+test_control_unknown_operations_bodies_rate_and_offer_scope (test_remote.RemoteTests.test_control_unknown_operations_bodies_rate_and_offer_scope) ... ok
+test_coordinator_cannot_replace_identity_or_candidates (test_remote.RemoteTests.test_coordinator_cannot_replace_identity_or_candidates) ... ok
+test_coordinator_loss_and_revocation_close_sessions (test_remote.RemoteTests.test_coordinator_loss_and_revocation_close_sessions) ... ok
+test_diagnosis_authenticates_without_opening_service (test_remote.RemoteTests.test_diagnosis_authenticates_without_opening_service) ... ok
+test_direct_concurrent_payload_and_metadata_only_control (test_remote.RemoteTests.test_direct_concurrent_payload_and_metadata_only_control) ... ok
+test_failed_candidates_honest_no_relay (test_remote.RemoteTests.test_failed_candidates_honest_no_relay) ... ok
+test_local_policy_update_closes_active_session (test_remote.RemoteTests.test_local_policy_update_closes_active_session) ... ok
+test_many_to_many_both_devices_initiate_and_receive (test_remote.RemoteTests.test_many_to_many_both_devices_initiate_and_receive) ... ok
+test_renewed_session_survives_initial_expiry (test_remote.RemoteTests.test_renewed_session_survives_initial_expiry) ... ok
+test_reverse_direct_path_when_target_cannot_receive (test_remote.RemoteTests.test_reverse_direct_path_when_target_cannot_receive) ... ok
+test_service_acl_denied_before_any_direct_dial (test_remote.RemoteTests.test_service_acl_denied_before_any_direct_dial) ... ok
+test_unknown_device_never_dials_service (test_remote.RemoteTests.test_unknown_device_never_dials_service) ... ok
+test_wrong_tls_caller_expired_grant_and_replay (test_remote.RemoteTests.test_wrong_tls_caller_expired_grant_and_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 9.126s
+
+OK
+test_both_listeners_select_same_authenticated_stream_and_halfclose (test_tcp_reuse.ReuseChannelControls.test_both_listeners_select_same_authenticated_stream_and_halfclose) ... ok
+test_cancel_pending_accept_and_active_connect_leaves_no_descriptors (test_tcp_reuse.ReuseChannelControls.test_cancel_pending_accept_and_active_connect_leaves_no_descriptors) ... ok
+test_observer_stdin_eof_closes_held_authenticated_client_promptly (test_tcp_reuse.ReuseChannelControls.test_observer_stdin_eof_closes_held_authenticated_client_promptly) ... ok
+test_wrong_mac_cannot_select_a_connected_stream (test_tcp_reuse.ReuseChannelControls.test_wrong_mac_cannot_select_a_connected_stream) ... ok
+test_cli_rejects_out_of_bounds_and_network_arguments (test_tcp_simopen.DeterministicTests.test_cli_rejects_out_of_bounds_and_network_arguments) ... ok
+test_connected_tuple_mismatch_rejected (test_tcp_simopen.DeterministicTests.test_connected_tuple_mismatch_rejected) ... ok
+test_deadline_must_be_finite (test_tcp_simopen.DeterministicTests.test_deadline_must_be_finite) ... ok
+test_expired_and_cancelled_trials_do_not_bind (test_tcp_simopen.DeterministicTests.test_expired_and_cancelled_trials_do_not_bind) ... ok
+test_invalid_api_bounds (test_tcp_simopen.DeterministicTests.test_invalid_api_bounds) ... ok
+test_invalid_family_never_creates_socket (test_tcp_simopen.DeterministicTests.test_invalid_family_never_creates_socket) ... ok
+test_json_summary_and_exit_semantics (test_tcp_simopen.DeterministicTests.test_json_summary_and_exit_semantics) ... ok
+test_partial_io_and_early_eof (test_tcp_simopen.DeterministicTests.test_partial_io_and_early_eof) ... ok
+test_payload_and_echo_mismatch (test_tcp_simopen.DeterministicTests.test_payload_and_echo_mismatch) ... ok
+test_pending_probe_cancels (test_tcp_simopen.DeterministicTests.test_pending_probe_cancels) ... ok
+test_pending_probe_times_out (test_tcp_simopen.DeterministicTests.test_pending_probe_times_out) ... ok
+test_probe_propagates_error (test_tcp_simopen.DeterministicTests.test_probe_propagates_error) ... ok
+test_refuse_nonloopback_and_low_ports_before_connect (test_tcp_simopen.DeterministicTests.test_refuse_nonloopback_and_low_ports_before_connect) ... ok
+test_unsupported_platform_explicit_and_no_socket (test_tcp_simopen.DeterministicTests.test_unsupported_platform_explicit_and_no_socket) ... ok
+test_zero_socket_error_does_not_prove_connection (test_tcp_simopen.DeterministicTests.test_zero_socket_error_does_not_prove_connection) ... ok
+test_bound_peer_that_never_connects_is_not_success (test_tcp_simopen.LocalSocketTests.test_bound_peer_that_never_connects_is_not_success) ... ok
+test_numeric_loopback_bindings_distinct_and_noninheritable (test_tcp_simopen.LocalSocketTests.test_numeric_loopback_bindings_distinct_and_noninheritable) ... ok
+test_payload_stall_and_cancellation_bounded (test_tcp_simopen.LocalSocketTests.test_payload_stall_and_cancellation_bounded) ... ok
+test_repeat_trials_tuple_integrity_and_cleanup (test_tcp_simopen.LocalSocketTests.test_repeat_trials_tuple_integrity_and_cleanup) ... ok
+test_roundtrip_local_socketpair (test_tcp_simopen.LocalSocketTests.test_roundtrip_local_socketpair) ... ok
+test_second_bind_failure_closes_first_socket (test_tcp_simopen.LocalSocketTests.test_second_bind_failure_closes_first_socket) ... ok
+test_total_budget_cli_smoke (test_tcp_simopen.LocalSocketTests.test_total_budget_cli_smoke) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.592s
+
+OK
+DEV ONLY: ephemeral identities; loopback TLS; no NAT traversal or relay; 30-second data deadline

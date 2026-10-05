@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-04",
+  "scope": "Physical-IP-bound ordinary-user Linux sockets; cloud metadata only",
+  "ports": [
+    22092,
+    22093
+  ],
+  "initial_before_user_added_second_rule": {
+    "hospital": {
+      "22092_binding_verified": true,
+      "22093_binding_verified": false
+    },
+    "k3": {
+      "22092_binding_verified": true,
+      "22093_binding_verified": false
+    },
+    "cloud_capture_during_second_check": {
+      "interface": "physical",
+      "promiscuous": false,
+      "incoming_22092_requests": 2,
+      "incoming_22093_requests": 0,
+      "kernel_drops": 0
+    }
+  },
+  "after_user_added_second_rule": {
+    "hospital": {
+      "22092_binding_verified": true,
+      "22093_binding_verified": true
+    },
+    "k3": {
+      "22092_binding_verified": true,
+      "22093_binding_verified": true
+    }
+  },
+  "completed_frp_references": {
+    "initial_banner_checks": 3,
+    "initial_peer_hole_established": false,
+    "initial_observer_responses": 24,
+    "extended_banner_checks": 6,
+    "extended_banner_checks_failed": 6,
+    "extended_discovery_both_hosts_exit": 0,
+    "extended_observer_responses": 48,
+    "extended_control_available": true,
+    "paired_hole_responses": 11,
+    "unique_paired_mode_0_strategies": 10,
+    "receiver_ttls": [
+      7,
+      4,
+      0
+    ],
+    "send_delays_ms": [
+      0,
+      5000,
+      10000
+    ],
+    "read_timeouts_ms": [
+      5000,
+      10000,
+      15000
+    ],
+    "either_peer_hole_established": false,
+    "physical_capture": {
+      "duration_seconds": 35,
+      "promiscuous": false,
+      "outgoing_peer_udp": 4,
+      "incoming_peer_udp": 0,
+      "kernel_drops": 0
+    },
+    "interrupted_management_runs_counted_as_completed": false
+  },
+  "observer_classification_limitation": "Two ports on one IP do not establish cross-IP mapping independence or full filtering classification.",
+  "native_linux_pair_ssh_verified": false,
+  "frp_owned_processes_observers_directories_removed": true,
+  "agent_changed_cloud_console": false,
+  "temporary_rule_cleanup_verified": false
+}

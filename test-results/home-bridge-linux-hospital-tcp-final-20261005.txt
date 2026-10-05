@@ -1,0 +1,23 @@
+Looking in links: <temporary-test-directory>/wheels
+Processing ./wheels/cryptography-50.0.2-cp311-abi3-manylinux_2_28_x86_64.whl
+Processing ./wheels/cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Processing ./wheels/pycparser-3.0-py3-none-any.whl
+Installing collected packages: pycparser, cffi, cryptography
+
+Successfully installed cffi-2.1.1 cryptography-50.0.2 pycparser-3.0
+WARNING: Error parsing dependencies of python-debian: Invalid version: '0.1.43ubuntu1'
+WARNING: Error parsing dependencies of distro-info: Invalid version: '1.1build1'
+test_caller_disconnect_cancels_pending_upstream_and_closes_owned_client (test_home_bridge.HomeBridgeTests.test_caller_disconnect_cancels_pending_upstream_and_closes_owned_client) ... ok
+test_final_node_revocation_closes_incoming_bridge_stream (test_home_bridge.HomeBridgeTests.test_final_node_revocation_closes_incoming_bridge_stream) ... ok
+test_foreground_cli_fixed_target_and_binary_clean_stdout (test_home_bridge.HomeBridgeTests.test_foreground_cli_fixed_target_and_binary_clean_stdout) ... ok
+test_missing_either_directed_permission_never_opens_final_service (test_home_bridge.HomeBridgeTests.test_missing_either_directed_permission_never_opens_final_service) ... ok
+test_policy_change_closes_live_two_leg_stream_and_requires_restart (test_home_bridge.HomeBridgeTests.test_policy_change_closes_live_two_leg_stream_and_requires_restart) ... ok
+test_two_independent_grants_binary_integrity_and_delayed_half_close (test_home_bridge.HomeBridgeTests.test_two_independent_grants_binary_integrity_and_delayed_half_close) ... ok
+test_unstarted_broker_cancellation_closes_anonymous_socket (test_home_bridge.HomeBridgeTests.test_unstarted_broker_cancellation_closes_anonymous_socket) ... ok
+test_upstream_relay_report_is_rejected_before_forwarding_payload (test_home_bridge.HomeBridgeTests.test_upstream_relay_report_is_rejected_before_forwarding_payload) ... ok
+test_wrong_final_peer_pin_fails_without_service_dial (test_home_bridge.HomeBridgeTests.test_wrong_final_peer_pin_fails_without_service_dial) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 1.452s
+
+OK

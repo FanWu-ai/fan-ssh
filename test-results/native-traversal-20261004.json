@@ -1,0 +1,381 @@
+{
+  "date": "2026-10-04",
+  "required_pair": "3k <-> hospital",
+  "ssh_acceptance_passed": false,
+  "cloud_role": "temporary bounded address observation / authenticated coordination only",
+  "prediction_control_trials": [
+    {
+      "role_assignment": "3k sender",
+      "ttl": 7,
+      "received_verified": [
+        0,
+        0
+      ],
+      "warmup_packets": [
+        0,
+        11
+      ]
+    },
+    {
+      "role_assignment": "3k sender",
+      "ttl": 4,
+      "received_verified": [
+        0,
+        0
+      ],
+      "warmup_packets": [
+        0,
+        11
+      ]
+    },
+    {
+      "role_assignment": "hospital sender",
+      "ttl": 7,
+      "received_verified": [
+        0,
+        0
+      ],
+      "warmup_packets": [
+        0,
+        11
+      ]
+    },
+    {
+      "role_assignment": "hospital sender",
+      "ttl": 4,
+      "received_verified": [
+        0,
+        0
+      ],
+      "warmup_packets": [
+        0,
+        11
+      ]
+    }
+  ],
+  "multi_socket_control_trials": [
+    {
+      "pool_host": "3k",
+      "results": [
+        {
+          "socket_count": 256,
+          "random_ports_attempted": 0,
+          "warmup_packets": 256,
+          "sent_packets": 0,
+          "ttl": 7,
+          "ttl_restored": true,
+          "verified_packets": 0,
+          "unexpected_packets": 0,
+          "socket_errors": 0,
+          "application_validated": false
+        },
+        {
+          "socket_count": 1,
+          "random_ports_attempted": 1000,
+          "warmup_packets": 0,
+          "sent_packets": 1000,
+          "ttl": 7,
+          "ttl_restored": true,
+          "verified_packets": 0,
+          "unexpected_packets": 0,
+          "socket_errors": 0,
+          "application_validated": false
+        }
+      ]
+    },
+    {
+      "pool_host": "3k",
+      "results": [
+        {
+          "socket_count": 256,
+          "random_ports_attempted": 0,
+          "warmup_packets": 256,
+          "sent_packets": 0,
+          "ttl": 4,
+          "ttl_restored": true,
+          "verified_packets": 0,
+          "unexpected_packets": 0,
+          "socket_errors": 0,
+          "application_validated": false
+        },
+        {
+          "socket_count": 1,
+          "random_ports_attempted": 1000,
+          "warmup_packets": 0,
+          "sent_packets": 1000,
+          "ttl": 4,
+          "ttl_restored": true,
+          "verified_packets": 0,
+          "unexpected_packets": 0,
+          "socket_errors": 0,
+          "application_validated": false
+        }
+      ]
+    },
+    {
+      "pool_host": "hospital",
+      "results": [
+        {
+          "socket_count": 256,
+          "random_ports_attempted": 0,
+          "warmup_packets": 256,
+          "sent_packets": 0,
+          "ttl": 7,
+          "ttl_restored": true,
+          "verified_packets": 0,
+          "unexpected_packets": 0,
+          "socket_errors": 0,
+          "application_validated": false
+        },
+        {
+          "socket_count": 1,
+          "random_ports_attempted": 1000,
+          "warmup_packets": 0,
+          "sent_packets": 1000,
+          "ttl": 7,
+          "ttl_restored": true,
+          "verified_packets": 0,
+          "unexpected_packets": 0,
+          "socket_errors": 0,
+          "application_validated": false
+        }
+      ]
+    },
+    {
+      "pool_host": "hospital",
+      "results": [
+        {
+          "socket_count": 256,
+          "random_ports_attempted": 0,
+          "warmup_packets": 256,
+          "sent_packets": 0,
+          "ttl": 4,
+          "ttl_restored": true,
+          "verified_packets": 0,
+          "unexpected_packets": 0,
+          "socket_errors": 0,
+          "application_validated": false
+        },
+        {
+          "socket_count": 1,
+          "random_ports_attempted": 1000,
+          "warmup_packets": 0,
+          "sent_packets": 1000,
+          "ttl": 4,
+          "ttl_restored": true,
+          "verified_packets": 0,
+          "unexpected_packets": 0,
+          "socket_errors": 0,
+          "application_validated": false
+        }
+      ]
+    },
+    {
+      "pool_host": "3k",
+      "results": [
+        {
+          "socket_count": 256,
+          "random_ports_attempted": 0,
+          "warmup_packets": 768,
+          "sent_packets": 0,
+          "ttl": 0,
+          "ttl_restored": true,
+          "verified_packets": 0,
+          "unexpected_packets": 0,
+          "socket_errors": 0,
+          "application_validated": false
+        },
+        {
+          "socket_count": 1,
+          "random_ports_attempted": 1000,
+          "warmup_packets": 0,
+          "sent_packets": 1000,
+          "ttl": 0,
+          "ttl_restored": true,
+          "verified_packets": 0,
+          "unexpected_packets": 0,
+          "socket_errors": 0,
+          "application_validated": false
+        }
+      ]
+    },
+    {
+      "pool_host": "hospital",
+      "results": [
+        {
+          "socket_count": 256,
+          "random_ports_attempted": 0,
+          "warmup_packets": 768,
+          "sent_packets": 0,
+          "ttl": 0,
+          "ttl_restored": true,
+          "verified_packets": 0,
+          "unexpected_packets": 0,
+          "socket_errors": 0,
+          "application_validated": false
+        },
+        {
+          "socket_count": 1,
+          "random_ports_attempted": 1000,
+          "warmup_packets": 0,
+          "sent_packets": 1000,
+          "ttl": 0,
+          "ttl_restored": true,
+          "verified_packets": 0,
+          "unexpected_packets": 0,
+          "socket_errors": 0,
+          "application_validated": false
+        }
+      ]
+    }
+  ],
+  "tcp_ttl_control_trials": [
+    {
+      "source": "3k",
+      "ttl": 7,
+      "results": [
+        {
+          "strategy": "tcp-passive-ttl-prime",
+          "role": 0,
+          "relay": false,
+          "application_validated": false,
+          "ttl": 7,
+          "peer_verified": false,
+          "error": "IncompleteReadError",
+          "ttl_restored": true
+        },
+        {
+          "strategy": "tcp-passive-ttl-prime",
+          "role": 1,
+          "relay": false,
+          "application_validated": false,
+          "ttl": 7,
+          "peer_verified": false,
+          "prime_connect_code": 115,
+          "error": "TimeoutError",
+          "ttl_restored": true
+        }
+      ]
+    },
+    {
+      "source": "3k",
+      "ttl": 4,
+      "results": [
+        {
+          "strategy": "tcp-passive-ttl-prime",
+          "role": 0,
+          "relay": false,
+          "application_validated": false,
+          "ttl": 4,
+          "peer_verified": false,
+          "error": "IncompleteReadError",
+          "ttl_restored": true
+        },
+        {
+          "strategy": "tcp-passive-ttl-prime",
+          "role": 1,
+          "relay": false,
+          "application_validated": false,
+          "ttl": 4,
+          "peer_verified": false,
+          "prime_connect_code": 115,
+          "error": "TimeoutError",
+          "ttl_restored": true
+        }
+      ]
+    },
+    {
+      "source": "hospital",
+      "ttl": 7,
+      "results": [
+        {
+          "strategy": "tcp-passive-ttl-prime",
+          "role": 0,
+          "relay": false,
+          "application_validated": false,
+          "ttl": 7,
+          "peer_verified": false,
+          "error": "TimeoutError",
+          "ttl_restored": true
+        },
+        {
+          "strategy": "tcp-passive-ttl-prime",
+          "role": 1,
+          "relay": false,
+          "application_validated": false,
+          "ttl": 7,
+          "peer_verified": false,
+          "prime_connect_code": 115,
+          "error": "TimeoutError",
+          "ttl_restored": true
+        }
+      ]
+    },
+    {
+      "source": "hospital",
+      "ttl": 4,
+      "results": [
+        {
+          "strategy": "tcp-passive-ttl-prime",
+          "role": 0,
+          "relay": false,
+          "application_validated": false,
+          "ttl": 4,
+          "peer_verified": false,
+          "error": "TimeoutError",
+          "ttl_restored": true
+        },
+        {
+          "strategy": "tcp-passive-ttl-prime",
+          "role": 1,
+          "relay": false,
+          "application_validated": false,
+          "ttl": 4,
+          "peer_verified": false,
+          "prime_connect_code": 115,
+          "error": "TimeoutError",
+          "ttl_restored": true
+        }
+      ]
+    }
+  ],
+  "python_predict_trials": [
+    {
+      "service": "echo",
+      "source_gather": true,
+      "target_gather": false
+    },
+    {
+      "service": "ssh",
+      "source_gather": true,
+      "target_gather": true,
+      "source_result": {
+        "ok": false,
+        "error": "TimeoutError",
+        "phase": "ice",
+        "dtls": "new",
+        "sctp": "new"
+      },
+      "target_result": {
+        "ok": false,
+        "error": "TimeoutError",
+        "phase": "ice",
+        "dtls": "new",
+        "sctp": "new"
+      }
+    }
+  ],
+  "frp_k3_hospital_reference": {
+    "version": "0.71.0",
+    "observer": "stun.easyvoip.com:3478",
+    "trials": 3,
+    "success": false,
+    "failure_stage": "source STUN discovery",
+    "cloud_data_fallback": false
+  },
+  "local_diagnostic_validation": {
+    "tcp_ttl": "Linux loopback observation + peer MAC + 64 KiB hash/half-close passed",
+    "dual_stun": "actual frp 0.71.0 discovery at both loopback ports passed",
+    "birthday_packet": "independent aioice MESSAGE-INTEGRITY/FINGERPRINT parse passed"
+  }
+}
