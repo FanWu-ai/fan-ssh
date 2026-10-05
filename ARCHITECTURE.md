@@ -1,51 +1,97 @@
-# Architecture and research gates
+# Direct multi-host architecture
 
-## Implemented Python fixture
+## Identity and service approval
 
-One CLI invocation builds an ephemeral CA and three one-hour leaf certificates: initiator, receiver and coordinator. The CA only provides the cryptographic validation needed by Python/OpenSSL's mutual TLS; authorization comes from independently provisioned exact leaf pins and directed ACLs. Names in these certificates are synthetic. Hostname verification is disabled because peer identity is a pinned leaf, not a DNS name; CA/signature/validity verification remains enabled (`CERT_REQUIRED`). TLS minimum version is 1.3.
+`device.py` creates independent self-signed P-256 certificates and owner-private keys. Remote mode has no shared session CA. An operator approves public certificates and fixed numeric high-port candidates in `config.py`'s immutable policy: current valid canonical self-signed non-CA P-256 leaves, unique pins, maximum 64 devices, eight candidates/device and 4096 directed service edges.
 
-`Session` freezes the operator-selected numeric-loopback target. It starts a TLS receiver with exactly the approved initiator pin, then a TLS coordinator with immutable identity/record/ACL snapshots. The initiator requests the destination metadata, rejects any destination pin different from its independent approved pin, then connects directly to the receiver. The receiver authenticates the client before making the one fixed upstream TCP connection. Business bytes flow initiator ↔ receiver ↔ receiver-local service, never through the coordinator.
+TLS trusts approved leaf certificates, requires TLS 1.3 and CERT_REQUIRED, then independently verifies exact pins. Hostnames are disabled because identity is a pinned leaf. Roster membership alone does not authorize service use; directed grants and receiver-local service maps are separate checks. Existing SSH host-key/OS-user authentication remain independent.
 
-The loopback gate is deliberate and cannot be disabled with a CLI flag. IPv4 and bracketed IPv6 numeric loopback are supported. DNS, scoped IPv6, wildcard, non-loopback and noncanonical ports are rejected. Port zero is allowed only for listener allocation.
+Windows DACLs are protected and owned by the current SID; readable grants must be for that SID, SYSTEM or Administrators. Users/Everyone read access is rejected. POSIX directory/key permissions exclude other users. Identities refuse overwrite. Private temporary TLS PEMs are deleted after context loading. No encrypted keystore, unattended enrollment or hardware-backed custody exists.
 
-### Metadata protocol
+## Metadata control
 
-Each mutually authenticated connection carries a 4-byte unsigned network-order length followed by 1..4096 UTF-8 JSON bytes. Exactly one request is processed:
+`control.py` processes exact-schema, length-prefixed JSON operations, maximum 4096 bytes. A pinned mTLS connection accepts at most 64 operations within 30 seconds, with a five-second operation/idle deadline. Each operation rechecks current roster membership, certificate validity and rate. TCP observation remains one held operation. Native UDP setup reuses one control connection to avoid allocating fresh TCP mappings between STUN observations and peer dialing. Connections close after admission/failure. There is no business forwarder, arbitrary dialer, CONNECT, TURN or relay operation.
 
-```json
-{"op":"lookup","target":"target"}
-```
+`grants.py` signs domain-separated canonical JSON with the approved coordinator P-256 key. Claims bind account/revision, random session ID, both device IDs/pins, service, direction, transport, issue/expiry and serial. Initial serial zero is consumed once. Replay cache: 1024 unexpired initial tokens, rejecting overflow rather than evicting live entries. Only the receiver may renew; renewal preserves bindings and advances serial/expiry.
 
-Unknown fields/operations and invalid names are rejected. Names contain 1..64 ASCII letters, digits, underscores or hyphens. An allowed lookup returns exactly `id`, `address`, `pin`, `transport`; denied directed edges return an error. The client validates the exact response schema, expected name, lowercase 64-digit SHA-256 pin, numeric-loopback address and transport tag. Coordinator has no registration, stream forwarding, arbitrary dial, HTTP CONNECT, or redirect implementation.
+Limits: 240 requests/minute/device, 128 pending offers and 128 UDP answers. Expired entries are purged. Policy replacement clears pending state and observed IPs. Coordinator identity has no data candidates/ACL edges; a separate business identity may share its host with a distinct port.
 
-### Data protocol and half-close
+`stun.py` optionally returns one 32-byte IPv4 XOR-MAPPED-ADDRESS Binding response for authenticated-control-observed source IPs, at most 60 small requests/minute/IP. No TURN/allocation/forwarding exists. Shared-NAT IP approval does not authenticate each UDP request. Metadata-only is an implementation property, not a mathematical covert-channel guarantee.
 
-Transport tag: `direct-tcp-tls-framed-v1`. After exact pin checks, each direction carries 4-byte unsigned network-order lengths, with payload lengths 1..16384. Length zero marks EOF in that direction. Frames above the cap are rejected before payload read. Premature TLS/connection EOF or a truncated frame is an error; it cannot become an authenticated clean application EOF.
+## Direct TCP
 
-Python asyncio SSL streams do not implement independent `write_eof()`. Explicit framing therefore carries half-close: local stdin/TCP EOF sends zero; receiver then shuts down only the target's write half while continuing to read a delayed response. Both directions finish before bridge closure. Errors, cancellation or absolute deadlines cancel both pumps and close both legs. TLS encrypts/authenticates framing as well as payload. This is a deliberate wire change, not interoperability with the previous Go protocol.
+`remote.py` races at most eight approved candidates; only pinned TLS can win. Pending attempts/losing sockets are closed. OPEN carries the signed grant. The receiver checks actual caller pin, target, direction/transport, ACL, expiry, replay and configured service before dialing its fixed **loopback** target.
 
-### Resource lifecycle
+Reverse direct dialing exchanges a signed offer through control. The target initiates TLS to an independently approved source listener. Pins/session bindings are checked at both ends before the target opens its service. Business stays source ↔ target.
 
-A service acquires a semaphore before accepting a socket, so its 32-slot cap includes stalled TLS handshakes. Extra arrivals wait in the bounded OS listen backlog; they do not get Python handlers. Connection setup and TLS handshake each have a five-second bound. Coordinator request/response work has a five-second deadline; discovery has an outer five-second deadline. Data bridges expire after 30 seconds irrespective of trickle activity. Reads use 16 KiB chunks; `drain()` propagates backpressure. TLS shutdown is bounded to 0.5 seconds.
+`strategies.py` selects ordered direct methods for remote CLI connections: TCP, configured reverse TCP, explicitly enabled UDP ICE, then IPv4 UDP prediction. Each has a fresh client/path/grant and a bounded deadline. Only connectivity failures permit another method. Certificate/pin, admission, configuration and permission errors are terminal. A plugin must report `relay: false` and affirmative service-readiness evidence before selection. The attempt trace is returned on success or `NO_DIRECT_PATH`.
 
-Each service owns its listener, accept task and active handlers. Closing first stops acceptance then cancels/gathers active tasks; bridges cancel/gather their pumps and close both writers. The CLI handles SIGINT/SIGTERM by cancelling its main task. Its raw-stdio daemon threads allow process termination when inherited pipes cannot be interrupted. Windows uses binary descriptor mode; Windows signal/SSL/event-loop behavior remains untested.
+Wire tag: `direct-tcp-tls-framed-v2`. TLS/grant admission then four-byte big-endian lengths in each direction: 1–16384 payload bytes, zero directional EOF. Oversized/truncated frames fail. Explicit EOF permits delayed replies after half-close because Python TLS streams do not support independent write_eof. The older Go wire format and original v1 loopback fixture are separate.
 
-### Scope and threats
+## Native UDP
 
-The fixture guards against unauthorized synthetic peers, tampered discovery pins, arbitrary upstream selection, unbounded framing and straightforward handler exhaustion. It does not implement production enrollment, key custody, persistent trust, tenant isolation, live revocation, signed grants, leases, distributed lifecycle or public-service abuse defense. An approved compromised endpoint can exercise its authorization. A forward port has no authentication for local callers. The existing SSH server must still authenticate the OS user and the SSH client must verify the host key.
+`udp_path.py` isolates pinned aiortc 1.15.0/aioice 0.10.2 private APIs. A native connection binds one explicit approved physical IP/ephemeral UDP port; no interface enumeration/default STUN/TURN. Host and optional IPv4 server-reflexive candidates come from a primary and optional alternate explicit numeric observer on that same socket. Native IPv6 host candidates are supported but not demonstrated across the authorized hosts.
 
-## Product goal, not current capability
+`udp_traversal.py` implements optional IPv4 prediction inspired by frp's low-TTL/range approach. It derives at most 21 neighboring high ports from at most two same-IP observations; irregular deltas or changed IPs do not expand the range. The observed stable side is preferred as receiver, otherwise the controlled ICE side is used. Warmup sends authenticated ICE Binding requests at TTL 7 and restores the original TTL synchronously before yielding. Ordinary ICE then selects and authenticates the path. This is a heuristic, not a complete NAT classification. Multi-socket/random-port traversal remains a separate control-packet diagnostic, not an automatic production method.
 
-Ordinary-user, many-to-many SSH connectivity across Windows/macOS/Linux and different LANs, with no admin-only interface, route, driver or firewall installation during normal client operation. All business bytes must use a direct peer transport. A metadata-only public coordinator may exchange approved identities, ACL results, candidates, observations and schedules, but never relay business data.
+`ice_metadata.py` enforces exact schemas, 2048-byte metadata, at most eight UDP component-one candidates, approved numeric IPs/high ports; DNS/mDNS/relay/TCP candidates fail. ICE+DTLS+SCTP setup is bounded to 15 seconds. The selected native IP and peer IP are checked again. Peer-reflexive ports require an approved IP and independent exact DTLS fingerprint. Certificate validity is checked before setup.
 
-The difficult research requirement is UDP blocked while both peers are behind complex NAT. No universal direct-connect guarantee is possible when network policy supplies no allowed direct path. The correct outcome then is an explicit failure, not a hidden relay. This Python rewrite does not solve or newly demonstrate that requirement.
+DTLS uses the existing P-256 identity. Reliable ordered SCTP exposes one negotiated data channel, then the same OPEN/grant/service framing as TCP. `udp_remote.py` sends only ICE metadata through control. It reserves a 32-path limit before network awaits, rejects new paths after close and never opens the local service before pin/grant admission.
 
-## Next acceptance gates
+The channel has four 16-KiB application credits and bounded incoming/pending queues. Malformed/overflow messages close it. Cleanup is idempotent, cancels ICE checks and bounds each transport stop. SafeTransaction guards a due upstream retry callback from completing an already completed future. Private accesses require exact-version tests before any upgrade.
 
-1. Design real identity enrollment, proof of possession, owner approval, secure user-owned storage, trust rotation and directed service admission before any public listener. Persistent credentials and deployment require separate approval.
-2. Introduce bounded direct IPv4/IPv6 candidates in both directions, cancellation, typed failure reasons and exact selected-path evidence. Keep consenting-peer and destination scopes explicit.
-3. Develop platform-specific safe active/active TCP adapters. The included Linux loopback experiment is only a primitive diagnostic. Do not apply Linux socket reuse flags blindly on Windows; unsupported combinations must fail explicitly.
-4. Run an explicitly authorized two-network campaign with consenting endpoints and approved coordination. Cover all ordered Windows/macOS/Linux pairs, blocked UDP, double NAT/CGN, filtered IPv6 and endpoint-dependent mappings. Capture exact local/observed/peer tuples, OS/runtime, timing and authenticated payload evidence. No arbitrary public probes or unapproved router/firewall changes.
-5. Only harden paths that are demonstrated: lease/revocation policy, long-session lifetime, sleep/resume, network changes, concurrency, backpressure and real SSH. Existing authorized sshd remains a prerequisite; installing/enabling it may need admin rights. An embedded current-user SSH server and PTY/ConPTY support would be separate work.
+Windows explicit UDP CLI uses SelectorEventLoop after sustained bidirectional DTLS stalled on Python 3.12's proactor loop. TCP/stdio retains the platform default. The adapter does not replace an embedding application's loop automatically.
 
-These are planned gates, not implemented functions or protocol promises.
+Prediction retries one connectivity setup failure using a new path and signed
+grant; pin/policy failures remain terminal. NativeSCTP surfaces a disconnected
+DTLS sender through its owned stream rather than leaving an upstream timer or
+reconfiguration task with an unobserved exception. Expected association shutdown
+is separate from active send failure; failures cannot become service readiness.
+
+`ssh_cli.py` invokes the existing OpenSSH client with Python's actual proxy entry.
+ProxyCommand precedes ProxyJump, and a real `ssh -G` preflight must report the
+exact Python command. No bypass to the original alias's management network is
+allowed. The alias supplies original host identity/credentials; no SSH config or
+authentication change is made. Parent cancellation terminates its SSH child.
+
+## Explicit home bridge
+
+`home_bridge.py` implements an opt-in `HomeBridge` peer with one immutable
+peer/service target. Incoming grants authorize a named service on the home peer;
+the outgoing client obtains a separate grant for home -> final peer/service.
+Callers cannot supply another destination. Ordinary `Node` service validation
+continues to reject anything except fixed loopback targets; only `HomeBridge`
+accepts the internal `PeerService` descriptor. The coordinator is unchanged.
+
+An anonymous socket pair composes the admitted incoming stream with an outgoing
+client using the existing direct-method selector. There is no extra local
+forwarding listener. Incoming readiness refers to the home bridge admission;
+outgoing readiness is separately logged only with affirmative direct evidence.
+Full success still requires final SSH identity/login/data checks and native paths
+on both legs. SSH remains end-to-end between the source and final host.
+
+The existing 32-session cap bounds brokers; owner completion cancels a pending
+outgoing attempt. Each leg renews its own grant. Either path failing or a local
+policy revision closes both; a bridge policy update requires restart before new
+sessions because outgoing clients retain their startup snapshot. No automatic
+relay discovery/fallback or cloud business operation is added.
+
+## Lifetimes and resources
+
+Remote grants last 30 seconds. Receiver renews halfway through remaining lifetime; failed control/policy/expiry closes both legs. Absolute data deadline: 24 hours. Local node revision cancels sessions/offers. Invalid policy updates retain the previous snapshot; coordinator pin rotation requires restart. Clients use startup snapshots.
+
+Services cap 32 accepted handlers including TLS handshakes; nodes cap 32 active service streams. Setup/service dials: five seconds; TLS shutdown: 0.5 seconds. Cancellation closes listeners, handlers, pumps and both legs. Selector-based accept checks cancellation before accepting and closes any socket accepted during owner cancellation, avoiding a Python 3.12 readiness/cancellation race. Proxy stdout is binary-clean; stderr carries diagnostics. One-shot daemon stdio workers permit process exit with blocked inherited pipes. Local forwards do not authenticate local callers.
+
+## Linux NAT diagnostics
+
+`tcp_probe.py` prebinds source-bound SO_REUSEADDR sockets, retains authenticated observation sockets for 15 seconds and compares the same local port at two approved coordinator ports. Strict active mode dials only the exact consenting peer tuple. Explicit hybrid mode also prebinds a target listener and primes outbound SYNs; results distinguish it from active/active success. No SO_REUSEPORT, raw socket, port sweep or OS changes. Windows rejects this Linux adapter.
+
+Different observations for the same local port at different destination ports demonstrate destination-port-dependent mapping for those measurements. Missing responses cannot establish a complete NAT type. TCP connect/SSH banner alone does not prove the intended authenticated host.
+
+## Open acceptance gate
+
+Ordinary-user, many-to-many SSH across different LANs remains the product objective. The owner now also accepts a home Windows business bridge between 3k and hospital, provided both legs independently use verified native peer paths and neither Tailscale nor the cloud carries business traffic. The explicit `home-bridge` mode uses a separate peer identity and two directed service approvals; synthetic checks do not satisfy the real-network gate.
+
+The Linux pair is unsolved, and the alternative topology is incomplete: home ↔ hospital FRP reference SSH works, but home ↔ 3k is unverified. Address observations alone do not pass either gate. No global native IPv6 candidate or gateway mapping interface was found on the Linux hosts. Measurements are environment-specific, not proof that every possible direct technique fails.
+
+Next work needs new evidence: a verified home ↔ 3k native path or native Linux pair, followed by complete SSH/data validation. Preserve explicit failure when the selected topology lacks a path. Deployment, SSH auth changes and network configuration require user approval. No automatic relay fallback, production service installation, roaming/sleep recovery, macOS validation or universal hard-NAT solution is claimed.

@@ -1,0 +1,32 @@
+{
+  "version": "0.3.0",
+  "windows": {
+    "total": 90,
+    "passed": 87,
+    "linux_only_skipped": 3,
+    "udp_event_loop": "production non-debug selector",
+    "clean_pass": true,
+    "separate_asyncio_debug_stress": "still fails intermittently; retained and documented"
+  },
+  "linux": {
+    "total": 90,
+    "passed": 90,
+    "skipped": 0,
+    "tcp_diagnostics": 26,
+    "demo": true,
+    "updated_remote_subset": 23
+  },
+  "entry_controls": {
+    "cases": 8,
+    "passed": 8,
+    "installed_wheel_cases": 8
+  },
+  "windows_private_identity": {
+    "localized_sid_utf8_and_local_codepage": true,
+    "ntfs_identity_loaded": true,
+    "exfat_rejected_before_key_write": true
+  },
+  "sctp_disconnection_cases": 2,
+  "runtime_leases_unchanged_seconds": 30,
+  "test_timing_adjustments": "Artificial renewal lease 1 -> 3 seconds; whole reverse test 5 -> 12 seconds. Assertions/data verification retained."
+}

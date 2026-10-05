@@ -1,4 +1,4 @@
-"""Bounded asyncio TCP/TLS transport, restricted to numeric loopback."""
+"""Bounded TCP/TLS transport; loopback by default, explicit approved validators."""
 import asyncio
 from contextlib import suppress
 import ipaddress
@@ -41,8 +41,8 @@ async def close_writer(writer):
         await asyncio.wait_for(writer.wait_closed(), 0.5)
 
 
-async def connect(endpoint, context=None):
-    host, port = address(endpoint)
+async def connect(endpoint, context=None, *, validator=address):
+    host, port = validator(endpoint)
     kwargs = dict(ssl=context, server_hostname='' if context else None, limit=BUFFER)
     if context:
         kwargs.update(ssl_handshake_timeout=TIMEOUT, ssl_shutdown_timeout=0.5)
@@ -113,19 +113,53 @@ async def bridge(a, b, timeout=SESSION_TIMEOUT):
         await asyncio.gather(close_writer(a[1]), close_writer(b[1]))
 
 
+async def accept_socket(listener):
+    loop = asyncio.get_running_loop()
+    if not isinstance(loop, asyncio.SelectorEventLoop):
+        return await loop.sock_accept(listener)
+    # Python 3.12 selector sock_accept can accept into a cancelled future when
+    # a readiness callback was already queued. Guard the future before accepting.
+    future = loop.create_future()
+    fd = listener.fileno()
+    def ready():
+        if future.done():
+            return
+        try:
+            sock, endpoint = listener.accept()
+            sock.setblocking(False)
+            future.set_result((sock, endpoint))
+        except BlockingIOError:
+            pass
+        except OSError as error:
+            future.set_exception(error)
+    loop.add_reader(fd, ready)
+    try:
+        return await future
+    finally:
+        loop.remove_reader(fd)
+        if future.done() and not future.cancelled() and not future.exception() and asyncio.current_task().cancelling():
+            future.result()[0].close()
+
+
 class Service:
     """Admission cap includes TLS handshakes, not only authenticated handlers."""
-    def __init__(self, handler, context=None, limit=MAX_CONNECTIONS):
+    def __init__(self, handler, context=None, limit=MAX_CONNECTIONS, *, validator=address):
         self.handler, self.context = handler, context
+        self.validator = validator
         self.slots = asyncio.Semaphore(limit)
         self.tasks = set()
         self.listener = None
         self.accept_task = None
 
     async def start(self, endpoint='127.0.0.1:0'):
-        host, port = address(endpoint, bind=True)
+        host, port = self.validator(endpoint, bind=True)
         sock = socket.socket(socket.AF_INET6 if ':' in host else socket.AF_INET, socket.SOCK_STREAM)
         try:
+            if hasattr(socket, 'SO_EXCLUSIVEADDRUSE'):
+                sock.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+            else:
+                # Passive listener restart/TIME_WAIT only; never SO_REUSEPORT.
+                sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             sock.bind((host, port))
             sock.listen(MAX_CONNECTIONS)
             sock.setblocking(False)
@@ -142,7 +176,7 @@ class Service:
         while True:
             await self.slots.acquire()
             try:
-                sock, _ = await loop.sock_accept(self.listener)
+                sock, _ = await accept_socket(self.listener)
             except BaseException:
                 self.slots.release()
                 raise

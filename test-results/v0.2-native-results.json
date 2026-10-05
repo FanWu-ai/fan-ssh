@@ -1,0 +1,101 @@
+{
+  "acceptance": "3k <-> hospital native-network SSH not passed",
+  "relay": false,
+  "udp_control_trials": [
+    {
+      "mode": "ephemeral",
+      "observations_succeeded": true,
+      "sent_per_host": [
+        40,
+        40
+      ],
+      "authenticated_received_per_host": [
+        0,
+        0
+      ],
+      "unexpected_received_sources_per_host": [
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "fixed-22092",
+      "observations_succeeded": true,
+      "sent_per_host": [
+        40,
+        40
+      ],
+      "authenticated_received_per_host": [
+        0,
+        0
+      ],
+      "unexpected_received_sources_per_host": [
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "fixed-3478",
+      "observations_succeeded": true,
+      "sent_per_host": [
+        40,
+        40
+      ],
+      "authenticated_received_per_host": [
+        0,
+        0
+      ],
+      "unexpected_received_sources_per_host": [
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "standard-stun-fixed-3478",
+      "observations_succeeded": true,
+      "sent_per_host": [
+        40,
+        40
+      ],
+      "authenticated_received_per_host": [
+        0,
+        0
+      ],
+      "unexpected_received_sources_per_host": [
+        0,
+        0
+      ]
+    }
+  ],
+  "tcp_mapping_trials": [
+    {
+      "trial": 1,
+      "hospital_mapping_changed_by_observer_port": false,
+      "k3_mapping_changed_by_observer_port": true,
+      "authenticated_direct_success": false
+    },
+    {
+      "trial": 2,
+      "hospital_mapping_changed_by_observer_port": false,
+      "k3_mapping_changed_by_observer_port": true,
+      "authenticated_direct_success": false
+    },
+    {
+      "trial": 3,
+      "hospital_mapping_changed_by_observer_port": false,
+      "k3_mapping_changed_by_observer_port": true,
+      "authenticated_direct_success": false
+    }
+  ],
+  "public_rule_cleanup": "temporary UDP 22092 deletion requested; confirmation pending",
+  "k3_read_only_physical_capture": {
+    "peer_egress_datagrams": 40,
+    "cloud_binding_requests": 1,
+    "cloud_binding_responses": 1,
+    "peer_ingress_datagrams": 0,
+    "promiscuous_mode": false,
+    "interface_or_firewall_changes": false
+  },
+  "gateway_visibility": "owner cannot inspect exit gateways",
+  "hospital_firewall_visibility": "administrator access required; read-only check requested"
+}

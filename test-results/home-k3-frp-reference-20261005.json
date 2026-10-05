@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-05",
+  "reference": "frp 0.71.0 XTCP",
+  "source": "home Windows",
+  "target": "k3",
+  "cloud_business_relay": false,
+  "fallback_configured": false,
+  "assisted_addresses": false,
+  "physical_route_verified": true,
+  "linux_uid": 1002,
+  "completed_kcp_reference": {
+    "banner_checks": 6,
+    "banners_received": 0,
+    "peer_hole_established": false,
+    "ssh_attempted": false,
+    "completed_hole_strategies": 4,
+    "long_mode_2_trials": [
+      {
+        "read_timeout_ms": 38000,
+        "ttl": 4,
+        "home_listen_sockets": 256,
+        "k3_random_peer_port_probes": 1000
+      },
+      {
+        "read_timeout_ms": 38000,
+        "ttl": 0,
+        "home_listen_sockets": 256,
+        "k3_random_peer_port_probes": 1000
+      }
+    ],
+    "other_completed_modes": [
+      0,
+      0
+    ],
+    "k3_capture": {
+      "interface": "physical",
+      "promiscuous": false,
+      "packets_captured": 2008,
+      "peer_egress_udp": 2008,
+      "peer_ingress_udp": 0,
+      "kernel_drops": 0
+    }
+  },
+  "earlier_quic_and_short_kcp_runs": "No path established, but some long strategies were interrupted; do not count them as completed long-mode failures.",
+  "home_exit_matches_fresh_home_hospital_positive": true,
+  "network_or_authentication_configuration_changed": false,
+  "assessment": "The working home/hospital recipe did not establish a home/k3 path, including two complete long random-port strategies."
+}

@@ -1,0 +1,96 @@
+test_demo (test_cli.CLITests.test_demo) ... ok
+test_invalid_target_stdout_empty (test_cli.CLITests.test_invalid_target_stdout_empty) ... ok
+test_proxy_blocked_stdout_cancellation (test_cli.CLITests.test_proxy_blocked_stdout_cancellation) ... skipped 'POSIX signal/pipe runtime regression'
+test_proxy_clean_binary_and_half_close (test_cli.CLITests.test_proxy_clean_binary_and_half_close) ... ok
+test_loopback (test_core.AddressTests.test_loopback) ... ok
+test_reject_unsafe (test_core.AddressTests.test_reject_unsafe) ... ok
+test_absolute_bridge_timeout (test_core.AsyncTests.test_absolute_bridge_timeout) ... ok
+test_actual_server_pin_checked (test_core.AsyncTests.test_actual_server_pin_checked) ... ok
+test_binary_echo_and_concurrency (test_core.AsyncTests.test_binary_echo_and_concurrency) ... Executing <Task pending name='Task-43' coro=<Service._handle() running at <checkout>\fan_ssh\transport.py:198> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[set.discard()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:420> took 0.219 seconds
+ok
+test_cancellation_closes_stalled_handshake (test_core.AsyncTests.test_cancellation_closes_stalled_handshake) ... ok
+test_coordinator_rejects_body_and_operations (test_core.AsyncTests.test_coordinator_rejects_body_and_operations) ... ok
+test_coordinator_rejects_unapproved_enrolled_leaf (test_core.AsyncTests.test_coordinator_rejects_unapproved_enrolled_leaf) ... ok
+test_directional_acl_and_snapshot (test_core.AsyncTests.test_directional_acl_and_snapshot) ... ok
+test_frame_size_before_payload (test_core.AsyncTests.test_frame_size_before_payload) ... ok
+test_half_close_delayed_response (test_core.AsyncTests.test_half_close_delayed_response) ... ok
+test_handshake_admission_cap (test_core.AsyncTests.test_handshake_admission_cap) ... ok
+test_independent_destination_pin_before_dial (test_core.AsyncTests.test_independent_destination_pin_before_dial) ... ok
+test_ipv6_encrypted_peer_path (test_core.AsyncTests.test_ipv6_encrypted_peer_path) ... ok
+test_ipv6_target (test_core.AsyncTests.test_ipv6_target) ... ok
+test_local_forward (test_core.AsyncTests.test_local_forward) ... ok
+test_metadata_rejects_deep_json (test_core.AsyncTests.test_metadata_rejects_deep_json) ... ok
+test_metadata_rejects_duplicates_and_constants (test_core.AsyncTests.test_metadata_rejects_duplicates_and_constants) ... ok
+test_metadata_size_before_payload (test_core.AsyncTests.test_metadata_size_before_payload) ... ok
+test_session_cancellation_closes_active_stream (test_core.AsyncTests.test_session_cancellation_closes_active_stream) ... ok
+test_truncated_frame_not_eof (test_core.AsyncTests.test_truncated_frame_not_eof) ... ok
+test_unknown_ca_rejected (test_core.AsyncTests.test_unknown_ca_rejected) ... ok
+test_wrong_coordinator_pin (test_core.AsyncTests.test_wrong_coordinator_pin) ... ok
+test_cancelled_observation_closes_prebound_resources (test_native_diagnostics.LinuxBindingTests.test_cancelled_observation_closes_prebound_resources) ... skipped 'Linux source-bound TCP adapter; run on Linux hosts'
+test_same_source_port_two_authenticated_observers_and_prebound_listener (test_native_diagnostics.LinuxBindingTests.test_same_source_port_two_authenticated_observers_and_prebound_listener) ... skipped 'Linux source-bound TCP adapter; run on Linux hosts'
+test_only_approved_small_binding_requests_and_rate_limit (test_native_diagnostics.ObserverTests.test_only_approved_small_binding_requests_and_rate_limit) ... ok
+test_expired_certificate_cannot_be_enrolled_or_renew_grant (test_remote.ConfigurationTests.test_expired_certificate_cannot_be_enrolled_or_renew_grant) ... ok
+test_explicit_numeric_scope_and_unprivileged_ports (test_remote.ConfigurationTests.test_explicit_numeric_scope_and_unprivileged_ports) ... ok
+test_identity_roundtrip_no_overwrite (test_remote.ConfigurationTests.test_identity_roundtrip_no_overwrite) ... ok
+test_key_mismatch_and_policy_schema (test_remote.ConfigurationTests.test_key_mismatch_and_policy_schema) ... ok
+test_policy_snapshots_and_monotonic_revision (test_remote.ConfigurationTests.test_policy_snapshots_and_monotonic_revision) ... ok
+test_private_key_readable_by_other_users_rejected (test_remote.ConfigurationTests.test_private_key_readable_by_other_users_rejected) ... ok
+test_bounded_replay_cache_never_evicts_live_tokens (test_remote.GrantTests.test_bounded_replay_cache_never_evicts_live_tokens) ... ok
+test_replay_and_renewal_cannot_admit (test_remote.GrantTests.test_replay_and_renewal_cannot_admit) ... ok
+test_signature_tampering_expiry_and_future (test_remote.GrantTests.test_signature_tampering_expiry_and_future) ... ok
+test_candidate_racing_cancels_stalled_handshake (test_remote.RemoteTests.test_candidate_racing_cancels_stalled_handshake) ... Executing <Task finished name='Task-313' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.282 seconds
+ok
+test_control_unknown_operations_bodies_rate_and_offer_scope (test_remote.RemoteTests.test_control_unknown_operations_bodies_rate_and_offer_scope) ... Executing <Task finished name='Task-343' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.266 seconds
+ok
+test_coordinator_cannot_replace_identity_or_candidates (test_remote.RemoteTests.test_coordinator_cannot_replace_identity_or_candidates) ... Executing <Task finished name='Task-362' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.266 seconds
+ok
+test_coordinator_loss_and_revocation_close_sessions (test_remote.RemoteTests.test_coordinator_loss_and_revocation_close_sessions) ... Executing <Task finished name='Task-377' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.281 seconds
+ok
+test_diagnosis_authenticates_without_opening_service (test_remote.RemoteTests.test_diagnosis_authenticates_without_opening_service) ... Executing <Task finished name='Task-403' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.281 seconds
+ok
+test_direct_concurrent_payload_and_metadata_only_control (test_remote.RemoteTests.test_direct_concurrent_payload_and_metadata_only_control) ... Executing <Task finished name='Task-419' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.266 seconds
+ok
+test_failed_candidates_honest_no_relay (test_remote.RemoteTests.test_failed_candidates_honest_no_relay) ... Executing <Task finished name='Task-550' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.266 seconds
+ok
+test_local_policy_update_closes_active_session (test_remote.RemoteTests.test_local_policy_update_closes_active_session) ... Executing <Task finished name='Task-564' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.265 seconds
+Executing <Task pending name='Task-571' coro=<RemoteTests.test_local_policy_update_closes_active_session() running at <checkout>\tests\test_remote.py:346> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.125 seconds
+ok
+test_many_to_many_both_devices_initiate_and_receive (test_remote.RemoteTests.test_many_to_many_both_devices_initiate_and_receive) ... Executing <Task finished name='Task-588' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.281 seconds
+Executing <Task pending name='Task-595' coro=<RemoteTests.test_many_to_many_both_devices_initiate_and_receive() running at <checkout>\tests\test_remote.py:372> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:712> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.250 seconds
+ok
+test_renewed_session_survives_initial_expiry (test_remote.RemoteTests.test_renewed_session_survives_initial_expiry) ... Executing <Task finished name='Task-631' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.281 seconds
+ok
+test_reverse_direct_path_when_target_cannot_receive (test_remote.RemoteTests.test_reverse_direct_path_when_target_cannot_receive) ... Executing <Task finished name='Task-663' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.265 seconds
+ok
+test_service_acl_denied_before_any_direct_dial (test_remote.RemoteTests.test_service_acl_denied_before_any_direct_dial) ... Executing <Task finished name='Task-704' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.266 seconds
+ok
+test_unknown_device_never_dials_service (test_remote.RemoteTests.test_unknown_device_never_dials_service) ... Executing <Task finished name='Task-715' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.266 seconds
+ok
+test_wrong_tls_caller_expired_grant_and_replay (test_remote.RemoteTests.test_wrong_tls_caller_expired_grant_and_replay) ... Executing <Task finished name='Task-728' coro=<RemoteTests.asyncSetUp() done, defined at <checkout>\tests\test_remote.py:160> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.266 seconds
+ok
+test_all_methods_unreachable_report_without_relay (test_strategies.StrategyTests.test_all_methods_unreachable_report_without_relay) ... ok
+test_connectivity_failure_then_next_method_with_attempt_evidence (test_strategies.StrategyTests.test_connectivity_failure_then_next_method_with_attempt_evidence) ... ok
+test_deadline_cancels_first_path_before_starting_next (test_strategies.StrategyTests.test_deadline_cancels_first_path_before_starting_next) ... ok
+test_identity_acl_and_permission_failures_do_not_attempt_next_method (test_strategies.StrategyTests.test_identity_acl_and_permission_failures_do_not_attempt_next_method) ... ok
+test_user_cancellation_does_not_start_another_method (test_strategies.StrategyTests.test_user_cancellation_does_not_start_another_method) ... ok
+test_pending_network_requests_share_cap_and_close_rejects_them (test_udp.UDPCapacityTests.test_pending_network_requests_share_cap_and_close_rejects_them) ... Executing <Task pending name='Task-797' coro=<UDPCapacityTests.test_pending_network_requests_share_cap_and_close_rejects_them() running at <checkout>\tests\test_udp.py:49> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.140 seconds
+ok
+test_acl_denied_before_udp_path_or_service (test_udp.UDPSignalingTests.test_acl_denied_before_udp_path_or_service) ... Executing <Task pending name='Task-833' coro=<UDPSignalingTests.asyncSetUp() running at <checkout>\tests\test_udp.py:168> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(1536, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.203 seconds
+ok
+test_automatic_tcp_failure_then_pinned_prediction_stream (test_udp.UDPSignalingTests.test_automatic_tcp_failure_then_pinned_prediction_stream) ... Executing <Task pending name='Task-844' coro=<UDPSignalingTests.asyncSetUp() running at <checkout>\tests\test_udp.py:168> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(1464, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.218 seconds
+ok
+test_control_loss_closes_native_session (test_udp.UDPSignalingTests.test_control_loss_closes_native_session) ... Executing <Task pending name='Task-938' coro=<UDPSignalingTests.asyncSetUp() running at <checkout>\tests\test_udp.py:168> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(796, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.203 seconds
+ok
+test_signaled_direct_binary_half_close (test_udp.UDPSignalingTests.test_signaled_direct_binary_half_close) ... Executing <Task pending name='Task-986' coro=<UDPSignalingTests.asyncSetUp() running at <checkout>\tests\test_udp.py:168> wait_for=<Future pending cb=[BaseSelectorEventLoop._sock_write_done(652, handle=<Handle BaseS...events.py:317>)(), Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.203 seconds
+ok
+test_alternate_observer_uses_same_native_socket_when_primary_does_not_reply (test_udp.UDPTests.test_alternate_observer_uses_same_native_socket_when_primary_does_not_reply) ... ok
+test_native_dtls_credit_flow_binary_stream (test_udp.UDPTests.test_native_dtls_credit_flow_binary_stream) ... ok
+test_port_prediction_limits_irregular_and_changed_ip_observations (test_udp.UDPTests.test_port_prediction_limits_irregular_and_changed_ip_observations) ... ok
+test_relay_candidate_rejected_before_connectivity_checks (test_udp.UDPTests.test_relay_candidate_rejected_before_connectivity_checks) ... ok
+test_unapproved_candidate_rejected (test_udp.UDPTests.test_unapproved_candidate_rejected) ... ok
+test_wrong_dtls_pin_rejected (test_udp.UDPTests.test_wrong_dtls_pin_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 69 tests in 122.782s
+
+OK (skipped=3)

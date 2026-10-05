@@ -1,0 +1,9 @@
+test_demo (test_cli.CLITests.test_demo) ... ok
+test_invalid_target_stdout_empty (test_cli.CLITests.test_invalid_target_stdout_empty) ... ok
+test_proxy_blocked_stdout_cancellation (test_cli.CLITests.test_proxy_blocked_stdout_cancellation) ... skipped 'POSIX signal/pipe runtime regression'
+test_proxy_clean_binary_and_half_close (test_cli.CLITests.test_proxy_clean_binary_and_half_close) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 3.289s
+
+OK (skipped=1)

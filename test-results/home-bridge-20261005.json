@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-05",
+  "owner_accepts_two_native_home_legs": true,
+  "implemented_command": "home-bridge",
+  "fixed_target_service": true,
+  "separate_directed_grants_each_leg": true,
+  "no_additional_loopback_forward_listener": true,
+  "cloud_coordinator_business_forwarding_added": false,
+  "synthetic_tests": {
+    "home_bridge_cases": 11,
+    "binary_tcp_control_bytes": 1048576,
+    "mixed_and_udp_udp_control_bytes_each": 131072,
+    "delayed_reply_after_half_close_verified": true,
+    "missing_acl_and_wrong_final_pin_rejected": true,
+    "relay_evidence_rejected_before_forwarding_payload": true,
+    "home_and_final_revocation_close_stream": true,
+    "caller_disconnect_cancels_pending_upstream": true,
+    "foreground_cli_stdout_binary_clean": true,
+    "real_ssh_login_exercised": false
+  },
+  "linux": {
+    "hospital": {
+      "uid": 1005,
+      "full_suite_total": 80,
+      "full_suite_passed": 80,
+      "full_suite_skipped": 0,
+      "tcp_diagnostics_passed": 26,
+      "tcp_diagnostics_skipped": 0,
+      "demo_passed": true,
+      "latest_tcp_bridge_subset_passed": 9,
+      "latest_tcp_bridge_subset_skipped": 0
+    },
+    "k3": {
+      "uid": 1002,
+      "full_suite_total": 80,
+      "full_suite_passed": 80,
+      "full_suite_skipped": 0,
+      "tcp_diagnostics_passed": 26,
+      "tcp_diagnostics_skipped": 0,
+      "demo_passed": true,
+      "latest_tcp_bridge_subset_passed": 9,
+      "latest_tcp_bridge_subset_skipped": 0
+    }
+  },
+  "windows": {
+    "home_bridge_cases_passed": 11,
+    "latest_full_suite": {
+      "total": 80,
+      "passed": 75,
+      "failures": 1,
+      "errors": 1,
+      "skipped_linux_cases": 3,
+      "clean_pass": false
+    },
+    "remaining_failures": [
+      "one-second renewable lease reset intermittently",
+      "signaled 1 MiB UDP echo stalled with asyncio debug enabled"
+    ],
+    "sctp_cleanup_background_exception_seen_on_failed_run": true,
+    "same_short_lease_isolated_case_exit": 0,
+    "udp_echo_non_debug_comparisons": [
+      {
+        "iteration": 1,
+        "debug": false,
+        "exit": 0,
+        "elapsed_seconds": 3.728
+      },
+      {
+        "iteration": 2,
+        "debug": false,
+        "exit": 0,
+        "elapsed_seconds": 3.718
+      },
+      {
+        "iteration": 3,
+        "debug": false,
+        "exit": 0,
+        "elapsed_seconds": 4.639
+      }
+    ],
+    "interpretation": "Three non-debug controls pass, but the debug/full-suite failures are not resolved. Do not report Windows as a clean complete regression pass."
+  },
+  "prestart_cancel_regression": {
+    "before_fix": "anonymous socket EOF timed out",
+    "after_fix": "task completion callback closes socket even if broker never starts",
+    "linux_and_windows_regression_passed": true
+  },
+  "wheel": {
+    "wheel_sha256": "735ddd0f8d7febf7f25e64b39bc571e9b3c0a8fceedc87c1e5c87045649aeb10",
+    "installed_outside_checkout": true,
+    "home_bridge_import_from_installed_wheel_verified": true,
+    "foreground_bridge_cli_binary_hash_and_half_close": true,
+    "public_release": false
+  },
+  "real_topology": {
+    "home_hospital_frp_reference_ssh_verified": true,
+    "home_k3_native_leg_verified": false,
+    "complete_home_bridge_ssh_data_verified": false,
+    "native_linux_pair_verified": false
+  },
+  "permanent_deployment_or_network_authentication_configuration_changed": false,
+  "temporary_security_group_rule_deletion_verified": false
+}

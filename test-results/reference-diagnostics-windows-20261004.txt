@@ -1,0 +1,23 @@
+test_advertised_two_hop_route_is_not_a_connection (test_peer_check.SelectedPathTests.test_advertised_two_hop_route_is_not_a_connection) ... ok
+test_selected_connection_must_be_direct_and_live (test_peer_check.SelectedPathTests.test_selected_connection_must_be_direct_and_live) ... ok
+test_selected_native_path (test_peer_check.SelectedPathTests.test_selected_native_path) ... ok
+test_unused_native_connection_does_not_override_selected_overlay (test_peer_check.SelectedPathTests.test_unused_native_connection_does_not_override_selected_overlay) ... ok
+test_wrong_next_hop_or_target_rejected (test_peer_check.SelectedPathTests.test_wrong_next_hop_or_target_rejected) ... ok
+test_wrong_protocol_or_embedded_native_ip_rejected (test_peer_check.SelectedPathTests.test_wrong_protocol_or_embedded_native_ip_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK
+test_malformed_attribute_does_not_leave_partial_success (test_binding.BindingCases.test_malformed_attribute_does_not_leave_partial_success) ... ok
+test_real_world_mapped_only_server (test_binding.BindingCases.test_real_world_mapped_only_server) ... ok
+test_wrong_message_identity_and_truncation (test_binding.BindingCases.test_wrong_message_identity_and_truncation) ... ok
+test_xor_address_and_attribute_order (test_binding.BindingCases.test_xor_address_and_attribute_order) ... ok
+test_classic_transaction_bytes_remain_unchanged (test_tcp_observer.TcpBindingCases.test_classic_transaction_bytes_remain_unchanged) ... ok
+test_modern_client_decodes_its_actual_tuple (test_tcp_observer.TcpBindingCases.test_modern_client_decodes_its_actual_tuple) ... ok
+test_wrong_type_length_or_oversize_is_not_answered (test_tcp_observer.TcpBindingCases.test_wrong_type_length_or_oversize_is_not_answered) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK

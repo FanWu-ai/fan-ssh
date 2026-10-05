@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-05",
+  "reference": "EasyTier v2.6.4 official verified Windows/Linux binaries",
+  "linux_uid": 1002,
+  "cloud_business_relay_disabled": true,
+  "automatic_network_mapping_disabled": true,
+  "references": [
+    {
+      "transport": "udp",
+      "effective_no_tun_no_upnp_no_data_relay_profiles_verified": true,
+      "selected_native_peer_checks": [
+        {
+          "trial": 1,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 2,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 3,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 4,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 5,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 6,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 7,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 8,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        }
+      ],
+      "native_pair_verified": false,
+      "ssh_attempted": false,
+      "ssh_verified": false,
+      "post_observation_log_retrieval_timeout": true,
+      "owned_cleanup_rescued_and_audited": true
+    },
+    {
+      "transport": "tcp",
+      "effective_no_tun_no_upnp_no_data_relay_profiles_verified": true,
+      "selected_native_peer_checks": [
+        {
+          "trial": 1,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 2,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 3,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 4,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 5,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 6,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 7,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        },
+        {
+          "trial": 8,
+          "home_selected_native_peer": false,
+          "k3_selected_native_peer": false
+        }
+      ],
+      "native_pair_verified": false,
+      "ssh_attempted": false,
+      "ssh_verified": false,
+      "native_tcp_observer_binding_responses": 2,
+      "default_tcp_stun_replaced_only_on_k3": true,
+      "home_default_tcp_stun_scope_unverified": true,
+      "reported_tcp_nat_type_both_peers": "Symmetric",
+      "tcp_engine_initiator_skipped_for_reported_symmetric_nat": true,
+      "interpretation": "No selected direct peer in eight snapshots. This engine skips symmetric initiators; do not count it as a completed symmetric/symmetric TCP punching failure."
+    }
+  ],
+  "network_authentication_or_deployment_changed": false,
+  "source_for_tcp_initiator_guard": "https://raw.githubusercontent.com/EasyTier/EasyTier/v2.6.4/easytier/src/connector/tcp_hole_punch.rs",
+  "classification_limit": "One cloud observer IP at two ports on k3; home TCP retains default observers. These labels are not a complete NAT classification."
+}

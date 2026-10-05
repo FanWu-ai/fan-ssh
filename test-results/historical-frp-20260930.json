@@ -1,0 +1,50 @@
+{
+  "scope": "Historical third-party frp trial; not a current fan-ssh or Linux-to-Linux acceptance run",
+  "test_date": "2026-09-30",
+  "retrieved_date": "2026-10-04",
+  "timezone": "Asia/Shanghai",
+  "endpoints": [
+    "Windows",
+    "hospital"
+  ],
+  "tool": "frp 0.71.0 XTCP",
+  "transport": "QUIC over IPv4 UDP",
+  "ipv6_used": false,
+  "observer": "stun.easyvoip.com:3478",
+  "assisted_addresses_disabled": true,
+  "relay_fallback_configured": false,
+  "visitor_and_provider_peer_establishment_logged": true,
+  "provider_strategy": {
+    "role": "receiver",
+    "mode": 1,
+    "ttl": 7,
+    "candidate_port_interval_size": 17,
+    "selected_peer_port_differed_from_initial_observations": true
+  },
+  "ssh": {
+    "visitor_loopback_port": 16022,
+    "existing_host_key_checked": true,
+    "expected_hostname_and_user_returned": true,
+    "exit_code": 0,
+    "source_command_id": "exec-b9230970-d071-4271-9194-a9514aa6b7a5"
+  },
+  "transfers": {
+    "bytes_each_direction": 33554432,
+    "upload": {
+      "seconds": 3.58,
+      "decimal_MB_per_second": 9.38,
+      "exit_code": 0
+    },
+    "download": {
+      "seconds": 7.18,
+      "decimal_MB_per_second": 4.67,
+      "exit_code": 0
+    },
+    "payload_hash_verified": false,
+    "source_command_id": "exec-dd37689a-bc2a-43b6-88ab-b10d21e7fd3e"
+  },
+  "original_provider_log_and_visitor_config_reinspected_read_only": true,
+  "new_server_process_or_network_change_during_inspection": false,
+  "current_3k_hospital_acceptance_passed": false,
+  "privacy": "Public peer tuples, session identifiers, tokens and secret keys omitted"
+}

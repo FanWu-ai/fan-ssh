@@ -1,2 +1,2 @@
-"""fan-ssh: loopback-only direct SSH transport research."""
-__version__ = '0.1.0'
+"""Python SSH connections over explicitly approved direct peer paths."""
+__version__ = '0.3.0'

@@ -1,0 +1,8 @@
+test_foreground_cli_fixed_target_and_binary_clean_stdout (test_home_bridge.HomeBridgeTests.test_foreground_cli_fixed_target_and_binary_clean_stdout) ... Executing <Task finished name='Task-1' coro=<BridgeFixture.asyncSetUp() done, defined at <user-home>\AppData\Local\Temp\fan-home-wheel-smoke-572gfnh7\tests\test_home_bridge.py:26> result=None created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 1.281 seconds
+Executing <Task pending name='Task-10' coro=<HomeBridgeTests.test_foreground_cli_fixed_target_and_binary_clean_stdout() running at <user-home>\AppData\Local\Temp\fan-home-wheel-smoke-572gfnh7\tests\test_home_bridge.py:256> wait_for=<Future pending cb=[Task.task_wakeup()] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:448> cb=[_run_until_complete_cb() at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py:181] created at <user-home>\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py:100> took 0.218 seconds
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 4.661s
+
+OK

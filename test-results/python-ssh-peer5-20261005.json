@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-05",
+  "implementation": "fan-ssh Python CLI, ICE/DTLS/SCTP; no FRP process started",
+  "entry": "python -m fan_ssh ssh",
+  "peer": "peer-5",
+  "real_ssh_logins_verified": 3,
+  "original_ssh_host_key_strictly_checked": true,
+  "python_proxy_preflight_checked": true,
+  "native_admissions_verified": 5,
+  "source_and_target_routes_physical": true,
+  "data_tailscale_or_cloud_relay": false,
+  "upload_bytes": 8388608,
+  "upload_sha256_verified": true,
+  "roundtrip_bytes": 8388608,
+  "roundtrip_sha256_verified": true,
+  "automatic_method_trace": [
+    "tcp: NO_DIRECT_PATH",
+    "udp-ice: timeout",
+    "udp-predict: authenticated native service ready"
+  ],
+  "prediction_retries_observed": [
+    2,
+    1,
+    2,
+    1,
+    1
+  ],
+  "metadata_connection_reuse_enabled": true,
+  "server_authentication_network_or_permanent_deployment_changed": false,
+  "control_only_cloud": true,
+  "original_other_peers_unverified": true,
+  "privacy": "Private endpoint inventories, host aliases, OS users, keys/pins, tokens and raw logs excluded"
+}

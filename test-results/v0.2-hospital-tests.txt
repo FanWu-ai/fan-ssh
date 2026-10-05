@@ -1,0 +1,116 @@
+Looking in links: <temporary-test-directory>/wheels
+Processing ./wheels/cryptography-50.0.2-cp311-abi3-manylinux_2_28_x86_64.whl
+Processing ./wheels/cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl
+Processing ./wheels/pycparser-3.0-py3-none-any.whl
+Processing ./wheels/aiortc-1.15.0-py3-none-any.whl
+Processing ./wheels/aioice-0.10.2-py3-none-any.whl
+Processing ./wheels/av-17.1.0-cp311-abi3-manylinux_2_28_x86_64.whl (from aiortc==1.15.0)
+Processing ./wheels/google_crc32c-1.9.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (from aiortc==1.15.0)
+Processing ./wheels/pyee-14.0.0-py3-none-any.whl (from aiortc==1.15.0)
+Processing ./wheels/pylibsrtp-1.0.0-cp310-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (from aiortc==1.15.0)
+Processing ./wheels/pyopenssl-26.4.0-py3-none-any.whl (from aiortc==1.15.0)
+Processing ./wheels/dnspython-2.8.0-py3-none-any.whl (from aioice==0.10.2)
+Processing ./wheels/ifaddr-0.2.0-py3-none-any.whl (from aioice==0.10.2)
+Processing ./wheels/typing_extensions-4.16.0-py3-none-any.whl (from pyee>=13.0.0->aiortc==1.15.0)
+Installing collected packages: ifaddr, typing-extensions, pycparser, google-crc32c, dnspython, av, pyee, cffi, aioice, pylibsrtp, cryptography, pyopenssl, aiortc
+
+Successfully installed aioice-0.10.2 aiortc-1.15.0 av-17.1.0 cffi-2.1.1 cryptography-50.0.2 dnspython-2.8.0 google-crc32c-1.9.0 ifaddr-0.2.0 pycparser-3.0 pyee-14.0.0 pylibsrtp-1.0.0 pyopenssl-26.4.0 typing-extensions-4.16.0
+ENV Linux x86_64 3.12.10 OpenSSL 3.0.2 15 Mar 2022 cryptography 50.0.2 uid 1005
+PASS: coordinator-discovered, mutually authenticated direct TLS echo; no relay
+CHECK_STATUS root=0 diagnostic=0 demo=0
+WARNING: Error parsing dependencies of python-debian: Invalid version: '0.1.43ubuntu1'
+WARNING: Error parsing dependencies of distro-info: Invalid version: '1.1build1'
+test_demo (test_cli.CLITests.test_demo) ... ok
+test_invalid_target_stdout_empty (test_cli.CLITests.test_invalid_target_stdout_empty) ... ok
+test_proxy_blocked_stdout_cancellation (test_cli.CLITests.test_proxy_blocked_stdout_cancellation) ... ok
+test_proxy_clean_binary_and_half_close (test_cli.CLITests.test_proxy_clean_binary_and_half_close) ... ok
+test_loopback (test_core.AddressTests.test_loopback) ... ok
+test_reject_unsafe (test_core.AddressTests.test_reject_unsafe) ... ok
+test_absolute_bridge_timeout (test_core.AsyncTests.test_absolute_bridge_timeout) ... ok
+test_actual_server_pin_checked (test_core.AsyncTests.test_actual_server_pin_checked) ... ok
+test_binary_echo_and_concurrency (test_core.AsyncTests.test_binary_echo_and_concurrency) ... ok
+test_cancellation_closes_stalled_handshake (test_core.AsyncTests.test_cancellation_closes_stalled_handshake) ... ok
+test_coordinator_rejects_body_and_operations (test_core.AsyncTests.test_coordinator_rejects_body_and_operations) ... ok
+test_coordinator_rejects_unapproved_enrolled_leaf (test_core.AsyncTests.test_coordinator_rejects_unapproved_enrolled_leaf) ... ok
+test_directional_acl_and_snapshot (test_core.AsyncTests.test_directional_acl_and_snapshot) ... ok
+test_frame_size_before_payload (test_core.AsyncTests.test_frame_size_before_payload) ... ok
+test_half_close_delayed_response (test_core.AsyncTests.test_half_close_delayed_response) ... ok
+test_handshake_admission_cap (test_core.AsyncTests.test_handshake_admission_cap) ... ok
+test_independent_destination_pin_before_dial (test_core.AsyncTests.test_independent_destination_pin_before_dial) ... ok
+test_ipv6_encrypted_peer_path (test_core.AsyncTests.test_ipv6_encrypted_peer_path) ... ok
+test_ipv6_target (test_core.AsyncTests.test_ipv6_target) ... ok
+test_local_forward (test_core.AsyncTests.test_local_forward) ... ok
+test_metadata_rejects_deep_json (test_core.AsyncTests.test_metadata_rejects_deep_json) ... ok
+test_metadata_rejects_duplicates_and_constants (test_core.AsyncTests.test_metadata_rejects_duplicates_and_constants) ... ok
+test_metadata_size_before_payload (test_core.AsyncTests.test_metadata_size_before_payload) ... ok
+test_session_cancellation_closes_active_stream (test_core.AsyncTests.test_session_cancellation_closes_active_stream) ... ok
+test_truncated_frame_not_eof (test_core.AsyncTests.test_truncated_frame_not_eof) ... ok
+test_unknown_ca_rejected (test_core.AsyncTests.test_unknown_ca_rejected) ... ok
+test_wrong_coordinator_pin (test_core.AsyncTests.test_wrong_coordinator_pin) ... ok
+test_cancelled_observation_closes_prebound_resources (test_native_diagnostics.LinuxBindingTests.test_cancelled_observation_closes_prebound_resources) ... ok
+test_same_source_port_two_authenticated_observers_and_prebound_listener (test_native_diagnostics.LinuxBindingTests.test_same_source_port_two_authenticated_observers_and_prebound_listener) ... ok
+test_only_approved_small_binding_requests_and_rate_limit (test_native_diagnostics.ObserverTests.test_only_approved_small_binding_requests_and_rate_limit) ... ok
+test_expired_certificate_cannot_be_enrolled_or_renew_grant (test_remote.ConfigurationTests.test_expired_certificate_cannot_be_enrolled_or_renew_grant) ... ok
+test_explicit_numeric_scope_and_unprivileged_ports (test_remote.ConfigurationTests.test_explicit_numeric_scope_and_unprivileged_ports) ... ok
+test_identity_roundtrip_no_overwrite (test_remote.ConfigurationTests.test_identity_roundtrip_no_overwrite) ... ok
+test_key_mismatch_and_policy_schema (test_remote.ConfigurationTests.test_key_mismatch_and_policy_schema) ... ok
+test_policy_snapshots_and_monotonic_revision (test_remote.ConfigurationTests.test_policy_snapshots_and_monotonic_revision) ... ok
+test_private_key_readable_by_other_users_rejected (test_remote.ConfigurationTests.test_private_key_readable_by_other_users_rejected) ... ok
+test_bounded_replay_cache_never_evicts_live_tokens (test_remote.GrantTests.test_bounded_replay_cache_never_evicts_live_tokens) ... ok
+test_replay_and_renewal_cannot_admit (test_remote.GrantTests.test_replay_and_renewal_cannot_admit) ... ok
+test_signature_tampering_expiry_and_future (test_remote.GrantTests.test_signature_tampering_expiry_and_future) ... ok
+test_candidate_racing_cancels_stalled_handshake (test_remote.RemoteTests.test_candidate_racing_cancels_stalled_handshake) ... ok
+test_control_unknown_operations_bodies_rate_and_offer_scope (test_remote.RemoteTests.test_control_unknown_operations_bodies_rate_and_offer_scope) ... ok
+test_coordinator_cannot_replace_identity_or_candidates (test_remote.RemoteTests.test_coordinator_cannot_replace_identity_or_candidates) ... ok
+test_coordinator_loss_and_revocation_close_sessions (test_remote.RemoteTests.test_coordinator_loss_and_revocation_close_sessions) ... ok
+test_diagnosis_authenticates_without_opening_service (test_remote.RemoteTests.test_diagnosis_authenticates_without_opening_service) ... ok
+test_direct_concurrent_payload_and_metadata_only_control (test_remote.RemoteTests.test_direct_concurrent_payload_and_metadata_only_control) ... ok
+test_failed_candidates_honest_no_relay (test_remote.RemoteTests.test_failed_candidates_honest_no_relay) ... ok
+test_local_policy_update_closes_active_session (test_remote.RemoteTests.test_local_policy_update_closes_active_session) ... ok
+test_many_to_many_both_devices_initiate_and_receive (test_remote.RemoteTests.test_many_to_many_both_devices_initiate_and_receive) ... ok
+test_renewed_session_survives_initial_expiry (test_remote.RemoteTests.test_renewed_session_survives_initial_expiry) ... ok
+test_reverse_direct_path_when_target_cannot_receive (test_remote.RemoteTests.test_reverse_direct_path_when_target_cannot_receive) ... ok
+test_service_acl_denied_before_any_direct_dial (test_remote.RemoteTests.test_service_acl_denied_before_any_direct_dial) ... ok
+test_unknown_device_never_dials_service (test_remote.RemoteTests.test_unknown_device_never_dials_service) ... ok
+test_wrong_tls_caller_expired_grant_and_replay (test_remote.RemoteTests.test_wrong_tls_caller_expired_grant_and_replay) ... ok
+test_pending_network_requests_share_cap_and_close_rejects_them (test_udp.UDPCapacityTests.test_pending_network_requests_share_cap_and_close_rejects_them) ... ok
+test_acl_denied_before_udp_path_or_service (test_udp.UDPSignalingTests.test_acl_denied_before_udp_path_or_service) ... ok
+test_control_loss_closes_native_session (test_udp.UDPSignalingTests.test_control_loss_closes_native_session) ... ok
+test_signaled_direct_binary_half_close (test_udp.UDPSignalingTests.test_signaled_direct_binary_half_close) ... ok
+test_native_dtls_credit_flow_binary_stream (test_udp.UDPTests.test_native_dtls_credit_flow_binary_stream) ... ok
+test_relay_candidate_rejected_before_connectivity_checks (test_udp.UDPTests.test_relay_candidate_rejected_before_connectivity_checks) ... ok
+test_unapproved_candidate_rejected (test_udp.UDPTests.test_unapproved_candidate_rejected) ... ok
+test_wrong_dtls_pin_rejected (test_udp.UDPTests.test_wrong_dtls_pin_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 61 tests in 27.763s
+
+OK
+test_cli_rejects_out_of_bounds_and_network_arguments (test_tcp_simopen.DeterministicTests.test_cli_rejects_out_of_bounds_and_network_arguments) ... ok
+test_connected_tuple_mismatch_rejected (test_tcp_simopen.DeterministicTests.test_connected_tuple_mismatch_rejected) ... ok
+test_deadline_must_be_finite (test_tcp_simopen.DeterministicTests.test_deadline_must_be_finite) ... ok
+test_expired_and_cancelled_trials_do_not_bind (test_tcp_simopen.DeterministicTests.test_expired_and_cancelled_trials_do_not_bind) ... ok
+test_invalid_api_bounds (test_tcp_simopen.DeterministicTests.test_invalid_api_bounds) ... ok
+test_invalid_family_never_creates_socket (test_tcp_simopen.DeterministicTests.test_invalid_family_never_creates_socket) ... ok
+test_json_summary_and_exit_semantics (test_tcp_simopen.DeterministicTests.test_json_summary_and_exit_semantics) ... ok
+test_partial_io_and_early_eof (test_tcp_simopen.DeterministicTests.test_partial_io_and_early_eof) ... ok
+test_payload_and_echo_mismatch (test_tcp_simopen.DeterministicTests.test_payload_and_echo_mismatch) ... ok
+test_pending_probe_cancels (test_tcp_simopen.DeterministicTests.test_pending_probe_cancels) ... ok
+test_pending_probe_times_out (test_tcp_simopen.DeterministicTests.test_pending_probe_times_out) ... ok
+test_probe_propagates_error (test_tcp_simopen.DeterministicTests.test_probe_propagates_error) ... ok
+test_refuse_nonloopback_and_low_ports_before_connect (test_tcp_simopen.DeterministicTests.test_refuse_nonloopback_and_low_ports_before_connect) ... ok
+test_unsupported_platform_explicit_and_no_socket (test_tcp_simopen.DeterministicTests.test_unsupported_platform_explicit_and_no_socket) ... ok
+test_zero_socket_error_does_not_prove_connection (test_tcp_simopen.DeterministicTests.test_zero_socket_error_does_not_prove_connection) ... ok
+test_bound_peer_that_never_connects_is_not_success (test_tcp_simopen.LocalSocketTests.test_bound_peer_that_never_connects_is_not_success) ... ok
+test_numeric_loopback_bindings_distinct_and_noninheritable (test_tcp_simopen.LocalSocketTests.test_numeric_loopback_bindings_distinct_and_noninheritable) ... ok
+test_payload_stall_and_cancellation_bounded (test_tcp_simopen.LocalSocketTests.test_payload_stall_and_cancellation_bounded) ... ok
+test_repeat_trials_tuple_integrity_and_cleanup (test_tcp_simopen.LocalSocketTests.test_repeat_trials_tuple_integrity_and_cleanup) ... ok
+test_roundtrip_local_socketpair (test_tcp_simopen.LocalSocketTests.test_roundtrip_local_socketpair) ... ok
+test_second_bind_failure_closes_first_socket (test_tcp_simopen.LocalSocketTests.test_second_bind_failure_closes_first_socket) ... ok
+test_total_budget_cli_smoke (test_tcp_simopen.LocalSocketTests.test_total_budget_cli_smoke) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.159s
+
+OK
+DEV ONLY: ephemeral identities; loopback TLS; no NAT traversal or relay; 30-second data deadline

@@ -1,0 +1,2 @@
+2026-10-05 14:26:07.785 [I] [proxy/xtcp.go:117] [<client>] [<temporary-reference>] establishing nat hole connection successful, sid [<session>], remoteAddr [<native-peer-endpoint>]
+2026-10-05 14:26:08.335 [I] [visitor/xtcp.go:312] [<client>] [<temporary-reference>] establishing nat hole connection successful, sid [<session>], remoteAddr [<native-peer-endpoint>]
