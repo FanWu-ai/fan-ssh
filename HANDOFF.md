@@ -1,5 +1,52 @@
 # Python development notes
 
+## EOF review and next local task (2026-10-05)
+
+**Status: diagnostics pending; this is a reviewed assignment, not a new test run.**
+Continue only through this GitHub branch. Read its latest head and reports first;
+preserve all prior evidence and work. No main merge, PR, deployment or permissions change.
+
+Reviewed [TEST_REPORT.md](TEST_REPORT.md) at `e3d400b4c47f20b9491bfc635bc601e9e26dcedb`;
+its actual tested code is `38284740ca5b8303edc0dbeab3cb82995a9d7187`.
+Windows source and isolated wheel each recorded 107 passes / 5 platform skips;
+both WSL full runs recorded 112 passes. All 15 UDP cases ran in each full suite.
+The Windows debug UDP error and initial WSL targeted bridge error remain unresolved;
+later passes, including six WSL repetitions, are not a repair or all-green acceptance.
+Both reviewed SHAs currently have zero Actions/check runs and zero status entries;
+combined status is pending, which is not an online pass.
+
+### Focused diagnosis
+- Windows: `tests/test_udp.py::UDPSignalingTests.test_signaled_direct_binary_half_close`.
+- WSL: `tests/test_home_bridge.py::HomeBridgeUDPTests.test_tcp_incoming_udp_outgoing_binary_and_half_close`.
+- Compare the current branch against main baseline `026d943e0b5ca03c8092cceb0f77d4f46ba31656`
+  in isolated checkouts. The same Windows test's 0/4-byte frame-header EOF is already
+  preserved on main in `test-results/python-product-windows-debug-failed-20261005.txt`.
+  Do not attribute it to profile/CLI changes. The WSL trace ends at the incoming TCP
+  reader; the Windows trace ends at the UDP reader. A shared cause is unproved.
+- Match dependencies (aiortc 1.15.0, aioice 0.10.2, cryptography 50.0.2), Python and
+  loop/debug settings within each baseline-versus-branch comparison. Retain Windows
+  ordinary selector and separately enabled debug modes; record WSL's Linux debug runner.
+- Use bounded targeted runs, retaining every attempt's source SHA, UTC timestamp,
+  command, process exit, counts, debug/loop settings and sanitized stdout/stderr.
+  Capture success and failure; do not run indefinitely merely to obtain green output.
+- Before the first close, record its reason/caller and monotonic event order, both
+  directions' byte counts and EOF-frame enqueue/receive state, credits, pending bytes,
+  receive-queue size, channel bufferedAmount, ICE/DTLS/SCTP state, and service task
+  exception/cancellation causes. Preserve relevant service logs, not only test traces.
+  Redact keys, tokens, ICE credentials, real endpoints, account names and private paths.
+- Inspect bridge completion, PathWriter.close and UDPPath._close ordering versus
+  outstanding SCTP data as hypotheses, not established causes. Do not add sleeps,
+  weaken assertions, inflate timeouts, swallow EOF, add skips or alter security checks.
+- Only after establishing a cause, make the smallest in-scope fix with a regression
+  that fails before and passes after. If inconclusive, publish findings and keep it open.
+- After any source fix, rerun the full Windows source / fresh isolated-wheel matrix
+  and WSL source matrix specified below, including targeted suites and experiments;
+  rebuild/hash the wheel and verify installed imports outside the checkout.
+  Retain separate Windows debug UDP/bridge results and exact failed/skipped/not-run states.
+- Publish a new dated follow-up with fix/test SHAs and all evidence on this branch;
+  preserve the original report and failed logs. No new real SSH or cross-network
+  authorization is implied. Keep main unmerged while the documented blockers remain.
+
 ## Pending local validation: usability/profile branch (2026-10-05)
 
 **Status: pending. This section is a test assignment, not a passing test report.**
